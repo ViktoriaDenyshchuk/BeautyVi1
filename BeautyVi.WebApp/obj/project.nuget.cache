@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UHrlKyv897KkGkMLZbntJjyNF7qljFiDGQVro751ZxEdroAvkWckf7wBUu5Y8RUAoOMNsvP+yckST7UyP6pswg==",
+  "dgSpecHash": "p9YinhR0bmsxYAK8UOdvpcgPbtQCmSEgLa7d1ptwR0dcfyaaGawphBaTiWQvi1NLDahJ+XOduH9F0Fz8lUdLZA==",
   "success": true,
   "projectFilePath": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/BeautyVi.WebApp.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,6 @@
     "/Users/viktoria/.nuget/packages/messagepack/2.1.152/messagepack.2.1.152.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/messagepack.annotations/2.1.152/messagepack.annotations.2.1.152.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/messagepackanalyzer/2.1.152/messagepackanalyzer.2.1.152.nupkg.sha512",
-    "/Users/viktoria/.nuget/packages/microsoft.aspnet.identity.core/2.2.4/microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.aspnetcore.antiforgery/1.1.1/microsoft.aspnetcore.antiforgery.1.1.1.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -250,16 +249,5 @@
     "/Users/viktoria/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.Identity.Core",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyVi.Core", "BeautyVi.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyVi.WebApp", "BeautyVi.WebApp\BeautyVi.WebApp.csproj", "{11A8957F-0F89-4F06-965B-D6491047B4FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautyVi1", "BeautyVi1\BeautyVi1.csproj", "{B17E477F-8AB8-4D80-9E09-C6188D1BE789}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{11A8957F-0F89-4F06-965B-D6491047B4FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11A8957F-0F89-4F06-965B-D6491047B4FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11A8957F-0F89-4F06-965B-D6491047B4FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B17E477F-8AB8-4D80-9E09-C6188D1BE789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B17E477F-8AB8-4D80-9E09-C6188D1BE789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B17E477F-8AB8-4D80-9E09-C6188D1BE789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B17E477F-8AB8-4D80-9E09-C6188D1BE789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

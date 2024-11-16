@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/BeautyVi1.props" />
+</Project>

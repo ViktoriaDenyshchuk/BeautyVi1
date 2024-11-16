@@ -27,7 +27,7 @@ builder.Services.AddDbContext<BeautyViContext>(options =>
 );
 
 // Додавання Identity (якщо потрібно)
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<BeautyViContext>(); // Замість ApplicationDbContext використовуйте ваш BeautyViContext
 
 builder.Services.AddAuthentication();

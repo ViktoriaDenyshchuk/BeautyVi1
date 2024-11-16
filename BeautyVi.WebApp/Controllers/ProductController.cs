@@ -10,7 +10,6 @@ using BeautyVi.Repositories.Repos;
 using System.Data;
 using System.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using BeautyVi.Core.Entities;
