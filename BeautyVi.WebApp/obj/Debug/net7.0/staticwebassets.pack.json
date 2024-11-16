@@ -1,0 +1,301 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/obj/Debug/net7.0/scopedcss/projectbundle/BeautyVi.WebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/BeautyVi.WebApp.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/no_cover.jpg",
+      "PackagePath": "staticwebassets/img/product/no_cover.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.04.00240955663.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.04.00240955663.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.04.00244545951.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.04.00244545951.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.23.30242109292.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.23.30242109292.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.23.48240412436.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.23.48240412436.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.23.48245425537.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.23.48245425537.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.47.00245749454.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-08 о 16.47.00245749454.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-11 о 14.30.31240941013.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-11 о 14.30.31240941013.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-11 о 14.30.31242143418.png",
+      "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-11 о 14.30.31242143418.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.BeautyVi.WebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.BeautyVi.WebApp.props",
+      "PackagePath": "build\\BeautyVi.WebApp.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.BeautyVi.WebApp.props",
+      "PackagePath": "buildMultiTargeting\\BeautyVi.WebApp.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.BeautyVi.WebApp.props",
+      "PackagePath": "buildTransitive\\BeautyVi.WebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

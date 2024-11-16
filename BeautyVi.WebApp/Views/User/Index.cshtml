@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BeautyVi.Core.Entities.User>
+
+<h2>Список користувачів</h2>
+
+<a href="@Url.Action("Create", "User")">Додати нового користувача</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Категорія</th>
+            <th>Ціна</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FullName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a href="@Url.Action("Details", "User", new { id = user.Id })">Деталі</a> |
+                    <a href="@Url.Action("Edit", "User", new { id = user.Id })">Редагувати</a> |
+                    <a href="@Url.Action("Delete", "User", new { id = user.Id })">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

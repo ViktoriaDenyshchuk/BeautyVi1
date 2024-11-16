@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeautyVi.Core.Entities.Product>
+
+<h2>Список продуктів</h2>
+
+<a href="@Url.Action("Create", "Product")">Додати новий продукт</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Категорія</th>
+            <th>Ціна</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Category?.NameCategory</td>
+                <td>@product.Price</td>
+                <td>
+                    <a href="@Url.Action("Details", "Product", new { id = product.Id })">Деталі</a> |
+                    <a href="@Url.Action("Edit", "Product", new { id = product.Id })">Редагувати</a> |
+                    <a href="@Url.Action("Delete", "Product", new { id = product.Id })">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

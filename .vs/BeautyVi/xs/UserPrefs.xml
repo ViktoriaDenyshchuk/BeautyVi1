@@ -1,0 +1,71 @@
+﻿<Properties StartupConfiguration="{11A8957F-0F89-4F06-965B-D6491047B4FF}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.Core/Entities/User.cs">
+    <Files>
+      <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" Line="14" Column="6" />
+      <File FileName="BeautyVi.Core/Entities/Product.cs" />
+      <File FileName="BeautyVi.Core/Entities/User.cs" Line="38" Column="2" />
+      <File FileName="BeautyVi.Core/Entities/Order.cs" />
+      <File FileName="BeautyVi.Core/Entities/Category.cs" />
+      <File FileName="BeautyVi.Core/Entities/OrderItem.cs" />
+      <File FileName="BeautyVi.Core/Entities/UserPreferences.cs" />
+      <File FileName="BeautyVi.Core/Entities/Allergen.cs" />
+      <File FileName="BeautyVi.Core/Entities/ProductAllergen.cs" />
+      <File FileName="BeautyVi.Core/Entities/Ingredient.cs" />
+      <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" />
+      <File FileName="BeautyVi.Core/Entities/ProductRecommendations.cs" />
+      <File FileName="BeautyVi.Core/Context/BeautyViInitializerExtension.cs" Line="340" Column="15" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IOrderRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/ISave.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IUserRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IProductRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/ICategoryRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/CategoryRepository.cs" />
+      <File FileName="BeautyVi.WebApp/Program.cs" Line="30" Column="1" />
+      <File FileName="BeautyVi.WebApp/appsettings.json" />
+      <File FileName="BeautyVi.WebApp/Controllers/HomeController.cs" />
+      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Delete.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Details.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Home/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/BeautyVi.WebApp.csproj" />
+      <File FileName="BeautyVi.WebApp/Controllers/UserController.cs" />
+      <File FileName="BeautyVi.WebApp/Views/User/Create.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/User/Index.cshtml" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BeautyVi" expanded="True">
+            <Node name="BeautyVi.Core" expanded="True">
+              <Node name="Context" expanded="True" />
+              <Node name="Entities" expanded="True">
+                <Node name="User.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="BeautyVi.Repositories" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Repos" expanded="True" />
+            </Node>
+            <Node name="BeautyVi.WebApp" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

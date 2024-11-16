@@ -1,0 +1,11 @@
+﻿@model BeautyVi.Core.Entities.Product
+
+<h2>Видалити продукт</h2>
+
+<p>Ви впевнені, що хочете видалити продукт "@Model.Name"?</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Так</button>
+    <a asp-action="Index">Скасувати</a>
+</form>

@@ -1,0 +1,14 @@
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.csproj.AssemblyReference.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.AssemblyInfoInputs.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.AssemblyInfo.cs
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.csproj.CoreCompileInputs.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/bin/Debug/net7.0/BeautyVi.Core.deps.json
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/bin/Debug/net7.0/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/bin/Debug/net7.0/BeautyVi.Core.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/refint/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/ref/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/bin/Debug/net7.0/BeautyVi.Core.runtimeconfig.json
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Core/obj/Debug/net7.0/BeautyVi.Core.genruntimeconfig.cache

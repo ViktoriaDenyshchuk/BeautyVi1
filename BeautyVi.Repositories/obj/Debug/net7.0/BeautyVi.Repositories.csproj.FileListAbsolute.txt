@@ -1,0 +1,15 @@
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/bin/Debug/net7.0/BeautyVi.Repositories.deps.json
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/bin/Debug/net7.0/BeautyVi.Repositories.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/bin/Debug/net7.0/BeautyVi.Repositories.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/bin/Debug/net7.0/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/bin/Debug/net7.0/BeautyVi.Core.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.csproj.AssemblyReference.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.AssemblyInfoInputs.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.AssemblyInfo.cs
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.csproj.CoreCompileInputs.cache
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.csproj.CopyComplete
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/refint/BeautyVi.Repositories.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/BeautyVi.Repositories.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi.Repositories/obj/Debug/net7.0/ref/BeautyVi.Repositories.dll
