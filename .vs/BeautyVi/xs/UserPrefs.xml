@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{B17E477F-8AB8-4D80-9E09-C6188D1BE789}|https">
+﻿<Properties StartupConfiguration="{11A8957F-0F89-4F06-965B-D6491047B4FF}|https">
   <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Program.cs">
     <Files>
       <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" Line="14" Column="6" />
