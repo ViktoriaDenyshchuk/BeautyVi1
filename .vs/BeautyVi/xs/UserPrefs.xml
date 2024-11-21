@@ -4,11 +4,11 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi1/Program.cs">
     <Files>
-      <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" Line="14" Column="6" />
+      <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" Line="19" Column="35" />
       <File FileName="BeautyVi.Core/Entities/Product.cs" />
-      <File FileName="BeautyVi.Core/Entities/User.cs" Line="26" Column="46" />
+      <File FileName="BeautyVi.Core/Entities/User.cs" />
       <File FileName="BeautyVi.Core/Entities/Order.cs" />
       <File FileName="BeautyVi.Core/Entities/Category.cs" />
       <File FileName="BeautyVi.Core/Entities/OrderItem.cs" />
@@ -18,7 +18,7 @@
       <File FileName="BeautyVi.Core/Entities/Ingredient.cs" />
       <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" />
       <File FileName="BeautyVi.Core/Entities/ProductRecommendations.cs" />
-      <File FileName="BeautyVi.Core/Context/BeautyViInitializerExtension.cs" Line="359" Column="75" />
+      <File FileName="BeautyVi.Core/Context/BeautyViInitializerExtension.cs" Line="95" Column="14" />
       <File FileName="BeautyVi.Repositories/Interfaces/IOrderRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/OrderRepository.cs" />
       <File FileName="BeautyVi.Repositories/Interfaces/ISave.cs" />
@@ -31,7 +31,7 @@
       <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" />
       <File FileName="BeautyVi.Repositories/Interfaces/ICategoryRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/CategoryRepository.cs" />
-      <File FileName="BeautyVi.WebApp/Program.cs" Line="66" Column="1" />
+      <File FileName="BeautyVi.WebApp/Program.cs" />
       <File FileName="BeautyVi.WebApp/appsettings.json" />
       <File FileName="BeautyVi.WebApp/Controllers/HomeController.cs" />
       <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" />
@@ -45,25 +45,67 @@
       <File FileName="BeautyVi.WebApp/Controllers/UserController.cs" />
       <File FileName="BeautyVi.WebApp/Views/User/Create.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/User/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Models/ErrorViewModel.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Home/Privacy.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_LoginPartial.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/Error.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/_ViewImports.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/_ViewStart.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_Layout.cshtml" />
+      <File FileName="BeautyVi1/appsettings.json" />
+      <File FileName="BeautyVi1/Program.cs" Line="38" Column="1" />
+      <File FileName="BeautyVi1/Data/ApplicationDbContext.cs" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/Login.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/LoginWith2fa.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/LoginWithRecoveryCode.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/Logout.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/Register.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/RegisterConfirmation.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ResendEmailConfirmation.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ResetPassword.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ResetPasswordConfirmation.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/_ValidationScriptsPartial.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/_ViewImports.cshtml" Line="7" Column="1" />
+      <File FileName="BeautyVi1/Areas/Pages/_ViewStart.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Error.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/_StatusMessage.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/_ViewImports.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/AccessDenied.cshtml.cs" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ConfirmEmail.cshtml.cs" />
+      <File FileName="BeautyVi1/Models/ErrorViewModel.cs" />
+      <File FileName="BeautyVi1/Properties/launchSettings.json" />
+      <File FileName="BeautyVi1/app.db" />
+      <File FileName="BeautyVi1/Views/_ViewStart.cshtml" />
+      <File FileName="BeautyVi1/Views/_ViewImports.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ConfirmEmail.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/AccessDenied.cshtml" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ConfirmEmailChange.cshtml.cs" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ForgotPassword.cshtml.cs" />
+      <File FileName="BeautyVi1/Areas/Pages/Account/ExternalLogin.cshtml.cs" />
+      <File FileName="BeautyVi.Core/Migrations/20241121002630_Init.Designer.cs" Line="17" Column="27" />
+      <File FileName="BeautyVi.Core/Migrations/BeautyViContextModelSnapshot.cs" Line="15" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BeautyVi" expanded="True">
-            <Node name="BeautyVi.Core" expanded="True">
+            <Node name="BeautyVi.Core">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Context" expanded="True" />
               <Node name="Entities" expanded="True" />
             </Node>
-            <Node name="BeautyVi.Repositories" expanded="True">
-              <Node name="Interfaces" expanded="True" />
-              <Node name="Repos" expanded="True" />
-            </Node>
-            <Node name="BeautyVi.WebApp" expanded="True">
-              <Node name="Areas" expanded="True" />
-              <Node name="Views" selected="True" />
+            <Node name="BeautyVi1">
+              <Node name="Areas" expanded="True">
+                <Node name="Pages" expanded="True" />
+              </Node>
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

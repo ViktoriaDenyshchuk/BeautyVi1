@@ -79,3 +79,8 @@
 /Users/viktoria/Projects/BeautyVi/BeautyVi1/obj/Debug/net7.0/ref/BeautyVi1.dll
 /Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/Npgsql.dll
 /Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/System.Security.Permissions.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/BeautyVi.Core.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/BeautyVi.Repositories.dll
+/Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/BeautyVi.Core.pdb
+/Users/viktoria/Projects/BeautyVi/BeautyVi1/bin/Debug/net7.0/BeautyVi.Repositories.pdb

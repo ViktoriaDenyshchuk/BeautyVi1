@@ -6,9 +6,8 @@ using BeautyVi.Core.Context;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
-public class BeautyViContext : IdentityDbContext<User>
+public class BeautyViContext : IdentityDbContext<IdentityUser>
 {
-
     public BeautyViContext(DbContextOptions<BeautyViContext> options)
         : base(options)
     {

@@ -15,18 +15,9 @@ namespace BeautyVi.Core.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int Id { get; set; }
-      
-       
 
-        [Required]
-        [MaxLength(256)]
-        public string Email { get; set; }
-
-        public string? FullName { get; set; }
-
-        //[Required]
-        //public string Password { get; set; }
+        //public string Email { get; set; }
+        //public string FullName { get; set; }
 
         // Властивість для зв'язку з UserPreferences (1 до 1)
         public virtual UserPreferences? UserPreferences { get; set; }

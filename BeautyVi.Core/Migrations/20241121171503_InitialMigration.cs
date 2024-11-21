@@ -46,10 +46,10 @@ namespace BeautyVi.Core.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "character varying(256)", unicode: false, maxLength: 256, nullable: false),
-                    FullName = table.Column<string>(type: "text", nullable: true),
+                    Discriminator = table.Column<string>(type: "text", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "character varying(256)", unicode: false, maxLength: 256, nullable: false),
                     NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
@@ -376,17 +376,17 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "57d6747e-2fa7-4459-b387-af43c4bbb9fe", null, "Admin", "ADMIN" },
-                    { "d64892fa-dcfa-47df-90b5-40f60503c162", null, "Client", "CLIENT" }
+                    { "9c9a35a3-9087-4d26-8772-59a2f8ecad4c", null, "Admin", "ADMIN" },
+                    { "e1a67595-b0ba-40b8-9060-9023810a55fb", null, "Client", "CLIENT" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "3fe2ecee-0d86-4690-8801-b651666ed062", 0, "daa78860-b56d-445a-a66a-ea4b7f70b0d6", "admin@beautyvi.com", true, "Alla Svoboda", false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEOpyllBHknJKO76tPWxGHMer6HJxRyasOODxDX/fpqjwJAdye0wutCYwPYSSa7xtQA==", null, false, "4ea02a04-fb33-428e-a044-d98eb3c9e504", false, "admin@beautyvi.com" },
-                    { "93f189f1-1b81-40e4-a605-ffc86b596e00", 0, "4050da3b-f631-4173-bf96-c522c7e0baa5", "client@beautyvi.com", true, "Olena Demchuk", false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEMWXUJFvWLW9yk29BuSGADCT4QQ5A0UTnjO7wlvgVWdzOLXoElj3Jp2RbAHUxjBX/w==", null, false, "4035ec2a-4c60-4b6f-912a-669373dce439", false, "client@beautyvi.com" }
+                    { "4d3c8e2d-a151-4ceb-a2f7-6beb3b7b95a5", 0, "4d0f4d3b-5b27-4060-a3ed-61036b3a3d31", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEAAWywaBr62K00P4wl5K2RZX0zB+LFeSEH2dO6ZA+MGiwNhB1hwUyIuAFLLqpSYaEw==", null, false, "2b611bf2-d8c5-43e9-810b-171c3454d022", false, "admin@beautyvi.com" },
+                    { "abfc30f7-1607-4c66-8145-b59299c3e8d4", 0, "cb8bed41-db91-41d9-90d3-6fd1b9e60f24", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEMVTju2l2ewsTgQZiwgV1koCMrM84ydC/ji4g23khKk01AC8GrL0iU9o4aDI9TPmDg==", null, false, "2baab563-3739-403d-9cee-49e67faffb76", false, "client@beautyvi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -404,9 +404,14 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "57d6747e-2fa7-4459-b387-af43c4bbb9fe", "3fe2ecee-0d86-4690-8801-b651666ed062" },
-                    { "d64892fa-dcfa-47df-90b5-40f60503c162", "93f189f1-1b81-40e4-a605-ffc86b596e00" }
+                    { "9c9a35a3-9087-4d26-8772-59a2f8ecad4c", "4d3c8e2d-a151-4ceb-a2f7-6beb3b7b95a5" },
+                    { "e1a67595-b0ba-40b8-9060-9023810a55fb", "abfc30f7-1607-4c66-8145-b59299c3e8d4" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Orders",
+                columns: new[] { "Id", "OrderDate", "ShippingAddress", "Status", "TotalAmount", "UserId" },
+                values: new object[] { 1, new DateTime(2024, 11, 21, 17, 15, 2, 985, DateTimeKind.Utc).AddTicks(6060), "123 Main St", "Completed", 50.00m, "abfc30f7-1607-4c66-8145-b59299c3e8d4" });
 
             migrationBuilder.InsertData(
                 table: "Products",

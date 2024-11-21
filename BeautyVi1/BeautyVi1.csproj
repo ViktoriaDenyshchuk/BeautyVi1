@@ -28,4 +28,12 @@
   <ItemGroup>
     <Folder Include="Areas\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeautyVi.Core\BeautyVi.Core.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\BeautyVi.Repositories\BeautyVi.Repositories.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

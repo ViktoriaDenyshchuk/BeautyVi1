@@ -128,6 +128,17 @@ namespace BeautyVi.Core.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            OrderDate = new DateTime(2024, 11, 21, 17, 15, 2, 985, DateTimeKind.Utc).AddTicks(6060),
+                            ShippingAddress = "123 Main St",
+                            Status = "Completed",
+                            TotalAmount = 50.00m,
+                            UserId = "abfc30f7-1607-4c66-8145-b59299c3e8d4"
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.OrderItem", b =>
@@ -268,112 +279,6 @@ namespace BeautyVi.Core.Migrations
                     b.ToTable("ProductRecommendations");
                 });
 
-            modelBuilder.Entity("BeautyVi.Core.Entities.User", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .ValueGeneratedOnAdd()
-                        .HasMaxLength(256)
-                        .IsUnicode(false)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "93f189f1-1b81-40e4-a605-ffc86b596e00",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "4050da3b-f631-4173-bf96-c522c7e0baa5",
-                            Email = "client@beautyvi.com",
-                            EmailConfirmed = true,
-                            FullName = "Olena Demchuk",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "CLIENT@BEAUTYVI.COM",
-                            NormalizedUserName = "CLIENT@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMWXUJFvWLW9yk29BuSGADCT4QQ5A0UTnjO7wlvgVWdzOLXoElj3Jp2RbAHUxjBX/w==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "4035ec2a-4c60-4b6f-912a-669373dce439",
-                            TwoFactorEnabled = false,
-                            UserName = "client@beautyvi.com"
-                        },
-                        new
-                        {
-                            Id = "3fe2ecee-0d86-4690-8801-b651666ed062",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "daa78860-b56d-445a-a66a-ea4b7f70b0d6",
-                            Email = "admin@beautyvi.com",
-                            EmailConfirmed = true,
-                            FullName = "Alla Svoboda",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@BEAUTYVI.COM",
-                            NormalizedUserName = "ADMIN@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOpyllBHknJKO76tPWxGHMer6HJxRyasOODxDX/fpqjwJAdye0wutCYwPYSSa7xtQA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "4ea02a04-fb33-428e-a044-d98eb3c9e504",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@beautyvi.com"
-                        });
-                });
-
             modelBuilder.Entity("BeautyVi.Core.Entities.UserPreferences", b =>
                 {
                     b.Property<int>("Id")
@@ -436,13 +341,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d64892fa-dcfa-47df-90b5-40f60503c162",
+                            Id = "e1a67595-b0ba-40b8-9060-9023810a55fb",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "57d6747e-2fa7-4459-b387-af43c4bbb9fe",
+                            Id = "9c9a35a3-9087-4d26-8772-59a2f8ecad4c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -471,6 +376,80 @@ namespace BeautyVi.Core.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -539,13 +518,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "3fe2ecee-0d86-4690-8801-b651666ed062",
-                            RoleId = "57d6747e-2fa7-4459-b387-af43c4bbb9fe"
+                            UserId = "4d3c8e2d-a151-4ceb-a2f7-6beb3b7b95a5",
+                            RoleId = "9c9a35a3-9087-4d26-8772-59a2f8ecad4c"
                         },
                         new
                         {
-                            UserId = "93f189f1-1b81-40e4-a605-ffc86b596e00",
-                            RoleId = "d64892fa-dcfa-47df-90b5-40f60503c162"
+                            UserId = "abfc30f7-1607-4c66-8145-b59299c3e8d4",
+                            RoleId = "e1a67595-b0ba-40b8-9060-9023810a55fb"
                         });
                 });
 
@@ -568,6 +547,47 @@ namespace BeautyVi.Core.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BeautyVi.Core.Entities.User", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "abfc30f7-1607-4c66-8145-b59299c3e8d4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "cb8bed41-db91-41d9-90d3-6fd1b9e60f24",
+                            Email = "client@beautyvi.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "CLIENT@BEAUTYVI.COM",
+                            NormalizedUserName = "CLIENT@BEAUTYVI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMVTju2l2ewsTgQZiwgV1koCMrM84ydC/ji4g23khKk01AC8GrL0iU9o4aDI9TPmDg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "2baab563-3739-403d-9cee-49e67faffb76",
+                            TwoFactorEnabled = false,
+                            UserName = "client@beautyvi.com"
+                        },
+                        new
+                        {
+                            Id = "4d3c8e2d-a151-4ceb-a2f7-6beb3b7b95a5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4d0f4d3b-5b27-4060-a3ed-61036b3a3d31",
+                            Email = "admin@beautyvi.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@BEAUTYVI.COM",
+                            NormalizedUserName = "ADMIN@BEAUTYVI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAAWywaBr62K00P4wl5K2RZX0zB+LFeSEH2dO6ZA+MGiwNhB1hwUyIuAFLLqpSYaEw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "2b611bf2-d8c5-43e9-810b-171c3454d022",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@beautyvi.com"
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.Order", b =>
@@ -686,7 +706,7 @@ namespace BeautyVi.Core.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("BeautyVi.Core.Entities.User", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -695,7 +715,7 @@ namespace BeautyVi.Core.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("BeautyVi.Core.Entities.User", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -710,7 +730,7 @@ namespace BeautyVi.Core.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BeautyVi.Core.Entities.User", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -719,7 +739,7 @@ namespace BeautyVi.Core.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("BeautyVi.Core.Entities.User", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
