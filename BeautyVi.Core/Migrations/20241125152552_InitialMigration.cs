@@ -376,8 +376,8 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "be2fdb3d-ce56-4389-a75e-4419707a0437", null, "Admin", "ADMIN" },
-                    { "f3be0687-3388-4994-9e57-26c3cb7dc778", null, "Client", "CLIENT" }
+                    { "0d760f09-a585-49b5-a7e8-f394d23d182a", null, "Admin", "ADMIN" },
+                    { "77ddbd17-8240-40c1-ae71-36fa0f614ae9", null, "Client", "CLIENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -385,8 +385,8 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2b90ef8c-d67f-405f-a0e4-e585cb15d392", 0, "a887747c-43be-4adf-8d55-fc9f13787a32", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEJ1/nWMU2IAhIrW1eEdHHBq91qN/ewbjHNUsGfk0P9DGNuydiuPo1V+o+OIR9+Lc3w==", null, false, "8836e264-0d4b-4832-a96e-8f78f1460240", false, "client@beautyvi.com" },
-                    { "2cb7afbb-1e06-4bb4-b874-de02cf21d0ce", 0, "d6076f15-b2de-4770-a41c-1f60d096e4d1", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEH+dYjfEZ61l6Ue3oJOfVMkRsEP+6lVsHXZwktEgQDmd616tDGGhKnhyKcEPmDqvgQ==", null, false, "efc7d5b0-41be-449d-99ba-31ba74c6d1d6", false, "admin@beautyvi.com" }
+                    { "a6954d25-884c-4b80-885f-cca2c4ea397d", 0, "2e09422e-f4b2-40a2-ac53-87c72ef5928d", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEINYFZbwqwHNEmUubKSoPFirOpy2wrqxJmOxrNehqsldJDtWliJZJ5iByMAwmpNp2Q==", null, false, "92438e30-b685-4127-b3bd-c586df470f9b", false, "client@beautyvi.com" },
+                    { "bdc57218-213f-44bd-931c-a50bd7a64ac5", 0, "172d5531-d06a-462f-a09a-e615fc06985f", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEI0pAjiQn0DZpJgofMjmDOJPHkC6rKUuNZXAFruYelcWrGd7evdYu+zHzAjXZGfSMA==", null, false, "ade5ab07-a873-46db-a85a-9ec9344c7357", false, "admin@beautyvi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -404,14 +404,14 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "f3be0687-3388-4994-9e57-26c3cb7dc778", "2b90ef8c-d67f-405f-a0e4-e585cb15d392" },
-                    { "be2fdb3d-ce56-4389-a75e-4419707a0437", "2cb7afbb-1e06-4bb4-b874-de02cf21d0ce" }
+                    { "77ddbd17-8240-40c1-ae71-36fa0f614ae9", "a6954d25-884c-4b80-885f-cca2c4ea397d" },
+                    { "0d760f09-a585-49b5-a7e8-f394d23d182a", "bdc57218-213f-44bd-931c-a50bd7a64ac5" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "OrderDate", "ShippingAddress", "Status", "TotalAmount", "UserId" },
-                values: new object[] { 1, new DateTime(2024, 11, 25, 2, 32, 10, 126, DateTimeKind.Utc).AddTicks(3040), "123 Main St", "Completed", 50.00m, "2b90ef8c-d67f-405f-a0e4-e585cb15d392" });
+                values: new object[] { 1, new DateTime(2024, 11, 25, 15, 25, 52, 270, DateTimeKind.Utc).AddTicks(6540), "123 Main St", "Completed", 50.00m, "a6954d25-884c-4b80-885f-cca2c4ea397d" });
 
             migrationBuilder.InsertData(
                 table: "Products",
