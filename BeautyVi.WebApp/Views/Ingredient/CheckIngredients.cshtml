@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Перевірка інгредієнтів";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="CheckIngredients" method="post">
+    <div class="form-group">
+        <label for="ingredientsList">Введіть список інгредієнтів (через кому):</label>
+        <textarea id="ingredientsList" name="ingredientsList" class="form-control" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Перевірити</button>
+</form>
+
+@if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger mt-2">
+        <strong>Помилка!</strong> @ViewData["ErrorMessage"]
+    </div>
+}

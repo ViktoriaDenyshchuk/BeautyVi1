@@ -74,6 +74,9 @@ namespace BeautyVi.WebApp.Controllers
              }
              return View(orderRepository.Get(id));
          }
+        public List<SelectListItem> ProductItems { get; set; } = new List<SelectListItem>();
+
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -91,6 +94,8 @@ namespace BeautyVi.WebApp.Controllers
                 Text = p.Name
             }).ToList();
 
+            ProductItems = products;
+
             // Перевірка, чи є продукти
             if (products == null || !products.Any())
             {
@@ -106,7 +111,7 @@ namespace BeautyVi.WebApp.Controllers
             ViewBag.Users = users;
 
             // Повертаємо порожній об'єкт Order
-            return View(new Order());
+            return View();
         }
 
         // POST: Order/Create

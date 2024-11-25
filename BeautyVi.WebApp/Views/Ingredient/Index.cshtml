@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BeautyVi.Core.Entities.Ingredient>
+
+<h2>Список інгридієнтів</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Категорія</th>
+            <th>Оцінка безпеки</th>
+            <th>Безпечний</th>
+            <th>Опис</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ingredient in Model)
+        {
+            <tr>
+                <td>@ingredient.Id</td>
+                <td>@ingredient.Name</td>
+                <td>@ingredient.Category</td>
+                <td>@ingredient.LevelOfDanger</td>
+                <td>@ingredient.IsHarmful</td>
+                <td>@ingredient.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>

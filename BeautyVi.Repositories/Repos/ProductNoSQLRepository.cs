@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace SweetCreativity1.Reposotories.Repos
+namespace BeautyVi.Reposotories.Repos
 {
     internal class ProductNoSQLRepository : IProductRepository
     {

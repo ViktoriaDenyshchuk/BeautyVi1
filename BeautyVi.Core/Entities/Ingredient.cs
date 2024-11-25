@@ -13,7 +13,13 @@ namespace BeautyVi.Core.Entities
         [Required]
         public string Name { get; set; }
 
+        public string Category { get; set; }
+
+        public int LevelOfDanger { get; set; }
+
         public bool IsHarmful { get; set; }
+
+        public string Description { get; set; }
 
         public virtual ICollection<ProductIngredient> ProductIngredients { get; set; }
     }
