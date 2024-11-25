@@ -12,6 +12,8 @@
   <ItemGroup>
     <None Remove="Views\Product\" />
     <None Remove="Views\User\" />
+    <None Remove="Views\Order\" />
+    <None Remove="Views\OrderItem\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -46,6 +48,8 @@
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\img\product\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\OrderItem\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />

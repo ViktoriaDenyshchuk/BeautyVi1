@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-
 using BeautyVi.Core.Context;
 using BeautyVi.Repositories.Interfaces;
 using BeautyVi.Repositories.Repos;

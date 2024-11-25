@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/16-1242445969.jpg",
+      "PackagePath": "staticwebassets/img/product/16-1242445969.jpg"
+    },
+    {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/no_cover.jpg",
       "PackagePath": "staticwebassets/img/product/no_cover.jpg"
     },
@@ -47,6 +51,10 @@
     {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-11 о 14.30.31242143418.png",
       "PackagePath": "staticwebassets/img/product/Знімок екрана 2024-11-11 о 14.30.31242143418.png"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/дн-4242333646.png",
+      "PackagePath": "staticwebassets/img/product/дн-4242333646.png"
     },
     {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/js/site.js",

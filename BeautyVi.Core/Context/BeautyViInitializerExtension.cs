@@ -21,7 +21,7 @@ namespace BeautyVi.Core.Context
             seedProduct(builder);
             seedCategory(builder);
             // seedUser(builder);
-            seedOrder(builder, new string[] { admId });
+            seedOrder(builder, new string[] { admId }, new int[] { 1, 2});
         }
 
         private static void seedCategory(ModelBuilder builder)
@@ -44,17 +44,14 @@ namespace BeautyVi.Core.Context
                   }
                  );
         }
-        
-        static void seedProduct(ModelBuilder builder)
-        {
-            builder.Entity<Product>().HasData(
-              new Product
-              {
-                  Id = 1,
-                  Name = "Зволожуючий крем",
-                  Description = "Крем для інтенсивного зволоження шкіри.",
-                  Price = 499.99m,
-                  CategoryId = 1
+        private static List<Product> _products = new List<Product>{
+            new Product
+            {
+                Id = 1,
+                Name = "Зволожуючий крем",
+                Description = "Крем для інтенсивного зволоження шкіри.",
+                Price = 499.99m,
+                CategoryId = 1
               },
                 new Product
                 {
@@ -63,8 +60,10 @@ namespace BeautyVi.Core.Context
                     Description = "Відновлюючий шампунь для сухого та пошкодженого волосся.",
                     Price = 299.99m,
                     CategoryId = 2
-                }
-            );
+                } };
+        static void seedProduct(ModelBuilder builder)
+        {
+            builder.Entity<Product>().HasData(_products);
         }
 
         static (string, string) seedUsersAndRoles(ModelBuilder builder)
@@ -124,13 +123,14 @@ namespace BeautyVi.Core.Context
                 );
             return (CLIENT_ID, ADMIN_ID);
         }
-        private static void seedOrder(ModelBuilder builder, string[] clientIds)
+        private static void seedOrder(ModelBuilder builder, string[] clientIds, int[] productIds)
         {
             builder.Entity<Order>().HasData(
                 new Order
                 {
                     Id = 1,
                     UserId = clientIds[0],
+                    //ProductId = productIds[0],
                     OrderDate = DateTime.UtcNow,
                     Status = "Completed",
                     TotalAmount = 50.00m,

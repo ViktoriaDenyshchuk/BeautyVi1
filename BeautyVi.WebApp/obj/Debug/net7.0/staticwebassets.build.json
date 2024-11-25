@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pnZUyJznQ16PVgqkbFkjbbavVJxvZcaG6S87nHUNw4Q=",
+  "Hash": "ARnEfJkXKBSmlTHu1R9pwLqwD4ZfIjhgVAr2r4DOGwU=",
   "Source": "BeautyVi.WebApp",
   "BasePath": "_content/BeautyVi.WebApp",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/16-1242445969.jpg",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/16-1242445969.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/16-1242445969.jpg"
+    },
+    {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/no_cover.jpg",
       "SourceId": "BeautyVi.WebApp",
       "SourceType": "Discovered",
@@ -1120,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/product/no_cover.jpg"
+    },
+    {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/дн-4242333646.png",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/дн-4242333646.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/дн-4242333646.png"
     },
     {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.04.00240955663.png",

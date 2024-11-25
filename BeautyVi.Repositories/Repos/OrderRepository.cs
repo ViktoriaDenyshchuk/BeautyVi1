@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BeautyVi.Core.Entities;
 using BeautyVi.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeautyVi.Repositories.Repos
 {
@@ -37,8 +38,13 @@ namespace BeautyVi.Repositories.Repos
 
         public IEnumerable<Order> GetAll()
         {
-            return _context.Orders.ToList();
+            return _context.Orders.AsNoTracking().Include(x => x.User).Include(x => x.User);
+            //return _context.Orders.AsNoTracking().Include(x=>x.Product).Include(x=>x.User);
         }
+       /* public IQueryable<Order> GetAll()
+        {
+            return _context.Orders;
+        }*/
 
         public void Save()
         {
@@ -59,5 +65,16 @@ namespace BeautyVi.Repositories.Repos
                 _context.SaveChanges();
             }
         }*/
+        public void AddOrderWithItems(Order order, IEnumerable<OrderItem> orderItems)
+        {
+            _context.Orders.Add(order);
+            foreach (var item in orderItems)
+            {
+                item.OrderId = order.Id; // Зв'язок між замовленням і товарами
+                _context.OrderItems.Add(item);
+            }
+            _context.SaveChanges();
+        }
+
     }
 }

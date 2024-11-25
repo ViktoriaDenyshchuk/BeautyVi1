@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
 using BeautyVi.Core.Entities;
 
 namespace BeautyVi.Core.Entities
@@ -32,5 +33,10 @@ namespace BeautyVi.Core.Entities
         public string ShippingAddress { get; set; }  // Адреса доставки
 
         public virtual ICollection<OrderItem>? OrderItems { get; set; }  // Колекція товарів в замовленні
+
+        //public string? ListingPhotoPath { get; set; }
+
+        //public virtual Product? Product { get; set; }
+        //public int? ProductId { get; set; }
     }
 }

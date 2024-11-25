@@ -16,6 +16,8 @@ namespace BeautyVi.Repositories.Interfaces
         void Add(Order obj);
         void Update(Order obj);
         void Delete(Order obj);
+        void AddOrderWithItems(Order order, IEnumerable<OrderItem> orderItems);
+
 
         //int Find(int id);
     }

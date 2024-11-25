@@ -29,7 +29,7 @@ namespace SweetCreativity1.Reposotories.Repos
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> GetAll()
+       public IEnumerable<Product> GetAll()
         {
             throw new NotImplementedException();
         }

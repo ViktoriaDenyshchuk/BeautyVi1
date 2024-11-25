@@ -1,0 +1,52 @@
+﻿@model BeautyVi.Core.Entities.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h2>Order Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>Order ID: @Model.Id</h4>
+        <p><strong>User:</strong> @Model.User?.UserName</p>
+        <p><strong>Order Date:</strong> @Model.OrderDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Status:</strong> @Model.Status</p>
+        <p><strong>Total Amount:</strong> @Model.TotalAmount.ToString("C")</p>
+        <p><strong>Shipping Address:</strong> @Model.ShippingAddress</p>
+    </div>
+</div>
+
+<h3>Order Items</h3>
+
+@if (Model.OrderItems != null && Model.OrderItems.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderItems)
+            {
+                <tr>
+                    <td>@item.Product?.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice.ToString("C")</td>
+                    <td>@item.TotalPrice.ToString("C")</td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No items in this order.</p>
+    }
+<a asp-action="Index" class="btn btn-secondary">Back to Orders</a>
+<a href="@Url.Action("Index", "OrderItem")">Order Item</a> |
+

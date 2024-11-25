@@ -36,7 +36,7 @@ namespace BeautyVi.Repositories.Repos
             //return _context.Set<Product>().Find(id);
         }
 
-        public IEnumerable<Product> GetAll()
+       public IEnumerable<Product> GetAll()
         {
             return _context.Products.ToList();
         }

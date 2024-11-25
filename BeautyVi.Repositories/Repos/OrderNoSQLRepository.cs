@@ -35,12 +35,21 @@ namespace BeautyVi.Repositories.Repos
             throw new NotImplementedException();
         }
 
+        /*public IQueryable<Order> GetAll()
+        {
+            throw new NotImplementedException();
+        }*/
+
         public void Save()
         {
             throw new NotImplementedException();
         }
 
         public void Update(Order obj)
+        {
+            throw new NotImplementedException();
+        }
+        public void AddOrderWithItems(Order order, IEnumerable<OrderItem> orderItems)
         {
             throw new NotImplementedException();
         }

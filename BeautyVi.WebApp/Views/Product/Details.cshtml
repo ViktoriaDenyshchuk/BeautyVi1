@@ -67,12 +67,13 @@
 
 <div class="row">
     <div class="col-2">
-        <a href="@Url.Action("Create", "Order", new { listingId = Model.Id, nameOrder = Model.Name, price = Model.Price })" class="btn btn-success"
+        <a href="@Url.Action("Create", "Order", new { productId = Model.Id, nameOrder = Model.Name, price = Model.Price })" class="btn btn-success"
            style="width: 200px; margin-top: 10px;">Зробити замовлення</a>
     </div>
 </div>
 
 <a asp-action="Index">Назад</a>
+
 
 <style>
     .heart-button {
