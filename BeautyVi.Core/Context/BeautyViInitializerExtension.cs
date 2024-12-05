@@ -20,7 +20,13 @@ namespace BeautyVi.Core.Context
             (string admId, string clId) = seedUsersAndRoles(builder);
             seedProduct(builder);
             seedCategory(builder);
+            seedEffectType(builder);
+            seedSuitableFor(builder);
+            seedIngredient(builder);
+            seedAllergen(builder);
             // seedUser(builder);
+            seedProductIngredients(builder);
+            seedProductAllergens(builder);
             seedOrder(builder, new string[] { admId }, new int[] { 1, 2});
         }
 
@@ -30,20 +36,152 @@ namespace BeautyVi.Core.Context
                  new Category
                  {
                      Id = 1,
-                     NameCategory = "Догляд за шкірою"
+                     NameCategory = "Волосся"
                  },
                   new Category
                   {
                       Id = 2,
-                      NameCategory = "Догляд за волоссям"
+                      NameCategory = "Шкіра"
                   },
                   new Category
                   {
                       Id = 3,
-                      NameCategory = "Макіяж"
+                      NameCategory = "Лице"
+                  },
+                  new Category
+                  {
+                      Id = 4,
+                      NameCategory = "Тіло"
                   }
                  );
         }
+        private static void seedEffectType(ModelBuilder builder)
+        {
+            builder.Entity<EffectType>().HasData(
+                 new EffectType
+                 {
+                     Id = 1,
+                     NameEffectType = "Зволоження"
+                 },
+                  new EffectType
+                  {
+                      Id = 2,
+                      NameEffectType = "Живлення"
+                  },
+                  new EffectType
+                  {
+                      Id = 3,
+                      NameEffectType = "Проти старіння"
+                  },
+                  new EffectType
+                  {
+                      Id = 4,
+                      NameEffectType = "Очищення"
+                  },
+                  new EffectType
+                  {
+                      Id = 5,
+                      NameEffectType = "Відновлення"
+                  }
+                 );
+        }
+        private static void seedSuitableFor(ModelBuilder builder)
+        {
+            builder.Entity<SuitableFor>().HasData(
+                 new SuitableFor
+                 {
+                     Id = 1,
+                     NameSuitableFor = "Суха шкіра"
+                 },
+                  new SuitableFor
+                  {
+                      Id = 2,
+                      NameSuitableFor = "Жирна шкіра"
+                  },
+                  new SuitableFor
+                  {
+                      Id = 3,
+                      NameSuitableFor = "Чутлива шкіра"
+                  },
+                  new SuitableFor
+                  {
+                      Id = 4,
+                      NameSuitableFor = "Нормальне волосся"
+                  },
+                  new SuitableFor
+                  {
+                      Id = 5,
+                      NameSuitableFor = "Пошкоджене волосся"
+                  }
+                 );
+        }
+        private static void seedAllergen(ModelBuilder builder)
+        {
+            builder.Entity<Allergen>().HasData(
+                new Allergen
+                {
+                    Id = 1,
+                    Name = "Консерванти (Парабени)"
+                },
+                new Allergen
+                {
+                    Id = 2,
+                    Name = "Ланолін"
+                },
+                new Allergen
+                {
+                    Id = 3,
+                    Name = "Альфа-гідроксикислоти (AHAs)"
+                },
+                new Allergen
+                {
+                    Id = 4,
+                    Name = "Лаванда"
+                }
+            );
+        }
+        private static void seedIngredient(ModelBuilder builder)
+        {
+            builder.Entity<Ingredient>().HasData(
+                new Ingredient
+                {
+                    Id = 1,
+                    Name = "Вітамін C",
+                    Category = "Активні інгредієнти",
+                    LevelOfDanger = 1,
+                    IsHarmful = false,
+                    Description = "Вітамін C допомагає зволожувати шкіру та підвищує її еластичність."
+                },
+                new Ingredient
+                {
+                    Id = 2,
+                    Name = "Саліцилова кислота",
+                    Category = "Активні інгредієнти",
+                    LevelOfDanger = 2,
+                    IsHarmful = false,
+                    Description = "Саліцилова кислота допомагає в боротьбі з акне."
+                },
+                new Ingredient
+                {
+                    Id = 3,
+                    Name = "Парабени",
+                    Category = "Консерванти",
+                    LevelOfDanger = 4,
+                    IsHarmful = true,
+                    Description = "Парабени використовуються для продовження терміну зберігання, але можуть викликати алергії."
+                },
+                new Ingredient
+                {
+                    Id = 4,
+                    Name = "Ментол",
+                    Category = "Активні інгредієнти",
+                    LevelOfDanger = 1,
+                    IsHarmful = false,
+                    Description = "Ментол заспокоює шкіру та дає охолоджуючий ефект."
+                }
+            );
+        }
+
         private static List<Product> _products = new List<Product>{
             new Product
             {
@@ -51,7 +189,9 @@ namespace BeautyVi.Core.Context
                 Name = "Зволожуючий крем",
                 Description = "Крем для інтенсивного зволоження шкіри.",
                 Price = 499.99m,
-                CategoryId = 1
+                CategoryId = 1,
+                EffectTypeId = 1,
+                SuitableForId = 1
               },
                 new Product
                 {
@@ -59,13 +199,59 @@ namespace BeautyVi.Core.Context
                     Name = "Шампунь для сухого волосся",
                     Description = "Відновлюючий шампунь для сухого та пошкодженого волосся.",
                     Price = 299.99m,
-                    CategoryId = 2
+                    CategoryId = 2,
+                    EffectTypeId = 2,
+                    SuitableForId = 2
                 } };
         static void seedProduct(ModelBuilder builder)
         {
             builder.Entity<Product>().HasData(_products);
         }
-
+        private static void seedProductIngredients(ModelBuilder builder)
+        {
+            builder.Entity<ProductIngredient>().HasData(
+                new ProductIngredient
+                {
+                    ProductId = 1,  // Id продукту "Зволожуючий крем"
+                    IngredientId = 1  // Id інгредієнта "Парабени"
+                },
+                new ProductIngredient
+                {
+                    ProductId = 1,  // Id продукту "Зволожуючий крем"
+                    IngredientId = 3  // Id інгредієнта "Ланолін"
+                },
+                new ProductIngredient
+                {
+                    ProductId = 2,  // Id продукту "Шампунь для сухого волосся"
+                    IngredientId = 2  // Id інгредієнта "Фталати"
+                },
+                new ProductIngredient
+                {
+                    ProductId = 2,  // Id продукту "Шампунь для сухого волосся"
+                    IngredientId = 4  // Id інгредієнта "Сульфати"
+                }
+            );
+        }
+        private static void seedProductAllergens(ModelBuilder builder)
+        {
+            builder.Entity<ProductAllergen>().HasData(
+                new ProductAllergen
+                {
+                    ProductId = 1, // Продукт "Зволожуючий крем"
+                    AllergenId = 1 // Глютен
+                },
+                new ProductAllergen
+                {
+                    ProductId = 1, // Продукт "Зволожуючий крем"
+                    AllergenId = 2 // Лактоза
+                },
+                new ProductAllergen
+                {
+                    ProductId = 2, // Продукт "Шампунь для сухого волосся"
+                    AllergenId = 3 // Арахіс
+                }
+            );
+        }
         static (string, string) seedUsersAndRoles(ModelBuilder builder)
         {
             string CLIENT_ROLE_ID = Guid.NewGuid().ToString();

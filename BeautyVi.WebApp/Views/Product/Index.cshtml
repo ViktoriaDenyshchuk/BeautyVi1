@@ -3,6 +3,83 @@
 <h2>Список продуктів</h2>
 
 <a href="@Url.Action("Create", "Product")">Додати новий продукт</a>
+<form asp-action="FilterByPreferences" method="get">
+    <div class="row">
+        <div class="col-4">
+            <label for="category">Категоія:</label>
+            <select id="category" name="category" class="form-control">
+                <option value="">Виберіть категорію</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.NameCategory">@item.NameCategory</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-4">
+            <label for="hairType">Тип волосся:</label>
+            <select id="hairType" name="hairType" class="form-control">
+                <option value="">Виберіть тип волосся</option>
+                @foreach (var item in ViewBag.HairTypes)
+                {
+                    <option value="@item.NameSuitableFor">@item.NameSuitableFor</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-4">
+            <label for="skinType">Тип шкіри:</label>
+            <select id="skinType" name="skinType" class="form-control">
+                <option value="">Виберіть тип шкіри</option>
+                @foreach (var item in ViewBag.SkinTypes)
+                {
+                    <option value="@item.NameSuitableFor">@item.NameSuitableFor</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="effectType">Тип ефекту:</label>
+            <select id="effectType" name="effectType" class="form-control">
+                <option value="">Виберіть тип ефекту</option>
+                @foreach (var item in ViewBag.EffectTypes)
+                {
+                    <option value="@item.NameEffectType">@item.NameEffectType</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <label for="avoidAllergens">Уникати алергенів:</label>
+            <input type="checkbox" id="avoidAllergens" name="avoidAllergens" class="form-check-input">
+        </div>
+    </div>
+    <div class="col-4">
+        <label for="avoidedAllergens">Алергени:</label>
+        <select id="avoidedAllergens" name="avoidedAllergens" class="form-control">
+            <option value="">Виберіть Алергени</option>
+            @foreach (var item in ViewBag.AvoidedAllergens)
+            {
+                <option value="@item.Name">@item.Name</option>
+            }
+        </select>
+    </div>
+    <hr />
+    <div class="col-4">
+        <label for="avoidedIngredients">Небажані компоненти:</label>
+        <select id="avoidedIngredients" name="avoidedIngredients" class="form-control" multiple>
+            @if (ViewBag.Ingredients != null)
+            {
+                @foreach (var ingredient in ViewBag.Ingredients)
+                {
+                    <option value="@ingredient.Name">@ingredient.Name</option>
+                }
+            }
+        </select>
+        <small class="form-text text-muted">Виберіть один або кілька компонентів.</small>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary mt-3">Показати продукти</button>
+</form>
 
 <table>
     <thead>
@@ -10,6 +87,8 @@
             <th>ID</th>
             <th>Назва</th>
             <th>Категорія</th>
+            <th>Тип Ефекту</th>
+            <th>Підходить для</th>
             <th>Ціна</th>
             <th>Дії</th>
         </tr>
@@ -21,6 +100,8 @@
                 <td>@product.Id</td>
                 <td>@product.Name</td>
                 <td>@product.Category?.NameCategory</td>
+                <td>@product.EffectType?.NameEffectType</td>
+                <td>@product.SuitableFor?.NameSuitableFor</td>
                 <td>@product.Price</td>
                 <td>
                     <a href="@Url.Action("Details", "Product", new { id = product.Id })">Деталі</a> |

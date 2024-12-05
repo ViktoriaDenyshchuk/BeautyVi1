@@ -15,6 +15,6 @@ namespace BeautyVi.Core.Entities
         public string NameCategory { get; set; }
 
         // Одна категорія може містити багато продуктів
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product>? Products { get; set; }
     }
 }

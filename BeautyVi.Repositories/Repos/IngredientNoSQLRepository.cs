@@ -1,4 +1,50 @@
-﻿using BeautyVi.Core.Entities;
+﻿using System;
+using BeautyVi.Core.Entities;
+using BeautyVi.Repositories.Interfaces;
+
+namespace BeautyVi.Repositories.Repos
+{
+    internal class IngredientNoSQLRepository : IIngredientRepository
+    {
+        public IngredientNoSQLRepository()
+        {
+
+        }
+        public void Add(Ingredient obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Ingredient obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ingredient Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Ingredient> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Ingredient obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+}
+
+
+/*using BeautyVi.Core.Entities;
 using BeautyVi.Repositories.Interfaces;
 using BeautyVi.Repositories.Repos;
 using Microsoft.EntityFrameworkCore;
@@ -50,4 +96,4 @@ namespace BeautyVi.Reposotories.Repos
             throw new NotImplementedException();
         }
     }
-}
+}*/

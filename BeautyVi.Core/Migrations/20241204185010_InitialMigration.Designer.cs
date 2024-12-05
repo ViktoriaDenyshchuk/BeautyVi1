@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BeautyVi.Core.Migrations
 {
     [DbContext(typeof(BeautyViContext))]
-    [Migration("20241125172559_InitialMigration")]
+    [Migration("20241204185010_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -39,6 +39,28 @@ namespace BeautyVi.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Allergens");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Консерванти (Парабени)"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Ланолін"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Альфа-гідроксикислоти (AHAs)"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Лаванда"
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.Category", b =>
@@ -65,17 +87,66 @@ namespace BeautyVi.Core.Migrations
                         new
                         {
                             Id = 1,
-                            NameCategory = "Догляд за шкірою"
+                            NameCategory = "Волосся"
                         },
                         new
                         {
                             Id = 2,
-                            NameCategory = "Догляд за волоссям"
+                            NameCategory = "Шкіра"
                         },
                         new
                         {
                             Id = 3,
-                            NameCategory = "Макіяж"
+                            NameCategory = "Лице"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            NameCategory = "Тіло"
+                        });
+                });
+
+            modelBuilder.Entity("BeautyVi.Core.Entities.EffectType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NameEffectType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EffectTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NameEffectType = "Зволоження"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            NameEffectType = "Живлення"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            NameEffectType = "Проти старіння"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            NameEffectType = "Очищення"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            NameEffectType = "Відновлення"
                         });
                 });
 
@@ -108,6 +179,44 @@ namespace BeautyVi.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Ingredients");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Активні інгредієнти",
+                            Description = "Вітамін C допомагає зволожувати шкіру та підвищує її еластичність.",
+                            IsHarmful = false,
+                            LevelOfDanger = 1,
+                            Name = "Вітамін C"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Активні інгредієнти",
+                            Description = "Саліцилова кислота допомагає в боротьбі з акне.",
+                            IsHarmful = false,
+                            LevelOfDanger = 2,
+                            Name = "Саліцилова кислота"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Консерванти",
+                            Description = "Парабени використовуються для продовження терміну зберігання, але можуть викликати алергії.",
+                            IsHarmful = true,
+                            LevelOfDanger = 4,
+                            Name = "Парабени"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Активні інгредієнти",
+                            Description = "Ментол заспокоює шкіру та дає охолоджуючий ефект.",
+                            IsHarmful = false,
+                            LevelOfDanger = 1,
+                            Name = "Ментол"
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.Order", b =>
@@ -147,11 +256,11 @@ namespace BeautyVi.Core.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDate = new DateTime(2024, 11, 25, 17, 25, 59, 211, DateTimeKind.Utc).AddTicks(400),
+                            OrderDate = new DateTime(2024, 12, 4, 18, 50, 10, 27, DateTimeKind.Utc).AddTicks(9490),
                             ShippingAddress = "123 Main St",
                             Status = "Completed",
                             TotalAmount = 50.00m,
-                            UserId = "3486a833-4b7e-49fe-9cc2-72aa98660a66"
+                            UserId = "b8124004-2115-42fb-a3a6-9d896ab39bf6"
                         });
                 });
 
@@ -205,6 +314,9 @@ namespace BeautyVi.Core.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("EffectTypeId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -213,9 +325,16 @@ namespace BeautyVi.Core.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
+                    b.Property<int?>("SuitableForId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("EffectTypeId");
+
+                    b.HasIndex("SuitableForId");
 
                     b.ToTable("Products");
 
@@ -226,8 +345,10 @@ namespace BeautyVi.Core.Migrations
                             CategoryId = 1,
                             CoverPath = "\\img\\product\\no_cover.jpg",
                             Description = "Крем для інтенсивного зволоження шкіри.",
+                            EffectTypeId = 1,
                             Name = "Зволожуючий крем",
-                            Price = 499.99m
+                            Price = 499.99m,
+                            SuitableForId = 1
                         },
                         new
                         {
@@ -235,8 +356,10 @@ namespace BeautyVi.Core.Migrations
                             CategoryId = 2,
                             CoverPath = "\\img\\product\\no_cover.jpg",
                             Description = "Відновлюючий шампунь для сухого та пошкодженого волосся.",
+                            EffectTypeId = 2,
                             Name = "Шампунь для сухого волосся",
-                            Price = 299.99m
+                            Price = 299.99m,
+                            SuitableForId = 2
                         });
                 });
 
@@ -253,6 +376,23 @@ namespace BeautyVi.Core.Migrations
                     b.HasIndex("AllergenId");
 
                     b.ToTable("ProductAllergens");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            AllergenId = 1
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            AllergenId = 2
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            AllergenId = 3
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.ProductIngredient", b =>
@@ -268,6 +408,28 @@ namespace BeautyVi.Core.Migrations
                     b.HasIndex("IngredientId");
 
                     b.ToTable("ProductIngredients");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            IngredientId = 1
+                        },
+                        new
+                        {
+                            ProductId = 1,
+                            IngredientId = 3
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            IngredientId = 2
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            IngredientId = 4
+                        });
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.ProductRecommendation", b =>
@@ -293,7 +455,51 @@ namespace BeautyVi.Core.Migrations
                     b.ToTable("ProductRecommendations");
                 });
 
-            modelBuilder.Entity("BeautyVi.Core.Entities.UserPreferences", b =>
+            modelBuilder.Entity("BeautyVi.Core.Entities.SuitableFor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("NameSuitableFor")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SuitableForOptions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NameSuitableFor = "Суха шкіра"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            NameSuitableFor = "Жирна шкіра"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            NameSuitableFor = "Чутлива шкіра"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            NameSuitableFor = "Нормальне волосся"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            NameSuitableFor = "Пошкоджене волосся"
+                        });
+                });
+
+            modelBuilder.Entity("BeautyVi.Core.Entities.UserPreference", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -355,13 +561,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9659cc99-e13a-4447-a50f-fc9350f28e32",
+                            Id = "6254218c-e522-4854-aedd-a8b3ac5b4f91",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "3d4798ab-6930-4161-af4e-8a424f70595e",
+                            Id = "cbf3ade9-87b1-4a08-859e-e1ef72889b16",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -532,13 +738,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "1c6bea7a-5734-4544-a0fb-cb4015b0f110",
-                            RoleId = "3d4798ab-6930-4161-af4e-8a424f70595e"
+                            UserId = "7c163ec4-fda6-4aee-8912-d7b0a4722860",
+                            RoleId = "cbf3ade9-87b1-4a08-859e-e1ef72889b16"
                         },
                         new
                         {
-                            UserId = "3486a833-4b7e-49fe-9cc2-72aa98660a66",
-                            RoleId = "9659cc99-e13a-4447-a50f-fc9350f28e32"
+                            UserId = "b8124004-2115-42fb-a3a6-9d896ab39bf6",
+                            RoleId = "6254218c-e522-4854-aedd-a8b3ac5b4f91"
                         });
                 });
 
@@ -572,33 +778,33 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3486a833-4b7e-49fe-9cc2-72aa98660a66",
+                            Id = "b8124004-2115-42fb-a3a6-9d896ab39bf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7f000a35-f2e9-4c3f-8126-1d301185b4be",
+                            ConcurrencyStamp = "9b9e52f1-0df3-427f-a6dc-77717cc7ed88",
                             Email = "client@beautyvi.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@BEAUTYVI.COM",
                             NormalizedUserName = "CLIENT@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJdNGYqFs9eNZNXhqpnVYqSesgdFShciBWoEBdyWtqkW+mPH7JNo5Ml2ipx4itqXew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDjs/syO8mHh8S/0WihiwvEzgLyXFtt/4hJf3/aKJ1CNHlBDK5qOqGLiDscqdLQY2A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "99c7b9b1-fb10-4c76-9f80-dad80e93262c",
+                            SecurityStamp = "090583c7-2d13-41cc-98a9-44814cd8006f",
                             TwoFactorEnabled = false,
                             UserName = "client@beautyvi.com"
                         },
                         new
                         {
-                            Id = "1c6bea7a-5734-4544-a0fb-cb4015b0f110",
+                            Id = "7c163ec4-fda6-4aee-8912-d7b0a4722860",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "80577840-b594-490c-98a0-6e3817d68da9",
+                            ConcurrencyStamp = "63f6da00-f575-4fed-a95a-19c910b5d9d7",
                             Email = "admin@beautyvi.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@BEAUTYVI.COM",
                             NormalizedUserName = "ADMIN@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFN8YwvFoDihBpFHJnTRdVRNpcu1QEYquzD253rsyETq4KLtEJxXZJDsl7Bqtil4vw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED6b/4M8AilAh0fgKd7aV/bcxqsc2XcKT+ZMrrU7QRSo6Qc9b7lCN0kejMrXdFTTsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9e3efed2-6203-4ff0-8d53-8bccb2a0311f",
+                            SecurityStamp = "f66efb81-5d13-4244-aacf-aafeadcab533",
                             TwoFactorEnabled = false,
                             UserName = "admin@beautyvi.com"
                         });
@@ -640,7 +846,21 @@ namespace BeautyVi.Core.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("BeautyVi.Core.Entities.EffectType", "EffectType")
+                        .WithMany("Products")
+                        .HasForeignKey("EffectTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BeautyVi.Core.Entities.SuitableFor", "SuitableFor")
+                        .WithMany("Products")
+                        .HasForeignKey("SuitableForId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.Navigation("Category");
+
+                    b.Navigation("EffectType");
+
+                    b.Navigation("SuitableFor");
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.ProductAllergen", b =>
@@ -699,11 +919,11 @@ namespace BeautyVi.Core.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BeautyVi.Core.Entities.UserPreferences", b =>
+            modelBuilder.Entity("BeautyVi.Core.Entities.UserPreference", b =>
                 {
                     b.HasOne("BeautyVi.Core.Entities.User", "User")
                         .WithOne("UserPreferences")
-                        .HasForeignKey("BeautyVi.Core.Entities.UserPreferences", "UserId")
+                        .HasForeignKey("BeautyVi.Core.Entities.UserPreference", "UserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
@@ -770,6 +990,11 @@ namespace BeautyVi.Core.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("BeautyVi.Core.Entities.EffectType", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("BeautyVi.Core.Entities.Ingredient", b =>
                 {
                     b.Navigation("ProductIngredients");
@@ -789,6 +1014,11 @@ namespace BeautyVi.Core.Migrations
                     b.Navigation("ProductIngredients");
 
                     b.Navigation("ProductRecommendations");
+                });
+
+            modelBuilder.Entity("BeautyVi.Core.Entities.SuitableFor", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("BeautyVi.Core.Entities.User", b =>

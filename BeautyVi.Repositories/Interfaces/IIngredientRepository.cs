@@ -1,4 +1,4 @@
-﻿using BeautyVi.Core.Entities;
+﻿/*using BeautyVi.Core.Entities;
 using BeautyVi.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,5 +17,22 @@ namespace BeautyVi.Repositories.Interfaces
         Task<Ingredient> GetByNameAsync(string name);  // Асинхронний метод для пошуку за назвою
         Task SaveAsync();
     }
+}*/
+using System;
+using BeautyVi.Core.Entities;
+
+namespace BeautyVi.Repositories.Interfaces
+{
+    public interface IIngredientRepository : ISave
+    {
+        Ingredient Get(int id);
+        IEnumerable<Ingredient> GetAll();
+        void Add(Ingredient ingredient);
+        void Update(Ingredient ingredient);
+        void Delete(Ingredient ingredient);
+    }
+
 }
+
+
 

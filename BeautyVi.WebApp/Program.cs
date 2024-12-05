@@ -22,8 +22,13 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 //builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IEffectTypeRepository, EffectTypeRepository>();
+builder.Services.AddScoped<ISuitableForRepository, SuitableForRepository>();
+builder.Services.AddScoped<IProductIngredientRepository, ProductIngredientRepository>();
+builder.Services.AddScoped<IProductAllergenRepository, ProductAllergenRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+builder.Services.AddScoped<IUserPreferenceRepository, UserPreferenceRepository>();
 
 /*builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();*/

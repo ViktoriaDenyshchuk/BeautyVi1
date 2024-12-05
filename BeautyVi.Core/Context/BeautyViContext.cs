@@ -15,7 +15,7 @@ public class BeautyViContext : IdentityDbContext<IdentityUser>
     }
 
     //public DbSet<User> Users => Set<User>();
-    //public DbSet<UserPreferences> UsersPreferences => Set<UserPreferences>();
+    public DbSet<UserPreference> UserPreferences => Set<UserPreference>();
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
@@ -25,6 +25,8 @@ public class BeautyViContext : IdentityDbContext<IdentityUser>
     public DbSet<Ingredient> Ingredients => Set<Ingredient>();
     public DbSet<ProductIngredient> ProductIngredients => Set<ProductIngredient>();
     public DbSet<ProductRecommendation> ProductRecommendations => Set<ProductRecommendation>();
+    public DbSet<EffectType> EffectTypes => Set<EffectType>();
+    public DbSet<SuitableFor> SuitableForOptions => Set<SuitableFor>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -34,9 +36,22 @@ public class BeautyViContext : IdentityDbContext<IdentityUser>
         builder.Entity<User>()
             .HasOne(u => u.UserPreferences)
             .WithOne(p => p.User)
-            .HasForeignKey<UserPreferences>(p => p.UserId)
+            .HasForeignKey<UserPreference>(p => p.UserId)
             .OnDelete(DeleteBehavior.Cascade);
-        
+        // Зв'язок між Product та EffectType (багато до одного)
+        builder.Entity<Product>()
+            .HasOne(p => p.EffectType)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.EffectTypeId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // Зв'язок між Product та SuitableFor (багато до одного)
+        builder.Entity<Product>()
+            .HasOne(p => p.SuitableFor)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.SuitableForId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         // Зв'язок між Product та Category (багато до одного)
         builder.Entity<Product>()
             .HasOne(p => p.Category)

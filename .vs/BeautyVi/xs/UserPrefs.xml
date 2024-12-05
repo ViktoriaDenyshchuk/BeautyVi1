@@ -1,44 +1,38 @@
 ﻿<Properties StartupConfiguration="{11A8957F-0F89-4F06-965B-D6491047B4FF}|https">
-  <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Controllers/IngredientController.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Views/Ingredient/CheckIngredients.cshtml">
     <Files>
       <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" />
-      <File FileName="BeautyVi.Core/Entities/Product.cs" Line="28" Column="46" />
-      <File FileName="BeautyVi.Core/Entities/User.cs" Line="31" Column="2" />
-      <File FileName="BeautyVi.Core/Entities/Order.cs" Line="15" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/Category.cs" Line="16" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/OrderItem.cs" Line="15" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/UserPreferences.cs" Line="19" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/Allergen.cs" Line="12" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/ProductAllergen.cs" Line="15" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/Ingredient.cs" Line="15" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" Line="15" Column="1" />
-      <File FileName="BeautyVi.Core/Entities/ProductRecommendations.cs" Line="19" Column="6" />
+      <File FileName="BeautyVi.Core/Entities/Product.cs" />
+      <File FileName="BeautyVi.Core/Entities/User.cs" />
+      <File FileName="BeautyVi.Core/Entities/Order.cs" />
+      <File FileName="BeautyVi.Core/Entities/Category.cs" />
+      <File FileName="BeautyVi.Core/Entities/OrderItem.cs" />
+      <File FileName="BeautyVi.Core/Entities/Allergen.cs" />
+      <File FileName="BeautyVi.Core/Entities/ProductAllergen.cs" />
+      <File FileName="BeautyVi.Core/Entities/Ingredient.cs" Line="18" Column="33" />
+      <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" />
+      <File FileName="BeautyVi.Core/Entities/ProductRecommendations.cs" />
       <File FileName="BeautyVi.Core/Context/BeautyViInitializerExtension.cs" />
-      <File FileName="BeautyVi.Repositories/Interfaces/IOrderRepository.cs" Line="22" Column="28" />
-      <File FileName="BeautyVi.Repositories/Repos/OrderRepository.cs" Line="37" Column="10" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IOrderRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderRepository.cs" />
       <File FileName="BeautyVi.Repositories/Interfaces/ISave.cs" />
       <File FileName="BeautyVi.Repositories/Interfaces/IUserRepository.cs" />
-      <File FileName="BeautyVi.Repositories/Interfaces/IProductRepository.cs" Line="12" Column="39" />
-      <File FileName="BeautyVi.Repositories/Repos/UserNoSQLRepository.cs" Line="1" Column="1" />
-      <File FileName="BeautyVi.Repositories/Repos/UserRepository.cs" Line="1" Column="1" />
-      <File FileName="BeautyVi.Repositories/Repos/OrderNoSQLRepository.cs" Line="55" Column="10" />
-      <File FileName="BeautyVi.Repositories/Repos/ProductNoSQLRepository.cs" Line="37" Column="9" />
-      <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" Line="47" Column="10" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IProductRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" />
       <File FileName="BeautyVi.Repositories/Interfaces/ICategoryRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/CategoryRepository.cs" />
-      <File FileName="BeautyVi.WebApp/Program.cs" Line="28" Column="38" />
+      <File FileName="BeautyVi.WebApp/Program.cs" />
       <File FileName="BeautyVi.WebApp/appsettings.json" />
       <File FileName="BeautyVi.WebApp/Controllers/HomeController.cs" />
-      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" Line="44" Column="9" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" Line="18" Column="40" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" Line="13" Column="10" />
+      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Product/Delete.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Product/Details.cshtml" />
@@ -48,7 +42,7 @@
       <File FileName="BeautyVi.WebApp/Views/User/Create.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/User/Index.cshtml" />
       <File FileName="BeautyVi.WebApp/Models/ErrorViewModel.cs" />
-      <File FileName="BeautyVi.WebApp/Views/Home/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Home/Privacy.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Shared/_LoginPartial.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Shared/Error.cshtml" />
@@ -85,22 +79,46 @@
       <File FileName="BeautyVi1/Areas/Pages/Account/ConfirmEmailChange.cshtml.cs" />
       <File FileName="BeautyVi1/Areas/Pages/Account/ForgotPassword.cshtml.cs" />
       <File FileName="BeautyVi1/Areas/Pages/Account/ExternalLogin.cshtml.cs" />
-      <File FileName="BeautyVi.WebApp/Controllers/OrderController.cs" Line="139" Column="19" />
-      <File FileName="BeautyVi.WebApp/Views/Order/Index.cshtml" Line="32" Column="98" />
-      <File FileName="BeautyVi.WebApp/Views/Order/Create.cshtml" Line="39" Column="11" />
-      <File FileName="BeautyVi.Repositories/Interfaces/IOrderItemRepository.cs" Line="2" Column="1" />
-      <File FileName="BeautyVi.Repositories/Repos/OrderItemRepository.cs" Line="23" Column="24" />
-      <File FileName="BeautyVi.Repositories/Repos/OrderItemNoSQLRepository.cs" Line="1" Column="1" />
-      <File FileName="BeautyVi.WebApp/Controllers/OrderItemController.cs" Line="15" Column="1" />
+      <File FileName="BeautyVi.WebApp/Controllers/OrderController.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Create.cshtml" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IOrderItemRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderItemRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/OrderItemNoSQLRepository.cs" />
+      <File FileName="BeautyVi.WebApp/Controllers/OrderItemController.cs" />
       <File FileName="BeautyVi.WebApp/Views/Order/Details.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/OrderItem/Index.cshtml" Line="1" Column="1" />
-      <File FileName="BeautyVi.Repositories/Interfaces/IIngredientRepository.cs" Line="14" Column="25" />
-      <File FileName="BeautyVi.Repositories/Repos/IngredientRepository.cs" Line="80" Column="1" />
-      <File FileName="BeautyVi.Repositories/Repos/IngredientNoSQLRepository.cs" Line="25" Column="11" />
-      <File FileName="BeautyVi.WebApp/Controllers/IngredientController.cs" Line="76" Column="1" />
-      <File FileName="BeautyVi.WebApp/Views/Ingredient/CheckIngredients.cshtml" Line="13" Column="33" />
-      <File FileName="BeautyVi.WebApp/Views/Ingredient/IngredientCheckResults.cshtml" Line="18" Column="17" />
+      <File FileName="BeautyVi.WebApp/Views/OrderItem/Index.cshtml" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IIngredientRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/IngredientRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/IngredientNoSQLRepository.cs" />
+      <File FileName="BeautyVi.WebApp/Controllers/IngredientController.cs" Line="62" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Ingredient/CheckIngredients.cshtml" Line="30" Column="47" />
+      <File FileName="BeautyVi.WebApp/Views/Ingredient/IngredientCheckResults.cshtml" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/Ingredient/Index.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/wwwroot/assets/css/main.css" />
+      <File FileName="BeautyVi.Core/Entities/EffectType.cs" />
+      <File FileName="BeautyVi.Core/Entities/SuitableFor.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IEffectTypeRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/ISuitableForRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/EffectTypeRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/EffectTypeNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/CategoryNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/SuitableForRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/SuitableForNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IAllergenRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/AllergenRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/AllergenNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IProductAllergenRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IProductIngredientRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductIngredientRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductIngredientNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductAllergenRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductAllergenNoSQLRepository.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Product/FilteredProducts.cshtml" />
+      <File FileName="BeautyVi.Repositories/Interfaces/IUserPreferences.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserPreferencesRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/UserPreferenceNoSQLRepository.cs" />
+      <File FileName="BeautyVi.Core/Entities/UserPreference.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -110,19 +128,13 @@
               <Node name="Context" expanded="True" />
               <Node name="Entities" expanded="True" />
             </Node>
-            <Node name="BeautyVi.Repositories">
-              <Node name="Interfaces" expanded="True" />
-              <Node name="Repos" expanded="True" />
-            </Node>
             <Node name="BeautyVi.WebApp">
-              <Node name="Controllers" expanded="True">
-                <Node name="IngredientController.cs" selected="True" />
-              </Node>
-              <Node name="Views">
-                <Node name="Ingredient" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Ingredient">
+                  <Node name="CheckIngredients.cshtml" selected="True" />
+                </Node>
                 <Node name="Order" expanded="True" />
-                <Node name="OrderItem" expanded="True" />
-                <Node name="Product" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -133,5 +145,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

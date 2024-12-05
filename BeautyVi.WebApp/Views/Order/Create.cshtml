@@ -1,11 +1,12 @@
 ﻿@inject UserManager<IdentityUser> UserManager
+@using Microsoft.AspNetCore.Html
 @using Microsoft.AspNetCore.Identity;
 @model BeautyVi.Core.Entities.Order
 
 @{
     ViewData["Title"] = "Create Order";
-}
 
+}
 <h2>Create Order</h2>
 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -17,7 +18,7 @@
 
     <div class="form-group">
         <label asp-for="ShippingAddress" class="control-label">Shipping Address</label>
-        <input asp-for="ShippingAddress" class="form-control" />
+        <input required asp-for="ShippingAddress" class="form-control" />
     </div>
 
     <h3>Order Items</h3>
@@ -34,7 +35,7 @@
 
         <div class="form-group">
             <label>Quantity</label>
-            <input type="number" name="OrderItems[0].Quantity" class="form-control" />
+            <input required type="number" name="OrderItems[0].Quantity" class="form-control" />
         </div>
     </div>
 

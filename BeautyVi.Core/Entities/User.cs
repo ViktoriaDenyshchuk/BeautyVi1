@@ -20,7 +20,7 @@ namespace BeautyVi.Core.Entities
         //public string FullName { get; set; }
 
         // Властивість для зв'язку з UserPreferences (1 до 1)
-        public virtual UserPreferences? UserPreferences { get; set; }
+        public virtual UserPreference? UserPreferences { get; set; }
 
         // Властивість для зв'язку з Orders (1 до багатьох)
         public virtual ICollection<Order>? Orders { get; set; }

@@ -30,6 +30,16 @@
                 <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control"></select>
             </div>
 
+            <div class="form-group">
+                <label asp-for="EffectTypeId">EffectType</label>
+                <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SuitableForId">SuitableFor</label>
+                <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control"></select>
+            </div>
+
             <div data="mb-3">
                 @Html.DisplayNameFor(model => model.Price)
                 @Html.TextAreaFor(model => model.Price, new { @class = "form-control" })

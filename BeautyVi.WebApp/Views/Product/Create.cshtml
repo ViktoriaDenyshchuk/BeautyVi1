@@ -29,6 +29,18 @@
     </div>
 
     <div>
+        <label asp-for="EffectTypeId">Тип ефекту</label>
+        <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control"></select>
+        <span asp-validation-for="EffectTypeId" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="SuitableForId">Підходить для</label>
+        <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control"></select>
+        <span asp-validation-for="SuitableForId" class="text-danger"></span>
+    </div>
+
+    <div>
         <label asp-for="CoverFile">Фото</label>
         <input asp-for="CoverFile" type="file" class="form-control" />
         <span asp-validation-for="CoverFile" class="text-danger"></span>

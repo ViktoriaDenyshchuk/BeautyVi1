@@ -74,6 +74,7 @@ namespace BeautyVi.WebApp.Controllers
              }
              return View(orderRepository.Get(id));
          }
+
         public List<SelectListItem> ProductItems { get; set; } = new List<SelectListItem>();
 
 
@@ -116,7 +117,7 @@ namespace BeautyVi.WebApp.Controllers
 
         // POST: Order/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        /*[ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Order model)
         {
             if (ModelState.IsValid)
@@ -165,6 +166,50 @@ namespace BeautyVi.WebApp.Controllers
 
             // Якщо модель не валідна, повертаємо користувачу форму
             return View(model);
+        }*/
+        public async Task<IActionResult> Create(Order model)
+        {
+            // Створюємо нове замовлення
+            var order = new Order
+            {
+                UserId = model.UserId,
+                ShippingAddress = model.ShippingAddress,
+                OrderDate = DateTime.UtcNow,
+                Status = "Pending", // За замовчуванням
+                TotalAmount = 0 // Потрібно буде обчислити
+            };
+
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync(); // Збереження замовлення, щоб отримати його Id
+
+            // Обчислення загальної суми та додавання елементів замовлення
+            decimal totalAmount = 0;
+
+            foreach (var item in model.OrderItems)
+            {
+                var product = await _context.Products.FindAsync(item.ProductId);
+                if (product != null)
+                {
+                    var orderItem = new OrderItem
+                    {
+                        OrderId = order.Id,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        UnitPrice = product.Price,
+                        TotalPrice = item.Quantity * product.Price
+                    };
+
+                    _context.OrderItems.Add(orderItem);
+                    totalAmount += orderItem.TotalPrice;
+                }
+            }
+
+            // Оновлення загальної суми замовлення
+            order.TotalAmount = totalAmount;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index)); // Перенаправлення на список замовлень
+
         }
     }
 }

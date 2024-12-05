@@ -4,7 +4,7 @@ using BeautyVi.Core.Entities;
 
 namespace BeautyVi.Core.Entities
 {
-    public class UserPreferences
+    public class UserPreference
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

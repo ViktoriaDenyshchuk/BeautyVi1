@@ -10,22 +10,58 @@ namespace BeautyVi.Controllers
 {
     public class IngredientController : Controller
     {
-        private readonly IIngredientRepository _ingredientRepository;
+        private readonly IIngredientRepository ingredientRepository;
+        private readonly BeautyViContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
+
+        public IngredientController(IIngredientRepository ingredientRepository,
+            IWebHostEnvironment webHostEnviroment, [FromServices] BeautyViContext context)
+        {
+            this.ingredientRepository = ingredientRepository;
+            this.webHostEnvironment = webHostEnviroment;
+            this._context = context;
+            //this._userManager = userManager;
+        }
 
         public IActionResult Index()
         {
-            var allIngredients = _ingredientRepository.GetAll();
+            var ingredients = ingredientRepository.GetAll();
 
-            return View(allIngredients);
+            return View(ingredients);
         }
 
-        public IngredientController(IIngredientRepository ingredientRepository)
+        [HttpGet]
+        public IActionResult CheckIngredients()
         {
-            _ingredientRepository = ingredientRepository;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CheckIngredients(string ingredientsInput)
+        {
+            // Розділяємо введені інгредієнти на окремі рядки
+            var inputIngredients = ingredientsInput?
+                .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(i => i.Trim())
+                .ToList();
+
+            if (inputIngredients == null || inputIngredients.Count == 0)
+            {
+                ViewBag.Message = "Будь ласка, введіть список інгредієнтів для перевірки.";
+                return View();
+            }
+
+            // Шукаємо інгредієнти в базі даних
+            var matchedIngredients = _context.Ingredients
+                .Where(i => inputIngredients.Contains(i.Name))
+                .ToList();
+
+            // Передаємо знайдені інгредієнти у View
+            return View(matchedIngredients);
         }
 
         // Метод для перегляду форми введення інгредієнтів
-        [HttpGet]
+        /*[HttpGet]
         public IActionResult CheckIngredients()
         {
             return View();
@@ -46,7 +82,7 @@ namespace BeautyVi.Controllers
             var ingredients = new List<Ingredient>();
 
             // Отримуємо всі інгредієнти з бази даних
-            var allIngredients = await _ingredientRepository.GetAllAsync();
+            var allIngredients = ingredientRepository.GetAll();
 
             foreach (var ingredientName in ingredientNames)
             {
@@ -70,7 +106,7 @@ namespace BeautyVi.Controllers
             }
 
             return View("IngredientCheckResults", ingredients);
-        }
+        }*/
 
 
 

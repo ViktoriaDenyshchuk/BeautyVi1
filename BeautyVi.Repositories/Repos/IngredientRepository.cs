@@ -1,4 +1,57 @@
-﻿/*using BeautyVi.Core.Context;
+﻿using BeautyVi.Core.Context;
+using BeautyVi.Core.Entities;
+using BeautyVi.Repositories.Interfaces;
+
+namespace BeautyVi.Repositories.Repos
+{
+    public class IngredientRepository : IIngredientRepository
+    {
+        private readonly BeautyViContext _context;
+
+        public IngredientRepository(BeautyViContext context)
+        {
+            _context = context;
+        }
+
+        public void Add(Ingredient ingredient)
+        {
+            _context.Ingredients.Add(ingredient);
+            Save();
+        }
+
+        public void Delete(Ingredient ingredient)
+        {
+            _context.Ingredients.Remove(ingredient);
+            Save();
+        }
+
+        public Ingredient Get(int id)
+        {
+            return _context.Ingredients.Find(id);
+        }
+
+        public IEnumerable<Ingredient> GetAll()
+        {
+            return _context.Ingredients.ToList();
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Update(Ingredient ingredient)
+        {
+            _context.Ingredients.Update(ingredient);
+            Save();
+        }
+    }
+}
+
+
+
+
+/*using BeautyVi.Core.Context;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -35,7 +88,10 @@ namespace BeautyVi.Repositories.Repos
         }
     }
 }*/
-using BeautyVi.Core.Context;
+
+
+
+/*using BeautyVi.Core.Context;
 using BeautyVi.Core.Entities;
 using BeautyVi.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -106,4 +162,4 @@ namespace BeautyVi.Repositories.Repos
             _context.SaveChanges();
         }
     }
-}
+}*/

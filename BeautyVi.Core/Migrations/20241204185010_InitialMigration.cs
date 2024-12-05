@@ -81,6 +81,19 @@ namespace BeautyVi.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EffectTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NameEffectType = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EffectTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Ingredients",
                 columns: table => new
                 {
@@ -95,6 +108,19 @@ namespace BeautyVi.Core.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ingredients", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SuitableForOptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    NameSuitableFor = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SuitableForOptions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -258,7 +284,9 @@ namespace BeautyVi.Core.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     CoverPath = table.Column<string>(type: "text", nullable: true),
-                    CategoryId = table.Column<int>(type: "integer", nullable: true)
+                    CategoryId = table.Column<int>(type: "integer", nullable: true),
+                    EffectTypeId = table.Column<int>(type: "integer", nullable: true),
+                    SuitableForId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -267,6 +295,18 @@ namespace BeautyVi.Core.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_EffectTypes_EffectTypeId",
+                        column: x => x.EffectTypeId,
+                        principalTable: "EffectTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Products_SuitableForOptions_SuitableForId",
+                        column: x => x.SuitableForId,
+                        principalTable: "SuitableForOptions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -375,12 +415,23 @@ namespace BeautyVi.Core.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Allergens",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Консерванти (Парабени)" },
+                    { 2, "Ланолін" },
+                    { 3, "Альфа-гідроксикислоти (AHAs)" },
+                    { 4, "Лаванда" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3d4798ab-6930-4161-af4e-8a424f70595e", null, "Admin", "ADMIN" },
-                    { "9659cc99-e13a-4447-a50f-fc9350f28e32", null, "Client", "CLIENT" }
+                    { "6254218c-e522-4854-aedd-a8b3ac5b4f91", null, "Client", "CLIENT" },
+                    { "cbf3ade9-87b1-4a08-859e-e1ef72889b16", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -388,8 +439,8 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1c6bea7a-5734-4544-a0fb-cb4015b0f110", 0, "80577840-b594-490c-98a0-6e3817d68da9", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEFN8YwvFoDihBpFHJnTRdVRNpcu1QEYquzD253rsyETq4KLtEJxXZJDsl7Bqtil4vw==", null, false, "9e3efed2-6203-4ff0-8d53-8bccb2a0311f", false, "admin@beautyvi.com" },
-                    { "3486a833-4b7e-49fe-9cc2-72aa98660a66", 0, "7f000a35-f2e9-4c3f-8126-1d301185b4be", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEJdNGYqFs9eNZNXhqpnVYqSesgdFShciBWoEBdyWtqkW+mPH7JNo5Ml2ipx4itqXew==", null, false, "99c7b9b1-fb10-4c76-9f80-dad80e93262c", false, "client@beautyvi.com" }
+                    { "7c163ec4-fda6-4aee-8912-d7b0a4722860", 0, "63f6da00-f575-4fed-a95a-19c910b5d9d7", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAED6b/4M8AilAh0fgKd7aV/bcxqsc2XcKT+ZMrrU7QRSo6Qc9b7lCN0kejMrXdFTTsQ==", null, false, "f66efb81-5d13-4244-aacf-aafeadcab533", false, "admin@beautyvi.com" },
+                    { "b8124004-2115-42fb-a3a6-9d896ab39bf6", 0, "9b9e52f1-0df3-427f-a6dc-77717cc7ed88", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEDjs/syO8mHh8S/0WihiwvEzgLyXFtt/4hJf3/aKJ1CNHlBDK5qOqGLiDscqdLQY2A==", null, false, "090583c7-2d13-41cc-98a9-44814cd8006f", false, "client@beautyvi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -397,9 +448,45 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "NameCategory" },
                 values: new object[,]
                 {
-                    { 1, "Догляд за шкірою" },
-                    { 2, "Догляд за волоссям" },
-                    { 3, "Макіяж" }
+                    { 1, "Волосся" },
+                    { 2, "Шкіра" },
+                    { 3, "Лице" },
+                    { 4, "Тіло" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EffectTypes",
+                columns: new[] { "Id", "NameEffectType" },
+                values: new object[,]
+                {
+                    { 1, "Зволоження" },
+                    { 2, "Живлення" },
+                    { 3, "Проти старіння" },
+                    { 4, "Очищення" },
+                    { 5, "Відновлення" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ingredients",
+                columns: new[] { "Id", "Category", "Description", "IsHarmful", "LevelOfDanger", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Активні інгредієнти", "Вітамін C допомагає зволожувати шкіру та підвищує її еластичність.", false, 1, "Вітамін C" },
+                    { 2, "Активні інгредієнти", "Саліцилова кислота допомагає в боротьбі з акне.", false, 2, "Саліцилова кислота" },
+                    { 3, "Консерванти", "Парабени використовуються для продовження терміну зберігання, але можуть викликати алергії.", true, 4, "Парабени" },
+                    { 4, "Активні інгредієнти", "Ментол заспокоює шкіру та дає охолоджуючий ефект.", false, 1, "Ментол" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SuitableForOptions",
+                columns: new[] { "Id", "NameSuitableFor" },
+                values: new object[,]
+                {
+                    { 1, "Суха шкіра" },
+                    { 2, "Жирна шкіра" },
+                    { 3, "Чутлива шкіра" },
+                    { 4, "Нормальне волосся" },
+                    { 5, "Пошкоджене волосся" }
                 });
 
             migrationBuilder.InsertData(
@@ -407,22 +494,43 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "3d4798ab-6930-4161-af4e-8a424f70595e", "1c6bea7a-5734-4544-a0fb-cb4015b0f110" },
-                    { "9659cc99-e13a-4447-a50f-fc9350f28e32", "3486a833-4b7e-49fe-9cc2-72aa98660a66" }
+                    { "cbf3ade9-87b1-4a08-859e-e1ef72889b16", "7c163ec4-fda6-4aee-8912-d7b0a4722860" },
+                    { "6254218c-e522-4854-aedd-a8b3ac5b4f91", "b8124004-2115-42fb-a3a6-9d896ab39bf6" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "OrderDate", "ShippingAddress", "Status", "TotalAmount", "UserId" },
-                values: new object[] { 1, new DateTime(2024, 11, 25, 17, 25, 59, 211, DateTimeKind.Utc).AddTicks(400), "123 Main St", "Completed", 50.00m, "3486a833-4b7e-49fe-9cc2-72aa98660a66" });
+                values: new object[] { 1, new DateTime(2024, 12, 4, 18, 50, 10, 27, DateTimeKind.Utc).AddTicks(9490), "123 Main St", "Completed", 50.00m, "b8124004-2115-42fb-a3a6-9d896ab39bf6" });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "CategoryId", "CoverPath", "Description", "Name", "Price" },
+                columns: new[] { "Id", "CategoryId", "CoverPath", "Description", "EffectTypeId", "Name", "Price", "SuitableForId" },
                 values: new object[,]
                 {
-                    { 1, 1, "\\img\\product\\no_cover.jpg", "Крем для інтенсивного зволоження шкіри.", "Зволожуючий крем", 499.99m },
-                    { 2, 2, "\\img\\product\\no_cover.jpg", "Відновлюючий шампунь для сухого та пошкодженого волосся.", "Шампунь для сухого волосся", 299.99m }
+                    { 1, 1, "\\img\\product\\no_cover.jpg", "Крем для інтенсивного зволоження шкіри.", 1, "Зволожуючий крем", 499.99m, 1 },
+                    { 2, 2, "\\img\\product\\no_cover.jpg", "Відновлюючий шампунь для сухого та пошкодженого волосся.", 2, "Шампунь для сухого волосся", 299.99m, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductAllergens",
+                columns: new[] { "AllergenId", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 3, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductIngredients",
+                columns: new[] { "IngredientId", "ProductId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 3, 1 },
+                    { 2, 2 },
+                    { 4, 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -509,6 +617,16 @@ namespace BeautyVi.Core.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Products_EffectTypeId",
+                table: "Products",
+                column: "EffectTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_SuitableForId",
+                table: "Products",
+                column: "SuitableForId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserPreferences_UserId",
                 table: "UserPreferences",
                 column: "UserId",
@@ -568,6 +686,12 @@ namespace BeautyVi.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "EffectTypes");
+
+            migrationBuilder.DropTable(
+                name: "SuitableForOptions");
         }
     }
 }

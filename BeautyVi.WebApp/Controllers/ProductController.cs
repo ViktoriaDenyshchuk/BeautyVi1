@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using BeautyVi.Core.Entities;
 using System.Reflection;
+using System.Security.Claims;
 
 namespace BeautyVi.WebApp.Controllers
 {
@@ -41,8 +42,28 @@ namespace BeautyVi.WebApp.Controllers
             await _context.SaveChangesAsync();
         }
 
+        /*public IActionResult Index()
+        {
+            var allProducts = productRepository.GetAll();
+
+            return View(allProducts);
+        }*/
         public IActionResult Index()
         {
+            // Оновіть ViewBag з правильними типами волосся і шкіри
+            ViewBag.HairTypes = _context.SuitableForOptions
+                .Where(s => s.NameSuitableFor.Contains("волосся"))
+                .ToList();
+
+            ViewBag.SkinTypes = _context.SuitableForOptions
+                .Where(s => s.NameSuitableFor.Contains("шкіра"))
+                .ToList();
+
+            ViewBag.AvoidedAllergens = _context.Allergens.ToList();
+            ViewBag.EffectTypes = _context.EffectTypes.ToList();
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Ingredients = _context.Ingredients.ToList();
+
             var allProducts = productRepository.GetAll();
 
             return View(allProducts);
@@ -55,17 +76,24 @@ namespace BeautyVi.WebApp.Controllers
                 .Where(product => product.Name.Contains(searchTerm)
                 || product.Description.Contains(searchTerm)
                 || product.Category.NameCategory.Contains(searchTerm)
+                || product.EffectType.NameEffectType.Contains(searchTerm)
+                || product.SuitableFor.NameSuitableFor.Contains(searchTerm)
                 || product.Price.ToString().Contains(searchTerm))
                 .ToList();
 
             return View("Index", searchResults);
         }
 
-       
         public IActionResult Details(int id)
         {
             var product = _context.Products
                 .Include(p => p.Category)
+                .Include(p => p.EffectType)
+                .Include(p => p.SuitableFor)
+                .Include(p => p.ProductIngredients)
+                    .ThenInclude(pi => pi.Ingredient)
+                .Include(p => p.ProductAllergens)
+                    .ThenInclude(pi => pi.Allergen)
                 .FirstOrDefault(p => p.Id == id);
 
             if (product == null)
@@ -81,13 +109,14 @@ namespace BeautyVi.WebApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            // Отримайте список категорій з бази даних
             var categories = _context.Categories.ToList();
+            var effectTypes = _context.EffectTypes.ToList();
+            var suitableForOptions = _context.SuitableForOptions.ToList();
 
-            // Передайте список категорій у ваше представлення
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
+            ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
+            ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
 
-            // Створіть пустий об'єкт Listing та передайте його у представлення
             return View(new Product());
         }
 
@@ -116,7 +145,11 @@ namespace BeautyVi.WebApp.Controllers
 
 
             var categories = _context.Categories.ToList();
+            var effectTypes = _context.EffectTypes.ToList();
+            var suitableForOptions = _context.SuitableForOptions.ToList();
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
+            ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
+            ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
             return View(model);
         }
 
@@ -186,10 +219,14 @@ namespace BeautyVi.WebApp.Controllers
             {
                 return NotFound();
             }
-                var categories = _context.Categories.ToList();
-                ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
+            var categories = _context.Categories.ToList();
+            var effectTypes = _context.EffectTypes.ToList();
+            var suitableForOptions = _context.SuitableForOptions.ToList();
+            ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
+            ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
+            ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
 
-                return View(item);
+            return View(item);
         }
 
         [HttpPost]
@@ -207,8 +244,10 @@ namespace BeautyVi.WebApp.Controllers
                             existingItem.Description = item.Description;
                             existingItem.Price = item.Price;
                             existingItem.Category = item.Category;
+                            existingItem.EffectType = item.EffectType;
+                            existingItem.SuitableFor = item.SuitableFor;
 
-                            if (item.CoverFile != null)
+                        if (item.CoverFile != null)
                             {
                                 string wwwRootPath = webHostEnvironment.WebRootPath;
                                 string fileName = Path.GetFileNameWithoutExtension(item.CoverFile.FileName);
@@ -224,6 +263,8 @@ namespace BeautyVi.WebApp.Controllers
                             }
 
                             existingItem.CategoryId = item.CategoryId;
+                            existingItem.EffectTypeId = item.EffectTypeId;
+                            existingItem.SuitableForId = item.SuitableForId;
 
                             productRepository.Update(existingItem);
                             productRepository.Save();
@@ -243,9 +284,86 @@ namespace BeautyVi.WebApp.Controllers
             }
             // If ModelState is not valid, return to the edit view
             var categories = _context.Categories.ToList();
+            var effectTypes = _context.EffectTypes.ToList();
+            var suitableForOptions = _context.SuitableForOptions.ToList();
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
+            ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
+            ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
             return View(item);
         }
+
+        public IActionResult FilterByPreferences(
+    string hairType,
+    string skinType,
+    string avoidedAllergens,
+    string effectType,
+    string category,
+    string[] avoidedIngredients)
+        {
+            // Ініціалізація даних для фільтра
+            ViewBag.HairTypes = _context.SuitableForOptions
+                .Where(s => s.NameSuitableFor.Contains("волосся"))
+                .ToList();
+            ViewBag.SkinTypes = _context.SuitableForOptions
+                .Where(s => s.NameSuitableFor.Contains("шкіра"))
+                .ToList();
+            ViewBag.AvoidedAllergens = _context.Allergens.ToList();
+            ViewBag.EffectTypes = _context.EffectTypes.ToList();
+            ViewBag.Categories = _context.Categories.ToList();
+            ViewBag.Ingredients = _context.Ingredients.ToList();
+
+            // Побудова запиту
+            var query = _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.SuitableFor)
+                .Include(p => p.EffectType)
+                .Include(p => p.ProductIngredients)
+                    .ThenInclude(pi => pi.Ingredient)
+                .Include(p => p.ProductAllergens)
+                    .ThenInclude(pa => pa.Allergen)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(p => p.Category.NameCategory.Contains(category));
+            }
+
+            if (!string.IsNullOrEmpty(hairType))
+            {
+                query = query.Where(p => p.SuitableFor.NameSuitableFor.Contains(hairType));
+            }
+
+            if (!string.IsNullOrEmpty(skinType))
+            {
+                query = query.Where(p => p.SuitableFor.NameSuitableFor.Contains(skinType));
+            }
+
+            if (!string.IsNullOrEmpty(avoidedAllergens))
+            {
+                query = query.Where(p => p.ProductAllergens.Any(pa => pa.Allergen.Name.Contains(avoidedAllergens)));
+            }
+
+            if (!string.IsNullOrEmpty(effectType))
+            {
+                query = query.Where(p => p.EffectType.NameEffectType.Contains(effectType));
+            }
+
+            if (avoidedIngredients != null && avoidedIngredients.Length > 0)
+            {
+                query = query.Where(p => !p.ProductIngredients
+                    .Any(pi => avoidedIngredients.Contains(pi.Ingredient.Name)));
+            }
+
+            // Виконання запиту та повернення результатів
+            var products = query.ToList();
+            return View("FilteredProducts", products);
+        }
+
+
+
+
+
+
     }
 }
 

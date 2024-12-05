@@ -1,21 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Перевірка інгредієнтів";
-}
+﻿@model IEnumerable<BeautyVi.Core.Entities.Ingredient>
 
-<h2>@ViewData["Title"]</h2>
+<h2>Перевірка складу продукту</h2>
 
 <form asp-action="CheckIngredients" method="post">
     <div class="form-group">
-        <label for="ingredientsList">Введіть список інгредієнтів (через кому):</label>
-        <textarea id="ingredientsList" name="ingredientsList" class="form-control" rows="4"></textarea>
+        <label for="ingredientsInput">Введіть склад продукту (кожен інгредієнт на новому рядку):</label>
+        <textarea id="ingredientsInput" name="ingredientsInput" class="form-control" rows="6" placeholder="Наприклад:
+Water
+Alcohol
+Sodium Chloride"></textarea>
     </div>
-
-    <button type="submit" class="btn btn-primary">Перевірити</button>
+    <button type="submit" class="btn btn-primary mt-3">Перевірити</button>
 </form>
 
-@if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+@if (Model != null && Model.Any())
 {
-    <div class="alert alert-danger mt-2">
-        <strong>Помилка!</strong> @ViewData["ErrorMessage"]
-    </div>
+    <h3>Знайдені інгредієнти:</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Безпечний/Не безпечний</th>
+                <th>Рівень небезпеки</th>
+                <th>Категорія</th>
+                <th>Опис</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ingredient in Model)
+            {
+                <tr>
+                    <td>@ingredient.Name</td>
+                    <td>@(ingredient.IsHarmful ? "Не безпечний" : "Безпечний")</td>
+                    <td>@ingredient.LevelOfDanger</td>
+                    <td>@ingredient.Category</td>
+                    <td>@ingredient.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p class="text-success">Склад безпечний! Жодного небезпечного інгредієнта не знайдено.</p>
 }
