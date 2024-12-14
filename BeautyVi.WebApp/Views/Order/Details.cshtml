@@ -4,49 +4,57 @@
     ViewData["Title"] = "Order Details";
 }
 
-<h2>Order Details</h2>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Деталі замовлення</h2>
 
-<div class="card">
-    <div class="card-body">
-        <h4>Order ID: @Model.Id</h4>
-        <p><strong>User:</strong> @Model.User?.UserName</p>
-        <p><strong>Order Date:</strong> @Model.OrderDate.ToString("yyyy-MM-dd")</p>
-        <p><strong>Status:</strong> @Model.Status</p>
-        <p><strong>Total Amount:</strong> @Model.TotalAmount.ToString("C")</p>
-        <p><strong>Shipping Address:</strong> @Model.ShippingAddress</p>
+    <div class="card mt-4" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+        <div class="card-body" style="background-color: #fdf8f4;">
+            <h4 style="color: #4a4a4a;">Замовлення @Model.Id</h4>
+            <p style="color: #4a4a4a;"><strong>Користувач:</strong> @Model.User?.UserName</p>
+            <p style="color: #4a4a4a;"><strong>Дата замовлення:</strong> @Model.OrderDate</p>
+            <p style="color: #4a4a4a;"><strong>Статус:</strong> @Model.Status</p>
+            <p style="color: #7a6f5b; font-weight: bold;"><strong>Загальна сума:</strong> @Model.TotalAmount</p>
+            <p style="color: #4a4a4a;"><strong>Адреса доставки:</strong> @Model.ShippingAddress</p>
+        </div>
     </div>
-</div>
 
-<h3>Order Items</h3>
+    <h3 class="mt-5 text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Товари у замовленні</h3>
 
-@if (Model.OrderItems != null && Model.OrderItems.Any())
-{
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Subtotal</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.OrderItems)
-            {
+    @if (Model.OrderItems != null && Model.OrderItems.Any())
+    {
+        <table class="table table-striped mt-3" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+            <thead style="background-color: #7a6f5b; color: #fff;">
                 <tr>
-                    <td>@item.Product?.Name</td>
-                    <td>@item.Quantity</td>
-                    <td>@item.UnitPrice.ToString("C")</td>
-                    <td>@item.TotalPrice.ToString("C")</td>
+                    <th>Назва продукту</th>
+                    <th>Кількість</th>
+                    <th>Ціна за одиницю</th>
+                    <th>Сума</th>
+                    <th>Деталі продукту</th>
                 </tr>
-        }
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderItems)
+                {
+                    <tr>
+                        <td style="color: #4a4a4a;">@item.Product?.Name</td>
+                        <td style="color: #4a4a4a; text-align: center;">@item.Quantity</td>
+                        <td style="color: #4a4a4a; text-align: center;">@item.UnitPrice.ToString("C")</td>
+                        <td style="color: #7a6f5b; font-weight: bold; text-align: center;">@item.TotalPrice.ToString("C")</td>
+                        <td><a href="@Url.Action("Details", "Product", new { id = @item.Product?.Id })" style="color: #7a6f5b; text-decoration: none;">Деталі продукту</a></td>
+                    </tr>
+                }
             </tbody>
         </table>
     }
     else
     {
-        <p>No items in this order.</p>
+        <p class="text-center mt-4" style="color: #4a4a4a;">У цьому замовленні немає товарів.</p>
     }
-<a asp-action="Index" class="btn btn-secondary">Back to Orders</a>
-<a href="@Url.Action("Index", "OrderItem")">Order Item</a> |
 
+    <div class="text-center mt-5">
+        <a asp-action="Index" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Повернутись до замовлень
+        </a>
+    </div>
+</div>

@@ -30,13 +30,24 @@ namespace BeautyVi.WebApp.Controllers
             this._userManager = userManager;
            // this._productRepository = productRepository;
         }
-        //[Authorize(Roles = "Admin")]
+
         public IActionResult Index()
         {
-            var orders = orderRepository.GetAll();
+            IEnumerable<Order> orders;
+
+            if (User.IsInRole("Admin"))
+            {
+                orders = orderRepository.GetAll();
+            }
+            else
+            {
+                var userId = _userManager.GetUserId(User);
+                orders = orderRepository.GetAll().Where(order => order.UserId == userId);
+            }
 
             return View(orders);
         }
+
         //[Authorize(Roles = "Client")]
         /*[HttpGet]
         public IActionResult Create()
@@ -72,7 +83,13 @@ namespace BeautyVi.WebApp.Controllers
              {
                  return NotFound();
              }
-             return View(orderRepository.Get(id));
+            // Перевірити, чи поточний користувач має право переглядати це замовлення
+            if (_userManager.GetUserId(User) != order.UserId && !User.IsInRole("Admin"))
+            {
+                return Forbid();
+            }
+
+            return View(orderRepository.Get(id));
          }
 
         public List<SelectListItem> ProductItems { get; set; } = new List<SelectListItem>();
@@ -211,5 +228,77 @@ namespace BeautyVi.WebApp.Controllers
             return RedirectToAction(nameof(Index)); // Перенаправлення на список замовлень
 
         }
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var item = orderRepository.Get(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+            var users = _context.Users.ToList();
+            var orderItems = _context.OrderItems.ToList();
+
+            return View(item);
+        }
+
+        /*[Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> Edit(Order order)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(order);
+            }
+
+            var existingOrder = await _context.Orders.FindAsync(order.Id);
+            if (existingOrder == null)
+            {
+                return NotFound();
+            }
+
+            // Оновлюємо тільки статус
+            existingOrder.Status = order.Status;
+
+            orderRepository.Update(existingOrder);
+            orderRepository.Save();
+
+            return RedirectToAction(nameof(Index));
+        }*/
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult Edit(Order item)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Якщо модель не валідна, повертаємо форму
+                return View(item);
+            }
+
+            var existingItem = orderRepository.Get(item.Id);
+
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
+
+            // Оновлення потрібних полів
+            existingItem.Status = item.Status;
+
+            // Не оновлюємо OrderItems, якщо це не передається через форму
+            // existingItem.OrderItems = item.OrderItems;
+
+            orderRepository.Update(existingItem);
+            orderRepository.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
     }
 }

@@ -25,8 +25,6 @@ namespace BeautyVi.Core.Entities
         public virtual Category? Category { get; set; }
         public int? CategoryId { get; set; }
 
-        //public string EffectType { get; set; } // Наприклад: "Moisturizing", "Nourishing", "Anti-Aging"
-        //public string SuitableFor { get; set; } // Наприклад: "Dry Skin", "Oily Hair", "Sensitive Skin"
         public int? EffectTypeId { get; set; } 
         public virtual EffectType? EffectType { get; set; } 
 
@@ -35,10 +33,9 @@ namespace BeautyVi.Core.Entities
 
         public virtual ICollection<ProductIngredient>? ProductIngredients { get; set; }
         public virtual ICollection<ProductAllergen>? ProductAllergens { get; set; }
-        // Властивість для зв'язку з OrderItems
+
         public virtual ICollection<OrderItem>? OrderItems { get; set; }
 
-        // Властивість для зв'язку з ProductRecommendations
         public virtual ICollection<ProductRecommendation>? ProductRecommendations { get; set; }
     }
 

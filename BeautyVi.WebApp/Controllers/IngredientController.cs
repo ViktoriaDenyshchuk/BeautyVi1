@@ -1,4 +1,4 @@
-﻿using BeautyVi.Core.Entities; // Імпортуємо правильний простір імен
+﻿using BeautyVi.Core.Entities; 
 using BeautyVi.Repositories.Interfaces;
 using BeautyVi.Repositories.Repos;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +20,6 @@ namespace BeautyVi.Controllers
             this.ingredientRepository = ingredientRepository;
             this.webHostEnvironment = webHostEnviroment;
             this._context = context;
-            //this._userManager = userManager;
         }
 
         public IActionResult Index()
@@ -36,10 +35,9 @@ namespace BeautyVi.Controllers
             return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult CheckIngredients(string ingredientsInput)
         {
-            // Розділяємо введені інгредієнти на окремі рядки
             var inputIngredients = ingredientsInput?
                 .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(i => i.Trim())
@@ -51,64 +49,49 @@ namespace BeautyVi.Controllers
                 return View();
             }
 
-            // Шукаємо інгредієнти в базі даних
             var matchedIngredients = _context.Ingredients
                 .Where(i => inputIngredients.Contains(i.Name))
                 .ToList();
 
-            // Передаємо знайдені інгредієнти у View
-            return View(matchedIngredients);
-        }
-
-        // Метод для перегляду форми введення інгредієнтів
-        /*[HttpGet]
-        public IActionResult CheckIngredients()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CheckIngredients(string ingredientsList)
-        {
-            if (string.IsNullOrEmpty(ingredientsList))
+            if (matchedIngredients.Any())
             {
-                ModelState.AddModelError(string.Empty, "Будь ласка, введіть список інгредієнтів.");
+                ViewBag.AverageDangerLevel = matchedIngredients.Average(i => i.LevelOfDanger);
+            }
+
+            return View(matchedIngredients);
+        }*/
+        [HttpPost]
+        public IActionResult CheckIngredients(string ingredientsInput)
+        {
+            var inputIngredients = ingredientsInput?
+                .Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(i => i.Trim())
+                .ToList();
+
+            if (inputIngredients == null || inputIngredients.Count == 0)
+            {
+                ViewBag.Message = "Будь ласка, введіть список інгредієнтів для перевірки.";
                 return View();
             }
 
-            // Розбиваємо введений список на окремі інгредієнти
-            var ingredientNames = ingredientsList.Split(',').Select(x => x.Trim()).ToList();
+            // Отримати знайдені інгредієнти з бази даних
+            var matchedIngredients = _context.Ingredients
+                .Where(i => inputIngredients.Contains(i.Name))
+                .ToList();
 
-            var ingredients = new List<Ingredient>();
+            // Знайти інгредієнти, яких немає в базі даних
+            var unknownIngredients = inputIngredients
+                .Where(i => !matchedIngredients.Any(m => m.Name == i))
+                .ToList();
 
-            // Отримуємо всі інгредієнти з бази даних
-            var allIngredients = ingredientRepository.GetAll();
+            // Передати знайдені та невідомі інгредієнти у View
+            ViewBag.UnknownIngredients = unknownIngredients;
+            ViewBag.AverageDangerLevel = matchedIngredients.Any()
+                ? matchedIngredients.Average(i => i.LevelOfDanger)
+                : (double?)null;
 
-            foreach (var ingredientName in ingredientNames)
-            {
-                // Шукаємо інгредієнт по назві серед всіх інгредієнтів
-                var ingredient = allIngredients.FirstOrDefault(i => i.Name.Equals(ingredientName, StringComparison.OrdinalIgnoreCase));
-
-                if (ingredient != null)
-                {
-                    ingredients.Add(ingredient);
-                }
-                else
-                {
-                    ingredients.Add(new Ingredient
-                    {
-                        Name = ingredientName,
-                        IsHarmful = false,
-                        LevelOfDanger = 0,
-                        Description = "Інгредієнт не знайдений в базі даних."
-                    });
-                }
-            }
-
-            return View("IngredientCheckResults", ingredients);
-        }*/
-
-
+            return View(matchedIngredients);
+        }
 
     }
 }

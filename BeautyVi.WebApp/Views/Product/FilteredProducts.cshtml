@@ -1,27 +1,35 @@
 ﻿@model IEnumerable<BeautyVi.Core.Entities.Product>
 
-<h2>Результати фільтрації</h2>
+<div class="container mt-5">
+    <h2 class="text-center text-uppercase mb-4" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Продукти</h2>
 
-@if (Model.Any())
-{
-    <div class="row">
-        @foreach (var product in Model)
-        {
-            <div class="col-4">
-                <div class="card mb-4">
-                    <img src="@product.CoverPath" class="card-img-top" alt="@product.Name">
-                    <div class="card-body">
-                        <h5 class="card-title">@product.Name</h5>
-                        <p class="card-text">@product.Description</p>
-                        <p><strong>Ціна:</strong> @product.Price грн</p>
-                        <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn btn-primary">Детальніше</a>
+    @if (Model.Any())
+    {
+        <div class="row g-4">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card shadow-sm" style="border: 1px solid #e3e3e3; border-radius: 4px; overflow: hidden;">
+                        <img src="@product.CoverPath" class="card-img-top" alt="@product.Name" style="height: 250px; object-fit: cover;">
+                        <div class="card-body" style="background-color: #fdf8f4;">
+                            <h5 class="card-title" style="color: #4a4a4a; font-family: 'Playfair Display', serif;">@product.Name</h5>
+                            <p class="card-text" style="color: #6c757d;">@product.Description</p>
+                            <p style="font-weight: bold; color: #7a6f5b;">Ціна: @product.Price грн</p>
+                            <div class="text-center">
+                                <a href="@Url.Action("Details", "Product", new { id = product.Id })"
+                                   class="btn"
+                                   style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">
+                                    Детальніше
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-    </div>
-}
-else
-{
-    <p>Продуктів, які відповідають вашим критеріям, не знайдено.</p>
-}
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center mt-4" style="color: #6c757d; font-size: 18px;">Продуктів, які відповідають вашим критеріям, не знайдено.</p>
+    }
+</div>

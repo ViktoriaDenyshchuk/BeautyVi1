@@ -44,34 +44,9 @@ namespace BeautyVi.Reposotories.Repos
             throw new NotImplementedException();
         }
 
-        public Task<Product> GetByIdAsync(int id)
+        public Product GetProductById(int productId)
         {
             throw new NotImplementedException();
         }
-
-        int IProductRepository.Find(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task IProductRepository.SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Product GetListingById(int listingId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Product> GetByCategory(int categoryId)
-        {
-            throw new NotImplementedException();
-        }
-
-        //public IEnumerable<Listing> SearchListings(string searchTerm)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

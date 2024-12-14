@@ -1,50 +1,86 @@
 ﻿@model BeautyVi.Core.Entities.Product
 
-<h2>Додати новий продукт</h2>
-<div asp-validation-summary="All" class="text-danger"></div>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Додати новий продукт</h2>
+    <div class="form-container mt-4 p-5 shadow-lg" style="background-color: #fdf8f4; border-radius: 4px; margin: auto;">
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
-    <div>
-        <label asp-for="Name">Назва</label>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        <div asp-validation-summary="All" class="text-danger mb-4"></div>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label" style="font-weight: bold; color: #4a4a4a;">Назва продукту</label>
+                <input asp-for="Name" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Наприклад, зволожуючий крем" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label" style="font-weight: bold; color: #4a4a4a;">Ціна</label>
+                <input asp-for="Price" type="number" step="0.01" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Вкажіть ціну в грн" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Категорія</label>
+                <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть категорію</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EffectTypeId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Тип ефекту</label>
+                <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть тип ефекту</option>
+                </select>
+                <span asp-validation-for="EffectTypeId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SuitableForId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Підходить для</label>
+                <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть тип шкіри/волосся</option>
+                </select>
+                <span asp-validation-for="SuitableForId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Інгредієнти</label>
+                <select name="ProductIngredients" multiple class="form-control" style="border-radius: 2px; padding: 10px;">
+                    @foreach (var ingredient in ViewBag.IngredientList)
+                    {
+                        <option value="@ingredient.Id">@ingredient.Name</option>
+
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Алергени</label>
+                <select name="ProductAllergens" multiple class="form-control" style="border-radius: 2px; padding: 10px;">
+                    @foreach (var allergen in ViewBag.AllergenList)
+                    {
+                        <option value="@allergen.Value">@allergen.Text</option>
+                    }
+                </select>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label asp-for="CoverFile" class="form-label" style="font-weight: bold; color: #4a4a4a;">Додати фото</label>
+                <input asp-for="CoverFile" type="file" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" />
+                <span asp-validation-for="CoverFile" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label" style="font-weight: bold; color: #4a4a4a;">Склад продукту</label>
+                <textarea asp-for="Description" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" rows="5" placeholder="Вкажіть склад продукту"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn" style="background-color: #7a6f5b; color: #fff; border-radius: 2px; padding: 10px 30px; font-weight: bold; text-transform: uppercase;">Додати продукт</button>
+            </div>
+        </form>
     </div>
-
-    <div>
-        <label asp-for="Description">Склад</label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="Price">Ціна</label>
-        <input asp-for="Price" type="number" step="0.01" class="form-control" />
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="CategoryId">Категорія</label>
-        <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control"></select>
-        <span asp-validation-for="CategoryId" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="EffectTypeId">Тип ефекту</label>
-        <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control"></select>
-        <span asp-validation-for="EffectTypeId" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="SuitableForId">Підходить для</label>
-        <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control"></select>
-        <span asp-validation-for="SuitableForId" class="text-danger"></span>
-    </div>
-
-    <div>
-        <label asp-for="CoverFile">Фото</label>
-        <input asp-for="CoverFile" type="file" class="form-control" />
-        <span asp-validation-for="CoverFile" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Додати</button>
-</form>
+</div>

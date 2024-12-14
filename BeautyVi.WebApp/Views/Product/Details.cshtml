@@ -1,6 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore
-
 @using BeautyVi.Core.Entities;
 @using System.Security.Claims;
 
@@ -10,155 +9,124 @@
     ViewData["Title"] = Model.Name;
 }
 
-<h1>Продукт</h1>
-<div class="row col-4">
-    <img src="@Model.CoverPath" class="card-img-top" alt="@Model.Name">
-</div>
-<hr />
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg" style="border: 1px solid #e3e3e3; border-radius: 8px; background-color: #fdf8f4;">
+        <!-- Зображення продукту -->
+        <img src="@Model.CoverPath" class="card-img-top" alt="@Model.Name" style="border-top-left-radius: 8px; border-top-right-radius: 8px; height: 300px; object-fit: cover;">
 
-<div class="row">
-    <div class="col-2">Назва:</div>
-    <div class="col-10"><strong>@Model.Name</strong></div>
-</div>
-<hr />
+        <!-- Інформація про продукт -->
+        <div class="card-body" style="padding: 20px;">
+            <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">@Model.Name</h2>
+            <hr />
 
-<div class="row">
-    <div class="col-2">Категорія:</div>
-    <div class="col-4">
-        @if (Model.Category != null)
-        {
-            @ViewBag.OwnerCategory
-        }
-        else
-        {
-            <span>Категорія не визначена</span>
-        }
-    </div>
-</div>
-<hr />
-
-<!-- Відображення для типу ефекту -->
-<div class="row">
-    <div class="col-2">Тип ефекту:</div>
-    <div class="col-4">
-        @if (Model.EffectType != null)
-        {
-            <span>@Model.EffectType.NameEffectType</span> <!-- Виводимо значення типу ефекту -->
-        }
-        else
-        {
-            <span>Тип ефекту не визначений</span>
-        }
-    </div>
-</div>
-<hr />
-
-<!-- Відображення для підходу для -->
-<div class="row">
-    <div class="col-2">Підходить для:</div>
-    <div class="col-4">
-        @if (Model.SuitableFor != null)
-        {
-            <span>@Model.SuitableFor.NameSuitableFor</span> <!-- Виводимо значення підходу для -->
-        }
-        else
-        {
-            <span>Інформація не доступна</span>
-        }
-    </div>
-</div>
-<hr />
-
-<!-- Відображення для підходу для -->
-<div class="row">
-    <div class="col-2">Склад:</div>
-    <div class="col-4">
-        @if (Model.ProductIngredients != null && Model.ProductIngredients.Any())
-        {
-            <ul>
-                @foreach (var ingredient in Model.ProductIngredients)
+            <!-- Категорія -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Категорія:</strong>
+                @if (Model.Category != null)
                 {
-                    <li>@ingredient.Ingredient.Name</li>
+                    <span style="color: #7a6f5b;">@ViewBag.OwnerCategory</span>
                 }
-            </ul>
-        }
-        else
-        {
-            <span>Інформація не доступна</span>
-        }
-    </div>
-</div>
-<hr />
-
-<div class="row">
-    <div class="col-2">Алергени:</div>
-    <div class="col-4">
-        @if (Model.ProductAllergens != null && Model.ProductAllergens.Any())
-        {
-            <ul>
-                @foreach (var allergen in Model.ProductAllergens)
+                else
                 {
-                    <li>@allergen.Allergen.Name</li>
+                    <span style="color: #d9534f;">Категорія не визначена</span>
                 }
-            </ul>
-        }
-        else
-        {
-            <span>Інформація не доступна</span>
-        }
-    </div>
+            </div>
+
+            <!-- Тип ефекту -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Тип ефекту:</strong>
+                @if (Model.EffectType != null)
+                {
+                    <span style="color: #7a6f5b;">@Model.EffectType.NameEffectType</span>
+                }
+                else
+                {
+                    <span style="color: #d9534f;">Тип ефекту не визначений</span>
+                }
+            </div>
+
+            <!-- Підходить для -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Підходить для:</strong>
+                @if (Model.SuitableFor != null)
+                {
+                    <span style="color: #7a6f5b;">@Model.SuitableFor.NameSuitableFor</span>
+                }
+                else
+                {
+                    <span style="color: #d9534f;">Інформація не доступна</span>
+                }
+            </div>
+
+            <!-- Склад -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Опис:</strong>
+                <p style="color: #7a6f5b;">@Model.Description</p>
+            </div>
+
+            <!-- Інгредієнти -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Склад:</strong>
+                @if (Model.ProductIngredients != null && Model.ProductIngredients.Any())
+                {
+                    <ul style="list-style-type: disc; padding-left: 20px; color: #7a6f5b;">
+                        @foreach (var ingredient in Model.ProductIngredients)
+                        {
+                            <li>@ingredient.Ingredient.Name</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span style="color: #d9534f;">Інформація не доступна</span>
+                }
+            </div>
+
+            <!-- Алергени -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Алергени:</strong>
+                @if (Model.ProductAllergens != null && Model.ProductAllergens.Any())
+                {
+                    <ul style="list-style-type: disc; padding-left: 20px; color: #7a6f5b;">
+                        @foreach (var allergen in Model.ProductAllergens)
+                        {
+                            <li>@allergen.Allergen.Name</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span style="color: #d9534f;">Інформація не доступна</span>
+                }
+            </div>
+
+            <!-- Ціна -->
+            <div class="mb-3">
+                <strong style="color: #4a4a4a;">Ціна:</strong>
+                <span style="color: #7a6f5b;">@Model.Price грн</span>
+            </div>
+
+            <!-- Кнопки -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="@Url.Action("Index", "Product")" class="btn"
+                   style="background-color: transparent; color: #4a4a4a; border: 2px solid #4a4a4a; text-transform: uppercase; font-weight: bold;">
+                    Назад до списку
+                </a>
+                <a href="@Url.Action("Create", "Order", new { productId = Model.Id, nameOrder = Model.Name, price = Model.Price })" class="btn"
+                   style="background-color: #7a6f5b; color: #fff; text-transform: uppercase; font-weight: bold;">
+                    Зробити замовлення
+                </a>
+            </div>
+            <div class="text-center mt-4">
+                <a href="@Url.Action("Edit", "Product", new { id = Model.Id })" class="btn"
+                   style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; text-transform: uppercase; font-weight: bold;">
+                    Редагувати
+                </a>
+                <a href="@Url.Action("Delete", "Product", new { id = Model.Id })" class="btn"
+                   style="background-color: transparent; color: #d9534f; border: 2px solid #d9534f; text-transform: uppercase; font-weight: bold;">
+                    Видалити
+                </a>
+                </div>
+            </div>
+        </div>
 </div>
-<hr />
-
-
-<div class="row">
-    <div class="col-2">Склад:</div>
-    <div class="col-4">@Model.Description</div>
-</div>
-<hr />
-
-
-<div class="row">
-    <div class="col-2">Ціна:</div>
-    <div class="col-4">@Model.Price</div>
-</div>
-<hr />
-
-<div class="row">
-    <div class="col-1">
-        <a href="@Url.Action("Edit", "Product", new { id = Model.Id })" class="btn btn-primary">Редагувати</a>
-    </div>
-</div>
-<br />
-
-<div class="row">
-    <div class="col-1">
-        <a href="@Url.Action("Delete", "Product", new { id = Model.Id })" class="btn btn-primary">Видалити</a>
-    </div>
-</div>
-<hr />
-
-<div class="row">
-    <div class="col-2">
-        <a href="@Url.Action("Create", "Order", new { productId = Model.Id, nameOrder = Model.Name, price = Model.Price })" class="btn btn-success"
-           style="width: 200px; margin-top: 10px;">Зробити замовлення</a>
-    </div>
-</div>
-
-<a asp-action="Index">Назад</a>
-
-
-<style>
-    .heart-button {
-        background: none; /* Remove background color */
-        border: none; /* Remove border */
-        padding: 0; /* Remove padding */
-        color: #435EBE; /* Set the heart color */
-        margin-left: 250px;
-    }
-
-        .heart-button:hover {
-            color: #314682;
-        }
-</style>
-

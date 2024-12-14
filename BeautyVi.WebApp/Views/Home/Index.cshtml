@@ -1,13 +1,53 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Головна сторінка";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <a href="@Url.Action("Index", "Product")">Product</a> |
-    <a href="@Url.Action("Index", "Order")">All Order</a> |
-    <a href="@Url.Action("CheckIngredients", "Ingredient")">Check Ingredients</a> /
-    <a href="@Url.Action("Index", "Ingredient")">Ingredients</a>
-</div>
+<div class="container mt-5">
+    <div class="jumbotron text-center" style="background-color: #fdf8f4; border-radius: 8px; padding: 40px; border: 2px solid #e3e3e3;">
+        <h1 class="display-4" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Ласкаво просимо до BeautyVi!</h1>
+        <img src="img/home3.jpg" class="card-img-top" alt="Ingredients" style="border-top-left-radius: 8px; border-top-right-radius: 8px; height: 400px; width: 100%; object-fit: cover;">
+        <hr class="my-4" style="border-color: #e3e3e3;" />
+        <p style="color: #4a4a4a;">Обирайте продукцію, перевіряйте інгредієнти та отримуйте персоналізовані рекомендації.</p>
+        <a href="@Url.Action("Index", "Product")" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Продукти
+        </a>
+        <a href="@Url.Action("Index", "Order")" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Замовлення
+        </a>
+        <a href="@Url.Action("CheckIngredients", "Ingredient")" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Перевірка інгредієнтів
+        </a>
+        <!--<a href="@Url.Action("Index", "Ingredient")" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Інгредієнти
+        </a>-->
+    </div>
 
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+                <img src="img/home1.jpg" class="card-img-top" alt="Products" style="border-top-left-radius: 8px; border-top-right-radius: 8px; max-height: 250px; width: 100%; object-fit: cover;">
+                <div class="card-body" style="background-color: #fdf8f4;">
+                    <h5 class="card-title" style="color: #7a6f5b;">Продукти</h5>
+                    <p class="card-text" style="color: #4a4a4a;">Оберіть серед широкого асортименту косметичних засобів.</p>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-primary" style="background-color: #7a6f5b; border: none;">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+                <img src="img/ing.jpg" class="card-img-top" alt="Ingredients" style="border-top-left-radius: 8px; border-top-right-radius: 8px; max-height: 250px; width: 100%; object-fit: cover;">
+                <div class="card-body" style="background-color: #fdf8f4;">
+                    <h5 class="card-title" style="color: #7a6f5b;">Перевірка інгредієнтів</h5>
+                    <p class="card-text" style="color: #4a4a4a;">Дізнайтеся, наскільки безпечний склад продукту.</p>
+                    <a href="@Url.Action("CheckIngredients", "Ingredient")" class="btn btn-primary" style="background-color: #7a6f5b; border: none;">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

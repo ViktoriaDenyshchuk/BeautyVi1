@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BeautyVi.Core.Migrations
 {
     [DbContext(typeof(BeautyViContext))]
-    [Migration("20241204185010_InitialMigration")]
+    [Migration("20241214032951_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -227,20 +227,17 @@ namespace BeautyVi.Core.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("OrderDate")
+                    b.Property<DateTime?>("OrderDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ShippingAddress")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<decimal>("TotalAmount")
+                    b.Property<decimal?>("TotalAmount")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("UserId")
@@ -256,11 +253,11 @@ namespace BeautyVi.Core.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDate = new DateTime(2024, 12, 4, 18, 50, 10, 27, DateTimeKind.Utc).AddTicks(9490),
+                            OrderDate = new DateTime(2024, 12, 14, 3, 29, 51, 703, DateTimeKind.Utc).AddTicks(1920),
                             ShippingAddress = "123 Main St",
                             Status = "Completed",
                             TotalAmount = 50.00m,
-                            UserId = "b8124004-2115-42fb-a3a6-9d896ab39bf6"
+                            UserId = "b2bac63f-37e3-40ba-9ea9-f830589cb1be"
                         });
                 });
 
@@ -561,13 +558,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6254218c-e522-4854-aedd-a8b3ac5b4f91",
+                            Id = "f7438b56-53c8-419b-b6eb-6c34f574fecf",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "cbf3ade9-87b1-4a08-859e-e1ef72889b16",
+                            Id = "3a9a618b-3104-457e-b395-c4def0e4fca1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -738,13 +735,13 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "7c163ec4-fda6-4aee-8912-d7b0a4722860",
-                            RoleId = "cbf3ade9-87b1-4a08-859e-e1ef72889b16"
+                            UserId = "c90349cb-58a4-4b86-876e-db384e71754c",
+                            RoleId = "3a9a618b-3104-457e-b395-c4def0e4fca1"
                         },
                         new
                         {
-                            UserId = "b8124004-2115-42fb-a3a6-9d896ab39bf6",
-                            RoleId = "6254218c-e522-4854-aedd-a8b3ac5b4f91"
+                            UserId = "b2bac63f-37e3-40ba-9ea9-f830589cb1be",
+                            RoleId = "f7438b56-53c8-419b-b6eb-6c34f574fecf"
                         });
                 });
 
@@ -778,33 +775,33 @@ namespace BeautyVi.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "b8124004-2115-42fb-a3a6-9d896ab39bf6",
+                            Id = "b2bac63f-37e3-40ba-9ea9-f830589cb1be",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9b9e52f1-0df3-427f-a6dc-77717cc7ed88",
+                            ConcurrencyStamp = "e037b91a-18be-451a-a103-1fd122478c5d",
                             Email = "client@beautyvi.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "CLIENT@BEAUTYVI.COM",
                             NormalizedUserName = "CLIENT@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDjs/syO8mHh8S/0WihiwvEzgLyXFtt/4hJf3/aKJ1CNHlBDK5qOqGLiDscqdLQY2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJUrX3Zn7h+yqyoUZsINoE5RzWeOXKoLBnyVcWwGAuq4bGY6vxNFfRCpXOvY0oW7qw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "090583c7-2d13-41cc-98a9-44814cd8006f",
+                            SecurityStamp = "8eb28946-3757-4e1f-ae3c-52d5f94396a3",
                             TwoFactorEnabled = false,
                             UserName = "client@beautyvi.com"
                         },
                         new
                         {
-                            Id = "7c163ec4-fda6-4aee-8912-d7b0a4722860",
+                            Id = "c90349cb-58a4-4b86-876e-db384e71754c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63f6da00-f575-4fed-a95a-19c910b5d9d7",
+                            ConcurrencyStamp = "d0777db6-849e-4ccd-8d86-919db2fce890",
                             Email = "admin@beautyvi.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@BEAUTYVI.COM",
                             NormalizedUserName = "ADMIN@BEAUTYVI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAED6b/4M8AilAh0fgKd7aV/bcxqsc2XcKT+ZMrrU7QRSo6Qc9b7lCN0kejMrXdFTTsQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEzkIbTkyS94txr/ONBRbJDXsZdVQWPaSAc163nufXhMEjQjsbB9wfm0wOtVKRO23A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f66efb81-5d13-4244-aacf-aafeadcab533",
+                            SecurityStamp = "f2f0904b-2baa-4cd2-8e7d-50fc5dce2797",
                             TwoFactorEnabled = false,
                             UserName = "admin@beautyvi.com"
                         });

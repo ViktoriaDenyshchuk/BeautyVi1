@@ -1,0 +1,51 @@
+﻿@model BeautyVi.Core.Entities.Order
+
+@{
+    ViewData["Title"] = "Редагувати Замовлення";
+}
+
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Редагувати Замовлення</h2>
+
+    <div class="card mt-4" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+        <div class="card-body" style="background-color: #fdf8f4;">
+            <h4 style="color: #4a4a4a;">Замовлення #@Model.Id</h4>
+            <p style="color: #4a4a4a;"><strong>Користувач:</strong> @Model.User?.UserName</p>
+            <p style="color: #4a4a4a;"><strong>Дата замовлення:</strong> @Model.OrderDate</p>
+            <p style="color: #4a4a4a;"><strong>Загальна сума:</strong> @Model.TotalAmount</p>
+        </div>
+    </div>
+
+    <form asp-action="Edit" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="Status" class="form-label" style="font-weight: bold; color: #4a4a4a;">Статус замовлення:</label>
+            <select asp-for="Status" class="form-control" style="border: 1px solid #e3e3e3; padding: 10px;">
+                <option value="Pending">Очікує</option>
+                <option value="Processing">В обробці</option>
+                <option value="Shipped">Відправлено</option>
+                <option value="Delivered">Доставлено</option>
+                <option value="Cancelled">Скасовано</option>
+            </select>
+        </div>
+
+
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn"
+                    style="background-color: #7a6f5b; color: #fff; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">
+                Зберегти зміни
+            </button>
+        </div>
+    </form>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="text-center mt-3">
+        <a asp-action="Index" class="btn"
+           style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+            Повернутись до списку замовлень
+        </a>
+    </div>
+</div>

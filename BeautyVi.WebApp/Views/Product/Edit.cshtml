@@ -1,62 +1,81 @@
-﻿
-@using BeautyVi.Core.Entities;
+﻿@using BeautyVi.Core.Entities;
 @model Product
 
-<h1>Редагування продукту</h1>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Редагування продукту</h2>
+    <div class="form-container mt-4 p-5 shadow-lg" style="background-color: #fdf8f4; border-radius: 4px; margin: auto;">
 
-<div class="row">
-    <div class="col-md-4">
-
-        <form asp-action="Edit" enctype="multipart/form-data">
-
-            @Html.ValidationSummary()
-
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="Id" />
 
-            <div data="mb-3">
-                @Html.DisplayNameFor(model => model.Name)
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" />
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label" style="font-weight: bold; color: #4a4a4a;">Назва продукту</label>
+                <input asp-for="Name" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Наприклад, зволожуючий крем" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
 
-            <div data="mb-3">
-                @Html.DisplayNameFor(model => model.Description)
-                @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
-                <span asp-validation-for="Description" class="text-danger" />
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label" style="font-weight: bold; color: #4a4a4a;">Опис</label>
+                <textarea asp-for="Description" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" rows="5" placeholder="Вкажіть склад продукту"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="CategoryId">Category</label>
-                <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control"></select>
+
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Категорія</label>
+                <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть категорію</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="EffectTypeId">EffectType</label>
-                <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control"></select>
+            <div class="mb-3">
+                <label asp-for="EffectTypeId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Тип ефекту</label>
+                <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть тип ефекту</option>
+                </select>
+                <span asp-validation-for="EffectTypeId" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="SuitableForId">SuitableFor</label>
-                <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control"></select>
+            <div class="mb-3">
+                <label asp-for="SuitableForId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Підходить для</label>
+                <select asp-for="SuitableForId" asp-items="ViewBag.SuitableForList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled selected>Оберіть тип шкіри/волосся</option>
+                </select>
+                <span asp-validation-for="SuitableForId" class="text-danger"></span>
             </div>
 
-            <div data="mb-3">
-                @Html.DisplayNameFor(model => model.Price)
-                @Html.TextAreaFor(model => model.Price, new { @class = "form-control" })
-                <span asp-validation-for="Price" class="text-danger" />
+            <div class="mb-3">
+                <label asp-for="ProductIngredients" class="form-label" style="font-weight: bold; color: #4a4a4a;">Інгредієнти</label>
+                <select asp-for="ProductIngredients" asp-items="ViewBag.IngredientsList" class="form-control" multiple="multiple" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled>Оберіть інгредієнти</option>
+                </select>
+                <span asp-validation-for="ProductIngredients" class="text-danger"></span>
             </div>
 
-            <div class="form-group mt-3">
-                @Html.DisplayNameFor(model => model.CoverFile)
-                <input asp-for="CoverFile" accept="image/*" />
+            <div class="mb-3">
+                <label asp-for="ProductAllergens" class="form-label" style="font-weight: bold; color: #4a4a4a;">Алергени</label>
+                <select asp-for="ProductAllergens" asp-items="ViewBag.AllergensList" class="form-control" multiple="multiple" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    <option value="" disabled>Оберіть алергени</option>
+                </select>
+                <span asp-validation-for="ProductAllergens" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label" style="font-weight: bold; color: #4a4a4a;">Ціна</label>
+                <input asp-for="Price" type="number" step="0.01" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Вкажіть ціну в грн" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CoverFile" class="form-label" style="font-weight: bold; color: #4a4a4a;">Оновити фото</label>
+                <input asp-for="CoverFile" type="file" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;" accept="image/*" />
                 <span asp-validation-for="CoverFile" class="text-danger"></span>
             </div>
 
-            <br />
-            <button type="submit" class="btn btn-success">Зберегти</button>
-
+            <div class="text-center mt-4">
+                <button type="submit" class="btn" style="background-color: #7a6f5b; color: #fff; border-radius: 2px; padding: 10px 30px; font-weight: bold; text-transform: uppercase;">Зберегти продукт</button>
+            </div>
         </form>
     </div>
 </div>
-
-

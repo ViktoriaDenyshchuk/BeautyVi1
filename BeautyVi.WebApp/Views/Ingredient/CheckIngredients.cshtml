@@ -1,46 +1,87 @@
 ﻿@model IEnumerable<BeautyVi.Core.Entities.Ingredient>
 
-<h2>Перевірка складу продукту</h2>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Перевірка складу продукту</h2>
 
-<form asp-action="CheckIngredients" method="post">
-    <div class="form-group">
-        <label for="ingredientsInput">Введіть склад продукту (кожен інгредієнт на новому рядку):</label>
-        <textarea id="ingredientsInput" name="ingredientsInput" class="form-control" rows="6" placeholder="Наприклад:
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-warning">@ViewBag.Message</div>
+    }
+
+    <form asp-action="CheckIngredients" method="post">
+        <div class="form-group mt-4">
+            <label for="ingredientsInput" style="font-weight: bold; color: #4a4a4a;">Введіть склад продукту (кожен інгредієнт на новому рядку):</label>
+            <textarea id="ingredientsInput" name="ingredientsInput" class="form-control" rows="6" placeholder="Наприклад:
 Water
 Alcohol
 Sodium Chloride"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Перевірити</button>
-</form>
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn" style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">
+                Перевірити
+            </button>
+        </div>
+    </form>
 
-@if (Model != null && Model.Any())
-{
-    <h3>Знайдені інгредієнти:</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Назва</th>
-                <th>Безпечний/Не безпечний</th>
-                <th>Рівень небезпеки</th>
-                <th>Категорія</th>
-                <th>Опис</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var ingredient in Model)
-            {
+    @if (Model != null && Model.Any())
+    {
+        <h3 class="mt-5" style="color: #7a6f5b;">Знайдені інгредієнти:</h3>
+        <table class="table table-striped mt-4" style="border: 1px solid #e3e3e3;">
+            <thead style="background-color: #7a6f5b; color: white;">
                 <tr>
-                    <td>@ingredient.Name</td>
-                    <td>@(ingredient.IsHarmful ? "Не безпечний" : "Безпечний")</td>
-                    <td>@ingredient.LevelOfDanger</td>
-                    <td>@ingredient.Category</td>
-                    <td>@ingredient.Description</td>
+                    <th>Назва</th>
+                    <th>Безпечний/Не безпечний</th>
+                    <th>Рівень небезпеки</th>
+                    <th>Категорія</th>
+                    <th>Опис</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
-else if (Model != null)
-{
-    <p class="text-success">Склад безпечний! Жодного небезпечного інгредієнта не знайдено.</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var ingredient in Model)
+                {
+                    <tr>
+                        <td>@ingredient.Name</td>
+                        <td>@(ingredient.IsHarmful ? "Не безпечний" : "Безпечний")</td>
+                        <td>@ingredient.LevelOfDanger</td>
+                        <td>@ingredient.Category</td>
+                        <td>@ingredient.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <hr />
+
+        <h3 class="mt-5" style="color: #7a6f5b;">Підсумок:</h3>
+       
+            var averageDangerLevel = ViewBag.AverageDangerLevel;
+            var overallSafety = averageDangerLevel <= 2
+                ? "Хороший (безпечний)"
+                : averageDangerLevel <= 4
+                    ? "Помірний"
+                    : "Поганий (небезпечний)";
+        
+        <div class="alert alert-info">
+            <p>Середній рівень небезпеки інгредієнтів: <strong>@averageDangerLevel</strong></p>
+            <p>Загальний рейтинг безпеки продукту: <strong>@overallSafety</strong></p>
+        </div>
+    }
+
+    @if (ViewBag.UnknownIngredients != null && ((List<string>)ViewBag.UnknownIngredients).Any())
+    {
+        <div class="alert alert-danger mt-4">
+            <h4>Невідомі інгредієнти:</h4>
+            <ul>
+                @foreach (var unknown in (List<string>)ViewBag.UnknownIngredients)
+                {
+                    <li>@unknown</li>
+                }
+            </ul>
+            <p>Деякі інгредієнти не знайдено у нашій базі. Переконайтеся, що вони написані правильно.</p>
+        </div>
+    }
+    else if (Model == null)
+    {
+        <p class="text-muted">Будь ласка, введіть склад продукту для перевірки.</p>
+    }
+</div>

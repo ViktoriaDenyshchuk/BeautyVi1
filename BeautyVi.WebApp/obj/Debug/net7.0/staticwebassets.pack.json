@@ -445,12 +445,44 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/624eaabc7d85fbc798ae926e68331722.jpg",
+      "PackagePath": "staticwebassets/img/624eaabc7d85fbc798ae926e68331722.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/home.jpg",
+      "PackagePath": "staticwebassets/img/home.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/home1.jpg",
+      "PackagePath": "staticwebassets/img/home1.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/home2.jpg",
+      "PackagePath": "staticwebassets/img/home2.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/home3.jpg",
+      "PackagePath": "staticwebassets/img/home3.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/ing.jpg",
+      "PackagePath": "staticwebassets/img/ing.jpg"
+    },
+    {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/16-1242445969.jpg",
       "PackagePath": "staticwebassets/img/product/16-1242445969.jpg"
     },
     {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Diagram_BeautyVi241114363",
       "PackagePath": "staticwebassets/img/product"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/cream240033468.jpg",
+      "PackagePath": "staticwebassets/img/product/cream240033468.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/cream241810591.jpg",
+      "PackagePath": "staticwebassets/img/product/cream241810591.jpg"
     },
     {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/dc01e392-e271-408c-a304-7935e012162b241218936.jpeg",
@@ -461,8 +493,16 @@
       "PackagePath": "staticwebassets/img/product/f4c81652-3006-4822-832f-fadfcaae5c4a241146008.jpeg"
     },
     {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/f4c81652-3006-4822-832f-fadfcaae5c4a245749180.jpeg",
+      "PackagePath": "staticwebassets/img/product/f4c81652-3006-4822-832f-fadfcaae5c4a245749180.jpeg"
+    },
+    {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/no_cover.jpg",
       "PackagePath": "staticwebassets/img/product/no_cover.jpg"
+    },
+    {
+      "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/shampoo241929474.jpg",
+      "PackagePath": "staticwebassets/img/product/shampoo241929474.jpg"
     },
     {
       "Id": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/Знімок екрана 2024-11-08 о 16.04.00240955663.png",

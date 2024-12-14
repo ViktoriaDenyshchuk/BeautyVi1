@@ -208,6 +208,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Order/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -244,8 +248,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_FooterBeautyVi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Gb290ZXJCZWF1dHlWaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_HeadBeautyVi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkQmVhdXR5VmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_Navigation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19OYXZpZ2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_NavigationBeautyVi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19OYXZpZ2F0aW9uQmVhdXR5VmkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]

@@ -5,41 +5,61 @@
 
 @{
     ViewData["Title"] = "Create Order";
-
 }
-<h2>Create Order</h2>
-<div asp-validation-summary="All" class="text-danger"></div>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="UserId" class="control-label">User</label>
-        <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users"></select>
-    </div>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Створити замовлення</h2>
 
-    <div class="form-group">
-        <label asp-for="ShippingAddress" class="control-label">Shipping Address</label>
-        <input required asp-for="ShippingAddress" class="form-control" />
-    </div>
+    <div class="form-container mt-4 p-5 shadow-lg" style="background-color: #fdf8f4; border-radius: 8px;">
+        <div asp-validation-summary="All" class="text-danger mb-4"></div>
 
-    <h3>Order Items</h3>
-    <div id="orderItemsContainer">
-        <div class="form-group">
-            <label>Product</label>
-            <select class="form-control" name="OrderItems[0].ProductId">
-                @foreach (var product in ViewBag.Products)
-                {
-                    <option value="@product.Value">@product.Text</option>
-                }
-            </select>
+        <form method="post">
+            <!-- User Dropdown -->
+            <div class="mb-4">
+                <label asp-for="UserId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Користувач</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users" style="border-radius: 4px; border: 1px solid #e3e3e3; padding: 10px;">
+                </select>
+            </div>
+
+            <!-- Shipping Address -->
+            <div class="mb-4">
+                <label asp-for="ShippingAddress" class="form-label" style="font-weight: bold; color: #4a4a4a;">Адреса доставки</label>
+                <input required asp-for="ShippingAddress" class="form-control" style="border-radius: 4px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Введіть адресу доставки" />
+            </div>
+
+            <!-- Order Items -->
+            <h3 class="text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Товари у замовленні</h3>
+            <div id="orderItemsContainer">
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Товар</label>
+                    <select class="form-control" name="OrderItems[0].ProductId" style="border-radius: 4px; border: 1px solid #e3e3e3; padding: 10px;">
+                        @foreach (var product in ViewBag.Products)
+                        {
+                            <option value="@product.Value">@product.Text</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Кількість</label>
+                    <input required type="number" name="OrderItems[0].Quantity" class="form-control" style="border-radius: 4px; border: 1px solid #e3e3e3; padding: 10px;" placeholder="Введіть кількість" />
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn"
+                        style="background-color: #7a6f5b; color: #fff; border: none; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">
+                    Створити замовлення
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Index", "Order")" class="btn"
+               style="background-color: transparent; color: #7a6f5b; border: 2px solid #7a6f5b; padding: 10px 30px; font-weight: bold; border-radius: 4px; text-transform: uppercase; text-decoration: none;">
+                Назад до замовлень
+            </a>
         </div>
-
-        <div class="form-group">
-            <label>Quantity</label>
-            <input required type="number" name="OrderItems[0].Quantity" class="form-control" />
-        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">Create Order</button>
-</form>
-
-<a href="@Url.Action("Index", "Order")" class="btn btn-secondary">Back to Orders</a>
+</div>
