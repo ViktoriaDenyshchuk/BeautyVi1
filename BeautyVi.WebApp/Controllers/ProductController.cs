@@ -104,7 +104,7 @@ namespace BeautyVi.WebApp.Controllers
             return View(new Product());
         }
 
-        /*[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(Product model, int[] ProductIngredients)
         {
@@ -136,11 +136,11 @@ namespace BeautyVi.WebApp.Controllers
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
             ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
             ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-            ViewBag.ProductIngredientList = new SelectList(ingredients, "Id", "NameIngredient");
+
 
             return View(model);
-        }*/
-        [Authorize(Roles = "Admin")]
+        }
+        /*[Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(Product model, int[] ProductIngredients, int[] ProductAllergens)
         {
@@ -197,7 +197,7 @@ namespace BeautyVi.WebApp.Controllers
             ViewBag.AllergenList = new SelectList(_context.Allergens, "Id", "NameAllergen");
 
             return View(model);
-        }
+        }*/
 
 
         [Authorize(Roles = "Admin")]
@@ -309,7 +309,7 @@ namespace BeautyVi.WebApp.Controllers
     }*/
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Edit(Product item, int[] ProductIngredients, int[] ProductAllergens)
+        public IActionResult Edit(Product item)
         {
             if (ModelState.IsValid)
             {
@@ -338,19 +338,12 @@ namespace BeautyVi.WebApp.Controllers
                             item.CoverFile.CopyTo(fileStream);
                         }
                     }
-
-                    existingItem.ProductIngredients = ProductIngredients.Select(id => new ProductIngredient
-                    {
-                        ProductId = item.Id,
-                        IngredientId = id
-                    }).ToList();
-
-                    existingItem.ProductAllergens = ProductAllergens.Select(id => new ProductAllergen
-                    {
-                        ProductId = item.Id,
-                        AllergenId = id
-                    }).ToList();
-
+                    existingItem.CategoryId = item.CategoryId;
+                    existingItem.EffectTypeId = item.EffectTypeId;
+                    existingItem.SuitableForId = item.SuitableForId;
+                   
+                    existingItem.ProductIngredients = item.ProductIngredients;
+                    existingItem.ProductAllergens = item.ProductAllergens; 
                     productRepository.Update(existingItem);
                     productRepository.Save();
 
@@ -364,8 +357,6 @@ namespace BeautyVi.WebApp.Controllers
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
             ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
             ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-            ViewBag.IngredientList = new SelectList(_context.Ingredients, "Id", "NameIngredient");
-            ViewBag.AllergenList = new SelectList(_context.Allergens, "Id", "NameAllergen");
 
             return View(item);
         }

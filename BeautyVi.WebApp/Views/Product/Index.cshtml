@@ -126,9 +126,9 @@
                                 <a href="@Url.Action("Edit", "Product", new { id = product.Id })" style="color: #7a6f5b; text-decoration: none;">| Редагувати</a>
                             }
                             @if (User.IsInRole("Admin"))
-                             {
-                                < a href = "@Url.Action("Delete", "Product", new { id = product.Id })" style = "color: #7a6f5b; text-decoration: none;" >| Видалити </ a >
-                             }
+                            {
+                                <a href="@Url.Action("Delete", "Product", new { id = product.Id })" style="color: #7a6f5b; text-decoration: none;">| Видалити</a>
+                            }
 
                         </td>
                     </tr>

@@ -1,5 +1,6 @@
 ﻿<Properties StartupConfiguration="{11A8957F-0F89-4F06-965B-D6491047B4FF}|https">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Controllers/ProductController.cs">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Views/Product/Create.cshtml">
     <Files>
       <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" />
       <File FileName="BeautyVi.Core/Entities/Product.cs" />
@@ -7,7 +8,7 @@
       <File FileName="BeautyVi.Core/Entities/Order.cs" />
       <File FileName="BeautyVi.Core/Entities/Category.cs" />
       <File FileName="BeautyVi.Core/Entities/OrderItem.cs" />
-      <File FileName="BeautyVi.Core/Entities/Allergen.cs" />
+      <File FileName="BeautyVi.Core/Entities/Allergen.cs" Line="1" Column="1" />
       <File FileName="BeautyVi.Core/Entities/ProductAllergen.cs" />
       <File FileName="BeautyVi.Core/Entities/Ingredient.cs" />
       <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" />
@@ -28,10 +29,10 @@
       <File FileName="BeautyVi.WebApp/Program.cs" />
       <File FileName="BeautyVi.WebApp/appsettings.json" />
       <File FileName="BeautyVi.WebApp/Controllers/HomeController.cs" />
-      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" Line="161" Column="1" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" Line="54" Column="26" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" />
+      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" Line="344" Column="20" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" Line="130" Column="158" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" Line="8" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" Line="49" Column="23" />
       <File FileName="BeautyVi.WebApp/Views/Product/Delete.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Product/Details.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Home/Index.cshtml" />
@@ -77,7 +78,7 @@
       <File FileName="BeautyVi1/Areas/Pages/Account/ConfirmEmailChange.cshtml.cs" />
       <File FileName="BeautyVi1/Areas/Pages/Account/ForgotPassword.cshtml.cs" />
       <File FileName="BeautyVi1/Areas/Pages/Account/ExternalLogin.cshtml.cs" />
-      <File FileName="BeautyVi.WebApp/Controllers/OrderController.cs" />
+      <File FileName="BeautyVi.WebApp/Controllers/OrderController.cs" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/Order/Index.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/Order/Create.cshtml" />
       <File FileName="BeautyVi.Repositories/Interfaces/IOrderItemRepository.cs" />
@@ -127,16 +128,16 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="BeautyVi" expanded="True">
+          <Node name="BeautyVi">
             <Node name="BeautyVi.Core" expanded="True">
               <Node name="Context" expanded="True" />
+              <Node name="Entities" expanded="True" />
             </Node>
             <Node name="BeautyVi.WebApp">
-              <Node name="Controllers" expanded="True">
-                <Node name="ProductController.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Product" expanded="True" />
+              <Node name="Views">
+                <Node name="Product">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -148,11 +149,10 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

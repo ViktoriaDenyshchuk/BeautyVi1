@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AmAAljDtM2I9io46GR1UWnZysYu0Kb9DALgbbsVnQH4=",
+  "Hash": "1Ar9OX4ZtIM06K0P2F+QxSzvqUy0Kl+U//FQ8QyGwek=",
   "Source": "BeautyVi.WebApp",
   "BasePath": "_content/BeautyVi.WebApp",
   "Mode": "Default",
@@ -3043,6 +3043,23 @@
       "OriginalItemSpec": "wwwroot/img/ing.jpg"
     },
     {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/ 241114997.jpg",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/ 241114997.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/ 241114997.jpg"
+    },
+    {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/16-1242445969.jpg",
       "SourceId": "BeautyVi.WebApp",
       "SourceType": "Discovered",
@@ -3092,6 +3109,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/product/cream241810591.jpg"
+    },
+    {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/cream242807338.jpg",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/cream242807338.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/cream242807338.jpg"
     },
     {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/dc01e392-e271-408c-a304-7935e012162b241218936.jpeg",
@@ -3194,6 +3228,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/product/shampoo241929474.jpg"
+    },
+    {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/shampoo242752920.jpg",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/shampoo242752920.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/shampoo242752920.jpg"
     },
     {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/дн-4242333646.png",

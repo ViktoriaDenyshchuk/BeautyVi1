@@ -43,27 +43,6 @@
                 <span asp-validation-for="SuitableForId" class="text-danger"></span>
             </div>
 
-            <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Інгредієнти</label>
-                <select name="ProductIngredients" multiple class="form-control" style="border-radius: 2px; padding: 10px;">
-                    @foreach (var ingredient in ViewBag.IngredientList)
-                    {
-                        <option value="@ingredient.Id">@ingredient.Name</option>
-
-                    }
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Алергени</label>
-                <select name="ProductAllergens" multiple class="form-control" style="border-radius: 2px; padding: 10px;">
-                    @foreach (var allergen in ViewBag.AllergenList)
-                    {
-                        <option value="@allergen.Value">@allergen.Text</option>
-                    }
-                </select>
-            </div>
-
 
 
             <div class="mb-3">
