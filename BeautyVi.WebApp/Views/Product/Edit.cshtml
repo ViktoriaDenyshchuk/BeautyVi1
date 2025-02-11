@@ -20,7 +20,6 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
 
-
             <div class="mb-3">
                 <label asp-for="CategoryId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Категорія</label>
                 <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
@@ -28,6 +27,28 @@
                 </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
+
+            <label><strong>Інгредієнти</strong></label>
+            <select name="selectedIngredients" multiple class="form-control">
+                @foreach (var ingredient in ViewBag.AllIngredients)
+                {
+                    bool isSelected = ViewBag.SelectedIngredients.Contains(ingredient.Id);
+                    <option value="@ingredient.Id" selected="@(isSelected ? "selected" : null)">
+                        @ingredient.Name
+                    </option>
+                }
+            </select>
+
+            <label><strong>Алергени</strong></label>
+            <select name="selectedAllergens" multiple class="form-control">
+                @foreach (var allergen in ViewBag.AllAllergens)
+                {
+                    bool isSelected = ViewBag.SelectedAllergens.Contains(allergen.Id);
+                    <option value="@allergen.Id" selected="@(isSelected ? "selected" : null)">
+                        @allergen.Name
+                    </option>
+                }
+            </select>
 
             <div class="mb-3">
                 <label asp-for="EffectTypeId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Тип ефекту</label>

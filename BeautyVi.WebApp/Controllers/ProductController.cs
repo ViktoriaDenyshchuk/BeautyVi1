@@ -94,111 +94,67 @@ namespace BeautyVi.WebApp.Controllers
             var categories = _context.Categories.ToList();
             var effectTypes = _context.EffectTypes.ToList();
             var suitableForOptions = _context.SuitableForOptions.ToList();
-            var ingredients = _context.Ingredients.ToList();
+            var ingredients = _context.Ingredients.ToList(); // Отримуємо всі інгредієнти
+            var allergens = _context.Allergens.ToList();
 
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
             ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
             ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-            //ViewBag.ProductIngredientList = new SelectList(ingredients, "Id", "NameIngredient");
-            ViewBag.IngredientList = ingredients;
+            ViewBag.IngredientList = new MultiSelectList(ingredients, "Id", "Name"); // Формуємо список для множинного вибору
+            ViewBag.AllergenList = new MultiSelectList(allergens, "Id", "Name");
+
             return View(new Product());
         }
-
+        
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Create(Product model, int[] ProductIngredients)
+        public IActionResult Create(Product model, int[] selectedIngredients, int[] selectedAllergens)
         {
             if (ModelState.IsValid)
             {
-                string wwwRootPath = webHostEnvironment.WebRootPath;
-
-                string fileName = Path.GetFileNameWithoutExtension(model.CoverFile.FileName);
-
-                string extension = Path.GetExtension(model.CoverFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                model.CoverPath = "/img/product/" + fileName;
-                string path = Path.Combine(wwwRootPath + "/img/product/", fileName);
-
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    model.CoverFile.CopyTo(fileStream);
-                }
-
                 productRepository.Add(model);
-                
+                productRepository.Save();
 
-                return RedirectToAction(nameof(Index));
-            }
-            var categories = _context.Categories.ToList();
-            var effectTypes = _context.EffectTypes.ToList();
-            var suitableForOptions = _context.SuitableForOptions.ToList();
-            var ingredients = _context.ProductIngredients.ToList();
-            ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
-            ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
-            ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-
-
-            return View(model);
-        }
-        /*[Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult Create(Product model, int[] ProductIngredients, int[] ProductAllergens)
-        {
-            if (ModelState.IsValid)
-            {
-                // Збереження основних даних продукту
-                string wwwRootPath = webHostEnvironment.WebRootPath;
-                string fileName = Path.GetFileNameWithoutExtension(model.CoverFile.FileName);
-                string extension = Path.GetExtension(model.CoverFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                model.CoverPath = "/img/product/" + fileName;
-                string path = Path.Combine(wwwRootPath + "/img/product/", fileName);
-
-                using (var fileStream = new FileStream(path, FileMode.Create))
+                if (selectedIngredients != null)
                 {
-                    model.CoverFile.CopyTo(fileStream);
-                }
-
-                // Додаємо зв'язки для інгредієнтів
-                if (ProductIngredients != null)
-                {
-                    foreach (var ingredientId in ProductIngredients)
+                    foreach (var ingredientId in selectedIngredients)
                     {
-                        _context.ProductIngredients.Add(new ProductIngredient
+                        var productIngredient = new ProductIngredient
                         {
                             ProductId = model.Id,
                             IngredientId = ingredientId
-                        });
+                        };
+                        _context.ProductIngredients.Add(productIngredient);
                     }
+                    _context.SaveChanges();
                 }
 
-                // Додаємо зв'язки для алергенів
-                if (ProductAllergens != null)
+                if (selectedAllergens != null)
                 {
-                    foreach (var allergenId in ProductAllergens)
+                    foreach (var allergenId in selectedAllergens)
                     {
-                        _context.ProductAllergens.Add(new ProductAllergen
+                        var productAllergen = new ProductAllergen
                         {
                             ProductId = model.Id,
                             AllergenId = allergenId
-                        });
+                        };
+                        _context.ProductAllergens.Add(productAllergen);
                     }
+                    _context.SaveChanges();
                 }
 
-                _context.SaveChanges(); // Збереження всіх даних у базі
                 return RedirectToAction(nameof(Index));
             }
 
-            // Перевірка та перенесення ViewBag у випадку помилки валідації
+            // Повторно заповнюємо ViewBag для повернення форми з помилками
             ViewBag.CategoryList = new SelectList(_context.Categories, "Id", "NameCategory");
             ViewBag.EffectTypeList = new SelectList(_context.EffectTypes, "Id", "NameEffectType");
             ViewBag.SuitableForList = new SelectList(_context.SuitableForOptions, "Id", "NameSuitableFor");
-            ViewBag.IngredientList = new SelectList(_context.Ingredients, "Id", "NameIngredient");
-            ViewBag.AllergenList = new SelectList(_context.Allergens, "Id", "NameAllergen");
+            ViewBag.IngredientList = new MultiSelectList(_context.Ingredients, "Id", "Name");
+            ViewBag.AllergenList = new MultiSelectList(_context.Allergens, "Id", "Name");
 
             return View(model);
-        }*/
-
+        }
 
         [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
@@ -235,120 +191,123 @@ namespace BeautyVi.WebApp.Controllers
             var categories = _context.Categories.ToList();
             var effectTypes = _context.EffectTypes.ToList();
             var suitableForOptions = _context.SuitableForOptions.ToList();
-            var ingredients = _context.Ingredients.ToList();
-            var allergens = _context.Ingredients.ToList();
+
+            var selectedIngredients = _context.ProductIngredients
+                .Where(pi => pi.ProductId == id)
+                .Select(pi => pi.IngredientId)
+                .ToList();
+
+            var selectedAllergens = _context.ProductAllergens
+                .Where(pa => pa.ProductId == id)
+                .Select(pa => pa.AllergenId)
+                .ToList();
+
+            ViewBag.AllIngredients = _context.Ingredients.ToList();
+            ViewBag.SelectedIngredients = selectedIngredients;
+
+            ViewBag.AllAllergens = _context.Allergens.ToList();
+            ViewBag.SelectedAllergens = selectedAllergens;
 
             ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
             ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
             ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-            ViewBag.IngredientList = new SelectList(ingredients, "Id", "NameIngredient");
-            ViewBag.AllergenList = new SelectList(allergens, "Id", "NameAllergen");
 
             return View(item);
         }
 
-        /*[Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult Edit(Product item)
-        {
-            if (ModelState.IsValid)
-            {
-
-                var existingItem = productRepository.Get(item.Id);
-
-                if (existingItem != null)
-                {
-                    existingItem.Name = item.Name;
-                    existingItem.Description = item.Description;
-                    existingItem.Price = item.Price;
-                    existingItem.Category = item.Category;
-                    existingItem.EffectType = item.EffectType;
-                    existingItem.SuitableFor = item.SuitableFor;
-
-                    if (item.CoverFile != null)
-                    {
-                        string wwwRootPath = webHostEnvironment.WebRootPath;
-                        string fileName = Path.GetFileNameWithoutExtension(item.CoverFile.FileName);
-                        string extension = Path.GetExtension(item.CoverFile.FileName);
-                        fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                        existingItem.CoverPath = "/img/product/" + fileName;
-                        string path = Path.Combine(wwwRootPath, "img/product", fileName);
-
-                        using (var fileStream = new FileStream(path, FileMode.Create))
-                        {
-                            item.CoverFile.CopyTo(fileStream);
-                        }
-                    }
-                    existingItem.CategoryId = item.CategoryId;
-                    existingItem.EffectTypeId = item.EffectTypeId;
-                    existingItem.SuitableForId = item.SuitableForId;
-                    // Оновлення інгредієнтів та алергенів
-                    existingItem.ProductIngredients = item.ProductIngredients; // Прив'язуємо вибрані інгредієнти
-                    existingItem.ProductAllergens = item.ProductAllergens; // Прив'язуємо вибрані алергени
-
-                    productRepository.Update(existingItem);
-                    productRepository.Save();
-
-                    return RedirectToAction(nameof(Index));
-                }
-            else
-            {
-                return NotFound();
-            }
-        }
-        var categories = _context.Categories.ToList();
-        var effectTypes = _context.EffectTypes.ToList();
-        var suitableForOptions = _context.SuitableForOptions.ToList();
-        ViewBag.CategoryList = new SelectList(categories, "Id", "NameCategory");
-        ViewBag.EffectTypeList = new SelectList(effectTypes, "Id", "NameEffectType");
-        ViewBag.SuitableForList = new SelectList(suitableForOptions, "Id", "NameSuitableFor");
-        ViewBag.IngredientList = new SelectList(_context.Ingredients, "Id", "NameIngredient");
-        ViewBag.AllergenList = new SelectList(_context.Allergens, "Id", "NameAllergen");
-
-        return View(item);
-    }*/
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Edit(Product item)
+        public IActionResult Edit(Product item, int[]? selectedIngredients, int[]? selectedAllergens)
         {
             if (ModelState.IsValid)
             {
                 var existingItem = productRepository.Get(item.Id);
-
-                if (existingItem != null)
+                if (existingItem == null)
                 {
-                    existingItem.Name = item.Name;
-                    existingItem.Description = item.Description;
-                    existingItem.Price = item.Price;
-                    existingItem.Category = item.Category;
-                    existingItem.EffectType = item.EffectType;
-                    existingItem.SuitableFor = item.SuitableFor;
+                    return NotFound();
+                }
 
-                    if (item.CoverFile != null)
+                // Оновлюємо основні дані продукту
+                existingItem.Name = item.Name;
+                existingItem.Description = item.Description;
+                existingItem.Price = item.Price;
+                existingItem.CategoryId = item.CategoryId;
+                existingItem.EffectTypeId = item.EffectTypeId;
+                existingItem.SuitableForId = item.SuitableForId;
+
+                // Оновлення фото
+                if (item.CoverFile != null)
+                {
+                    string wwwRootPath = webHostEnvironment.WebRootPath;
+                    string fileName = Path.GetFileNameWithoutExtension(item.CoverFile.FileName);
+                    string extension = Path.GetExtension(item.CoverFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    existingItem.CoverPath = "/img/product/" + fileName;
+                    string path = Path.Combine(wwwRootPath, "img/product", fileName);
+
+                    using (var fileStream = new FileStream(path, FileMode.Create))
                     {
-                        string wwwRootPath = webHostEnvironment.WebRootPath;
-                        string fileName = Path.GetFileNameWithoutExtension(item.CoverFile.FileName);
-                        string extension = Path.GetExtension(item.CoverFile.FileName);
-                        fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                        existingItem.CoverPath = "/img/product/" + fileName;
-                        string path = Path.Combine(wwwRootPath, "img/product", fileName);
+                        item.CoverFile.CopyTo(fileStream);
+                    }
+                }
 
-                        using (var fileStream = new FileStream(path, FileMode.Create))
+                // *** Перевіряємо, чи прийшли нові інгредієнти ***
+                if (selectedIngredients != null)
+                {
+                    var existingIngredients = _context.ProductIngredients
+                        .Where(pi => pi.ProductId == item.Id)
+                        .ToList();
+
+                    // Видаляємо тільки ті, яких немає в новому списку
+                    var ingredientsToRemove = existingIngredients
+                        .Where(pi => !selectedIngredients.Contains(pi.IngredientId))
+                        .ToList();
+                    _context.ProductIngredients.RemoveRange(ingredientsToRemove);
+
+                    // Додаємо нові інгредієнти, яких ще немає
+                    foreach (var ingredientId in selectedIngredients)
+                    {
+                        if (!existingIngredients.Any(pi => pi.IngredientId == ingredientId))
                         {
-                            item.CoverFile.CopyTo(fileStream);
+                            _context.ProductIngredients.Add(new ProductIngredient
+                            {
+                                ProductId = item.Id,
+                                IngredientId = ingredientId
+                            });
                         }
                     }
-                    existingItem.CategoryId = item.CategoryId;
-                    existingItem.EffectTypeId = item.EffectTypeId;
-                    existingItem.SuitableForId = item.SuitableForId;
-                   
-                    existingItem.ProductIngredients = item.ProductIngredients;
-                    existingItem.ProductAllergens = item.ProductAllergens; 
-                    productRepository.Update(existingItem);
-                    productRepository.Save();
-
-                    return RedirectToAction(nameof(Index));
                 }
+
+                // *** Аналогічно для алергенів ***
+                if (selectedAllergens != null)
+                {
+                    var existingAllergens = _context.ProductAllergens
+                        .Where(pa => pa.ProductId == item.Id)
+                        .ToList();
+
+                    var allergensToRemove = existingAllergens
+                        .Where(pa => !selectedAllergens.Contains(pa.AllergenId))
+                        .ToList();
+                    _context.ProductAllergens.RemoveRange(allergensToRemove);
+
+                    foreach (var allergenId in selectedAllergens)
+                    {
+                        if (!existingAllergens.Any(pa => pa.AllergenId == allergenId))
+                        {
+                            _context.ProductAllergens.Add(new ProductAllergen
+                            {
+                                ProductId = item.Id,
+                                AllergenId = allergenId
+                            });
+                        }
+                    }
+                }
+
+                _context.SaveChanges();
+                productRepository.Update(existingItem);
+                productRepository.Save();
+
+                return RedirectToAction(nameof(Index));
             }
 
             var categories = _context.Categories.ToList();
@@ -360,6 +319,7 @@ namespace BeautyVi.WebApp.Controllers
 
             return View(item);
         }
+
 
         public IActionResult FilterByPreferences(
     string hairType,

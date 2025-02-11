@@ -28,6 +28,33 @@
             </div>
 
             <div class="mb-3">
+                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Інгредієнти</label>
+                <select name="selectedIngredients" multiple class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    @foreach (var ingredient in ViewBag.IngredientList)
+                    {
+                        <option value="@ingredient.Value">@ingredient.Text</option>
+                    }
+                </select>
+            </div>
+
+            <!-- <div class="mb-3">
+        <label asp-for="ProductIngredients" class="form-label" style="font-weight: bold; color: #4a4a4a;">ProductIngredients</label>
+        <select asp-for="ProductIngredients" asp-items="ViewBag.IngredientList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+            <option value="" disabled selected>ProductIngredients</option>
+        </select>
+        <span asp-validation-for="ProductIngredients" class="text-danger"></span>
+    </div> -->
+            <div class="mb-3">
+                <label class="form-label" style="font-weight: bold; color: #4a4a4a;">Алергени</label>
+                <select name="selectedAllergens" multiple class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
+                    @foreach (var allergen in ViewBag.AllergenList)
+                    {
+                        <option value="@allergen.Value">@allergen.Text</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label asp-for="EffectTypeId" class="form-label" style="font-weight: bold; color: #4a4a4a;">Тип ефекту</label>
                 <select asp-for="EffectTypeId" asp-items="ViewBag.EffectTypeList" class="form-control" style="border-radius: 2px; border: 1px solid #e3e3e3; padding: 10px;">
                     <option value="" disabled selected>Оберіть тип ефекту</option>
