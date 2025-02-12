@@ -142,7 +142,22 @@ namespace BeautyVi.WebApp.Controllers
                     }
                     _context.SaveChanges();
                 }
+                if (model.CoverFile != null)
+                {
+                    string wwwRootPath = webHostEnvironment.WebRootPath;
+                    string fileName = Path.GetFileNameWithoutExtension(model.CoverFile.FileName);
+                    string extension = Path.GetExtension(model.CoverFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    model.CoverPath = "/img/product/" + fileName;
+                    string path = Path.Combine(wwwRootPath, "img/product", fileName);
 
+                    using (var fileStream = new FileStream(path, FileMode.Create))
+                    {
+                        model.CoverFile.CopyTo(fileStream);
+                    }
+                    _context.SaveChanges();
+                }
+                
                 return RedirectToAction(nameof(Index));
             }
 

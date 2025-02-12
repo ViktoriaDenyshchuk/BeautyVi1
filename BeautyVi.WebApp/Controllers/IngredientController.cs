@@ -12,13 +12,13 @@ namespace BeautyVi.Controllers
     {
         private readonly IIngredientRepository ingredientRepository;
         private readonly BeautyViContext _context;
-        private readonly IWebHostEnvironment webHostEnvironment;
+        //private readonly IWebHostEnvironment webHostEnvironment;
 
         public IngredientController(IIngredientRepository ingredientRepository,
-            IWebHostEnvironment webHostEnviroment, [FromServices] BeautyViContext context)
+            /*IWebHostEnvironment webHostEnviroment,*/ [FromServices] BeautyViContext context)
         {
             this.ingredientRepository = ingredientRepository;
-            this.webHostEnvironment = webHostEnviroment;
+            //this.webHostEnvironment = webHostEnviroment;
             this._context = context;
         }
 

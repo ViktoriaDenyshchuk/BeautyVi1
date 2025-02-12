@@ -8,15 +8,20 @@
 @{
     ViewData["Title"] = Model.Name;
 }
-
 <div class="container mt-5 mb-5">
-    <div class="card shadow-lg" style="border: 1px solid #e3e3e3; border-radius: 8px; background-color: #fdf8f4;">
-        <!-- Зображення продукту -->
-        <img src="@Model.CoverPath" class="card-img-top" alt="@Model.Name" style="border-top-left-radius: 8px; border-top-right-radius: 8px; height: 300px; object-fit: cover;">
+    <div class="card shadow-lg p-4 d-flex flex-row align-items-start"
+         style="border: 1px solid #e3e3e3; border-radius: 8px; background-color: #fdf8f4;">
 
-        <!-- Інформація про продукт -->
-        <div class="card-body" style="padding: 20px;">
-            <h2 class="text-center text-uppercase" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">@Model.Name</h2>
+        <!-- Блок зображення -->
+        <div class="me-4">
+            <img src="@Model.CoverPath" class="img-fluid"
+                 alt="@Model.Name"
+                 style="max-width: 300px; height: auto; border-radius: 8px;">
+        </div>
+
+        <!-- Блок тексту -->
+        <div class="flex-grow-1">
+            <h2 class="text-uppercase" style="color: #7a6f5b;">@Model.Name</h2>
             <hr />
 
             <!-- Категорія -->
@@ -126,7 +131,7 @@
                    style="background-color: transparent; color: #d9534f; border: 2px solid #d9534f; text-transform: uppercase; font-weight: bold;">
                     Видалити
                 </a>
-                </div>
             </div>
         </div>
+    </div>
 </div>

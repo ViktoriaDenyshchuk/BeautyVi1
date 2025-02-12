@@ -1,6 +1,7 @@
 ﻿<Properties StartupConfiguration="{11A8957F-0F89-4F06-965B-D6491047B4FF}|https">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Views/Product/Create.cshtml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BeautyVi.WebApp/Views/Shared/_Layout.cshtml">
     <Files>
       <File FileName="BeautyVi.Core/Context/BeautyViContext.cs" />
       <File FileName="BeautyVi.Core/Entities/Product.cs" />
@@ -8,7 +9,7 @@
       <File FileName="BeautyVi.Core/Entities/Order.cs" />
       <File FileName="BeautyVi.Core/Entities/Category.cs" />
       <File FileName="BeautyVi.Core/Entities/OrderItem.cs" />
-      <File FileName="BeautyVi.Core/Entities/Allergen.cs" Line="1" Column="1" />
+      <File FileName="BeautyVi.Core/Entities/Allergen.cs" />
       <File FileName="BeautyVi.Core/Entities/ProductAllergen.cs" />
       <File FileName="BeautyVi.Core/Entities/Ingredient.cs" />
       <File FileName="BeautyVi.Core/Entities/ProductIngredient.cs" />
@@ -23,31 +24,31 @@
       <File FileName="BeautyVi.Repositories/Repos/UserRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/OrderNoSQLRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/ProductNoSQLRepository.cs" />
-      <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" />
+      <File FileName="BeautyVi.Repositories/Repos/ProductRepository.cs" Line="45" Column="1" />
       <File FileName="BeautyVi.Repositories/Interfaces/ICategoryRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/CategoryRepository.cs" />
       <File FileName="BeautyVi.WebApp/Program.cs" />
       <File FileName="BeautyVi.WebApp/appsettings.json" />
       <File FileName="BeautyVi.WebApp/Controllers/HomeController.cs" />
-      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" Line="344" Column="20" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" Line="130" Column="158" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" Line="8" Column="1" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" Line="49" Column="23" />
+      <File FileName="BeautyVi.WebApp/Controllers/ProductController.cs" Line="156" Column="51" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Create.cshtml" Line="14" Column="19" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Edit.cshtml" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/Product/Delete.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Product/Details.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Home/Index.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Product/Details.cshtml" Line="138" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Home/Index.cshtml" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/BeautyVi.WebApp.csproj" />
       <File FileName="BeautyVi.WebApp/Controllers/UserController.cs" />
       <File FileName="BeautyVi.WebApp/Views/User/Create.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/User/Index.cshtml" />
       <File FileName="BeautyVi.WebApp/Models/ErrorViewModel.cs" />
       <File FileName="BeautyVi.WebApp/Views/Home/Privacy.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_LoginPartial.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/Shared/Error.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/_ViewImports.cshtml" />
       <File FileName="BeautyVi.WebApp/Views/_ViewStart.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_Layout.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_Layout.cshtml" Line="25" Column="30" />
       <File FileName="BeautyVi1/appsettings.json" />
       <File FileName="BeautyVi1/Program.cs" />
       <File FileName="BeautyVi1/Data/ApplicationDbContext.cs" />
@@ -80,12 +81,12 @@
       <File FileName="BeautyVi1/Areas/Pages/Account/ExternalLogin.cshtml.cs" />
       <File FileName="BeautyVi.WebApp/Controllers/OrderController.cs" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/Order/Index.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Order/Create.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Create.cshtml" Line="40" Column="23" />
       <File FileName="BeautyVi.Repositories/Interfaces/IOrderItemRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/OrderItemRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/OrderItemNoSQLRepository.cs" />
       <File FileName="BeautyVi.WebApp/Controllers/OrderItemController.cs" />
-      <File FileName="BeautyVi.WebApp/Views/Order/Details.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Details.cshtml" Line="1" Column="1" />
       <File FileName="BeautyVi.WebApp/Views/OrderItem/Index.cshtml" />
       <File FileName="BeautyVi.Repositories/Interfaces/IIngredientRepository.cs" />
       <File FileName="BeautyVi.Repositories/Repos/IngredientRepository.cs" />
@@ -119,24 +120,30 @@
       <File FileName="BeautyVi.Repositories/Repos/UserPreferenceNoSQLRepository.cs" />
       <File FileName="BeautyVi.Core/Entities/UserPreference.cs" />
       <File FileName="BeautyVi.WebApp/Views/Shared/_FooterBeautyVi.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_HeadBeautyVi.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_Navigation.cshtml" />
-      <File FileName="BeautyVi.WebApp/Views/Shared/_NavigationBeautyVi.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_HeadBeautyVi.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_Navigation.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/Views/Shared/_NavigationBeautyVi.cshtml" Line="31" Column="7" />
       <File FileName="BeautyVi.WebApp/Views/Shared/_Layout.cshtml.css" />
-      <File FileName="BeautyVi.WebApp/Views/Order/Edit.cshtml" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Edit.cshtml" Line="1" Column="1" />
+      <File FileName="BeautyVi.WebApp/Controllers/IngredientProductController.cs" />
+      <File FileName="BeautyVi.WebApp/Views/Order/Delete.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="BeautyVi">
+          <Node name="BeautyVi" expanded="True">
             <Node name="BeautyVi.Core" expanded="True">
               <Node name="Context" expanded="True" />
               <Node name="Entities" expanded="True" />
             </Node>
+            <Node name="BeautyVi.Repositories" expanded="True">
+              <Node name="Repos" expanded="True" />
+            </Node>
             <Node name="BeautyVi.WebApp">
-              <Node name="Views">
-                <Node name="Product">
-                  <Node name="Create.cshtml" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -148,11 +155,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.BeautyVi.WebApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.BeautyVi1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

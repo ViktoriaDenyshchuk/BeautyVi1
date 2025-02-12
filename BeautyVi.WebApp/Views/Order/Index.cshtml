@@ -37,13 +37,15 @@
                     <td style="text-align: center; color: #4a4a4a;">@order.ShippingAddress</td>
                     <td style="text-align: center;">
                         <a href="@Url.Action("Details", "Order", new { id = order.Id })"
-                           style="color: #7a6f5b; text-decoration: none; font-weight: bold;">Деталі</a> 
+                           style="color: #7a6f5b; text-decoration: none; font-weight: bold;">Деталі</a>
                         @if (User.IsInRole("Admin"))
                         {
                             <a href="@Url.Action("Edit", "Order", new { id = order.Id })"
                                style="color: #7a6f5b; text-decoration: none; font-weight: bold;">| Редагувати</a>
+                            <a href="@Url.Action("Delete", "Order", new { id = order.Id })"
+                               style="color: #7a6f5b; text-decoration: none; font-weight: bold;">| Видалити</a>
                         }
-                        </td>
+                    </td>
                 </tr>
             }
         </tbody>
