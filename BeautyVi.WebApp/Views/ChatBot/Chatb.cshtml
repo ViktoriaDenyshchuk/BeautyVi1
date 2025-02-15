@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Чат з AI";
+}
+
+<h2>@ViewData["Title"]</h2>
+<!--
+<form id="chat-form">
+    <label for="message">Запит:</label>
+    <input type="text" id="message" name="message" required />
+    <button type="submit">Відправити</button>
+</form>
+
+<div id="chat-response"></div>
+
+<script>document.getElementById("chat-form").addEventListener("submit", async function(e) {
+        e.preventDefault();
+        let message = document.getElementById("message").value;
+        let responseElement = document.getElementById("chat-response");
+
+        const res = await fetch('/api/chatbot/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ Message: message })
+        });
+
+        const data = await res.json();
+        responseElement.innerHTML = `<p>AI: ${data}</p>`;
+    });</script>
+    -->

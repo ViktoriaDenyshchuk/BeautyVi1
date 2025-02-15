@@ -49,6 +49,10 @@ namespace BeautyVi.WebApp.Controllers
 
             return View(allProducts);
         }
+        public IActionResult Chat()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult Search(string searchTerm)

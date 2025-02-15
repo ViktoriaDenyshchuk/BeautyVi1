@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RaMdjur4K1Dzkri7oyYAc40QyHgP/9zZ0xtQUFsV2cc=",
+  "Hash": "sPqRaIi1KWpnAcDwB76ozEuy0sxnsWwHMU9jB3lKUww=",
   "Source": "BeautyVi.WebApp",
   "BasePath": "_content/BeautyVi.WebApp",
   "Mode": "Default",
@@ -3347,6 +3347,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/img/product/shampoo252216728.jpg"
+    },
+    {
+      "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/shampoo253344818.jpg",
+      "SourceId": "BeautyVi.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/",
+      "BasePath": "_content/BeautyVi.WebApp",
+      "RelativePath": "img/product/shampoo253344818.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/img/product/shampoo253344818.jpg"
     },
     {
       "Identity": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/wwwroot/img/product/дн-4242333646.png",

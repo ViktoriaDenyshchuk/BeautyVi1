@@ -29,10 +29,22 @@ builder.Services.AddScoped<IProductAllergenRepository, ProductAllergenRepository
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
 builder.Services.AddScoped<IUserPreferenceRepository, UserPreferenceRepository>();
+//AI
+//builder.Services.AddScoped<ProductService>();
+//builder.Services.AddHttpClient();
+builder.Services.AddHttpClient();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+//app.UseCors("AllowAll");
+
+//AI
 
 /*builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();*/
-builder.Services.AddControllersWithViews();
+//builder.Services.AddControllersWithViews();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
@@ -63,7 +75,9 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+//AI
+app.UseCors("AllowAll");
+//AI
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

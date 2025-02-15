@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Tgt6fzZ65IQcnPUiWlRoi03N7LhMq4wCcl4NXMoc7ZXSBZAFm2eF7eLdU7u/m11ky7HK6rJmfTHURSmopkD4nw==",
+  "dgSpecHash": "1Nqp/tkc0RBHo2tO4M7izSEJudn+BU7HBJ0JPqze8nTvZLlbs7fUsA7Xa93MCMRPnrIdp0ZeTDqYm4/XYzL2cQ==",
   "success": true,
   "projectFilePath": "/Users/viktoria/Projects/BeautyVi/BeautyVi.WebApp/BeautyVi.WebApp.csproj",
   "expectedPackageFiles": [
@@ -86,7 +86,7 @@
     "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.13/microsoft.entityframeworkcore.analyzers.7.0.13.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.design/7.0.13/microsoft.entityframeworkcore.design.7.0.13.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.13/microsoft.entityframeworkcore.relational.7.0.13.nupkg.sha512",
-    "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.sqlserver/7.0.0/microsoft.entityframeworkcore.sqlserver.7.0.0.nupkg.sha512",
+    "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.sqlserver/7.0.1/microsoft.entityframeworkcore.sqlserver.7.0.1.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.entityframeworkcore.tools/7.0.13/microsoft.entityframeworkcore.tools.7.0.13.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
@@ -208,6 +208,7 @@
     "/Users/viktoria/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.memory.data/1.0.2/system.memory.data.1.0.2.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.net.http/4.3.0/system.net.http.4.3.0.nupkg.sha512",
+    "/Users/viktoria/.nuget/packages/system.net.http.json/7.0.1/system.net.http.json.7.0.1.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.net.primitives/4.3.0/system.net.primitives.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.net.sockets/4.3.0/system.net.sockets.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
@@ -253,7 +254,7 @@
     "/Users/viktoria/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.text.encoding.extensions/4.3.0/system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/viktoria/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/Users/viktoria/.nuget/packages/system.text.json/7.0.2/system.text.json.7.0.2.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.text.regularexpressions/4.3.0/system.text.regularexpressions.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
     "/Users/viktoria/.nuget/packages/system.threading.overlapped/4.3.0/system.threading.overlapped.4.3.0.nupkg.sha512",
