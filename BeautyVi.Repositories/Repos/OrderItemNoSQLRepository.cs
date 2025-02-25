@@ -10,7 +10,6 @@ namespace BeautyVi.Repositories.Repos
 {
     internal class OrderItemNoSQLRepository : IOrderItemRepository
     {
-        //private readonly MongoDbConnection connection;
         public OrderItemNoSQLRepository()
         {
 

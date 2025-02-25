@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Чат з AI";
+}
+
+<div class="container mt-5">
+    <div class="jumbotron text-center" style="background-color: #fdf8f4; border-radius: 8px; padding: 40px; border: 2px solid #e3e3e3;">
+        <h1 class="display-4" style="color: #7a6f5b; font-family: 'Playfair Display', serif;">Chat with AI</h1>
+        <hr class="my-4" style="border-color: #e3e3e3;" />
+        <p style="color: #4a4a4a;">Get personalized recommendations and answers to your questions.</p>
+    </div>
+
+    <div class="card" style="border: 1px solid #e3e3e3; border-radius: 8px;">
+        <div class="card-body" style="background-color: #fdf8f4;">
+            <div id="chatBox" class="p-3" style="height: 300px; overflow-y: auto; border: 1px solid #e3e3e3; border-radius: 8px; background-color: white;"></div>
+            <div class="input-group mt-3">
+                <input type="text" id="userInput" class="form-control" placeholder="Enter your message..." aria-label="User message">
+                <button class="btn" onclick="sendMessage()" style="background-color: #7a6f5b; color: white;">Send</button>
+            </div>
+            <form method="post" action="/api/ai/history/clear" class="text-center mt-3">
+                <button type="submit" class="btn" style="background-color: #ff4c4c; color: white;">Clear history</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>document.addEventListener("DOMContentLoaded", loadChatHistory);
+
+    async function loadChatHistory() {
+        const chatBox = document.getElementById("chatBox");
+        const response = await fetch("/api/ai/history");
+        if (!response.ok) return;
+
+        const chatHistory = await response.json();
+        chatHistory.forEach(chat => {
+            chatBox.innerHTML += `
+                <div class="message user" style="color: #4a4a4a; margin-bottom: 10px;"><strong>You:</strong> ${chat.userMessage}</div>
+                <div class="message ai" style="color: #7a6f5b; margin-bottom: 10px;"><strong>AI:</strong> ${chat.aiResponse}</div>`;
+        });
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const userInput = document.getElementById("userInput").value;
+        if (!userInput) return;
+
+        const chatBox = document.getElementById("chatBox");
+        chatBox.innerHTML += `
+            <div class="message user" style="color: #4a4a4a; margin-bottom: 10px;"><strong>You:</strong> ${userInput}</div>`;
+
+        const response = await fetch("/api/ai/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userInput)
+        });
+        if (!response.ok) {
+            chatBox.innerHTML += `<div class="error">Server error: ${response.status}  - ${response.statusText}</div>`;
+            return;
+        }
+        const result = await response.text();
+        chatBox.innerHTML += `
+            <div class="message ai" style="color: #7a6f5b; margin-bottom: 10px;"><strong>AI:</strong> ${result}</div>`;
+
+        document.getElementById("userInput").value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }</script>

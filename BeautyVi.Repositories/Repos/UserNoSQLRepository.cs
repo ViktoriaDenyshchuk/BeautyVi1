@@ -10,7 +10,6 @@ namespace BeautyVi.Repositories.Repos
 {
     internal class UserNoSQLRepository : IUserRepository
     {
-        //private readonly MongoDbConnection connection;
         public UserNoSQLRepository()
         {
 

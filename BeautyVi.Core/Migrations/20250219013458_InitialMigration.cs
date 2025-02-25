@@ -169,8 +169,8 @@ namespace BeautyVi.Core.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    ProviderKey = table.Column<string>(type: "text", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "text", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false)
                 },
@@ -214,8 +214,8 @@ namespace BeautyVi.Core.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    LoginProvider = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "character varying(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
                     Value = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
@@ -223,6 +223,28 @@ namespace BeautyVi.Core.Migrations
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
                         name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ChatHistories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    UserMessage = table.Column<string>(type: "text", nullable: false),
+                    AIResponse = table.Column<string>(type: "text", nullable: false),
+                    Timestamp = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatHistories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ChatHistories_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -419,10 +441,10 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Консерванти (Парабени)" },
-                    { 2, "Ланолін" },
-                    { 3, "Альфа-гідроксикислоти (AHAs)" },
-                    { 4, "Лаванда" }
+                    { 1, "Preservatives (Parabens)" },
+                    { 2, "Lanolin" },
+                    { 3, "Alpha hydroxy acids (AHAs)" },
+                    { 4, "Lavender" }
                 });
 
             migrationBuilder.InsertData(
@@ -430,8 +452,8 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3a9a618b-3104-457e-b395-c4def0e4fca1", null, "Admin", "ADMIN" },
-                    { "f7438b56-53c8-419b-b6eb-6c34f574fecf", null, "Client", "CLIENT" }
+                    { "98967b45-f6e2-4a5e-8a2a-66468e0d366f", null, "Admin", "ADMIN" },
+                    { "fc6fc8fc-883f-4597-929e-c957bab2b85e", null, "Client", "CLIENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -439,8 +461,8 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "b2bac63f-37e3-40ba-9ea9-f830589cb1be", 0, "e037b91a-18be-451a-a103-1fd122478c5d", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEJUrX3Zn7h+yqyoUZsINoE5RzWeOXKoLBnyVcWwGAuq4bGY6vxNFfRCpXOvY0oW7qw==", null, false, "8eb28946-3757-4e1f-ae3c-52d5f94396a3", false, "client@beautyvi.com" },
-                    { "c90349cb-58a4-4b86-876e-db384e71754c", 0, "d0777db6-849e-4ccd-8d86-919db2fce890", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEEzkIbTkyS94txr/ONBRbJDXsZdVQWPaSAc163nufXhMEjQjsbB9wfm0wOtVKRO23A==", null, false, "f2f0904b-2baa-4cd2-8e7d-50fc5dce2797", false, "admin@beautyvi.com" }
+                    { "26c1e8e1-9dc8-4ec5-b114-a7bfab8cf6e0", 0, "45782647-d70e-4986-ae68-c201a4d0255f", "User", "admin@beautyvi.com", true, false, null, "ADMIN@BEAUTYVI.COM", "ADMIN@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEBqjunTaOwJtR/PtREnGzV7puH5h5QYLo09Yao7FEw3Qz915UYjVbBZ/oU/QhvdbUA==", null, false, "96e87814-0fc8-4729-8c70-4055caaeef8f", false, "admin@beautyvi.com" },
+                    { "fa6d54d0-4b8e-487f-bf86-18ad8f2b49af", 0, "cfa8ddc0-6136-4a49-b5e2-e393ac44b50e", "User", "client@beautyvi.com", true, false, null, "CLIENT@BEAUTYVI.COM", "CLIENT@BEAUTYVI.COM", "AQAAAAIAAYagAAAAEHZLGwYeBKj7CTqRMSYX1m1kUXqGrB31k2hiZr6gVB0s0tHFLjRppUc+RkF2qrknAA==", null, false, "87c55706-afb9-4aa7-9d4b-ff59f7b721f3", false, "client@beautyvi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -448,10 +470,10 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "NameCategory" },
                 values: new object[,]
                 {
-                    { 1, "Волосся" },
-                    { 2, "Шкіра" },
-                    { 3, "Лице" },
-                    { 4, "Тіло" }
+                    { 1, "Hair" },
+                    { 2, "Skin" },
+                    { 3, "Face" },
+                    { 4, "Body" }
                 });
 
             migrationBuilder.InsertData(
@@ -459,11 +481,11 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "NameEffectType" },
                 values: new object[,]
                 {
-                    { 1, "Зволоження" },
-                    { 2, "Живлення" },
-                    { 3, "Проти старіння" },
-                    { 4, "Очищення" },
-                    { 5, "Відновлення" }
+                    { 1, "Hydration" },
+                    { 2, "Feeding" },
+                    { 3, "Against aging" },
+                    { 4, "Cleaning" },
+                    { 5, "Restoration" }
                 });
 
             migrationBuilder.InsertData(
@@ -471,10 +493,10 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "Category", "Description", "IsHarmful", "LevelOfDanger", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Активні інгредієнти", "Вітамін C допомагає зволожувати шкіру та підвищує її еластичність.", false, 1, "Вітамін C" },
-                    { 2, "Активні інгредієнти", "Саліцилова кислота допомагає в боротьбі з акне.", false, 2, "Саліцилова кислота" },
-                    { 3, "Консерванти", "Парабени використовуються для продовження терміну зберігання, але можуть викликати алергії.", true, 4, "Парабени" },
-                    { 4, "Активні інгредієнти", "Ментол заспокоює шкіру та дає охолоджуючий ефект.", false, 1, "Ментол" }
+                    { 1, "Active ingredients", "Vitamin C helps to moisturize the skin and increases its elasticity.", false, 1, "Vitamin C" },
+                    { 2, "Active ingredients", "Salicylic acid helps in the fight against acne.", false, 2, "Salicylic acid" },
+                    { 3, "Preservatives", "Parabens are used to extend the shelf life, but can cause allergies.", true, 4, "Parabens" },
+                    { 4, "Active ingredients", "Menthol soothes the skin and has a cooling effect.", false, 1, "Menthol" }
                 });
 
             migrationBuilder.InsertData(
@@ -482,11 +504,11 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "Id", "NameSuitableFor" },
                 values: new object[,]
                 {
-                    { 1, "Суха шкіра" },
-                    { 2, "Жирна шкіра" },
-                    { 3, "Чутлива шкіра" },
-                    { 4, "Нормальне волосся" },
-                    { 5, "Пошкоджене волосся" }
+                    { 1, "Dry skin" },
+                    { 2, "Oily skin" },
+                    { 3, "Sensitive skin" },
+                    { 4, "Normal hairя" },
+                    { 5, "Damaged hair" }
                 });
 
             migrationBuilder.InsertData(
@@ -494,22 +516,22 @@ namespace BeautyVi.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "f7438b56-53c8-419b-b6eb-6c34f574fecf", "b2bac63f-37e3-40ba-9ea9-f830589cb1be" },
-                    { "3a9a618b-3104-457e-b395-c4def0e4fca1", "c90349cb-58a4-4b86-876e-db384e71754c" }
+                    { "98967b45-f6e2-4a5e-8a2a-66468e0d366f", "26c1e8e1-9dc8-4ec5-b114-a7bfab8cf6e0" },
+                    { "fc6fc8fc-883f-4597-929e-c957bab2b85e", "fa6d54d0-4b8e-487f-bf86-18ad8f2b49af" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "OrderDate", "ShippingAddress", "Status", "TotalAmount", "UserId" },
-                values: new object[] { 1, new DateTime(2024, 12, 14, 3, 29, 51, 703, DateTimeKind.Utc).AddTicks(1920), "123 Main St", "Completed", 50.00m, "b2bac63f-37e3-40ba-9ea9-f830589cb1be" });
+                values: new object[] { 1, new DateTime(2025, 2, 19, 1, 34, 58, 151, DateTimeKind.Utc).AddTicks(3800), "123 Main St", "Completed", 50.00m, "fa6d54d0-4b8e-487f-bf86-18ad8f2b49af" });
 
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "CategoryId", "CoverPath", "Description", "EffectTypeId", "Name", "Price", "SuitableForId" },
                 values: new object[,]
                 {
-                    { 1, 1, "\\img\\product\\no_cover.jpg", "Крем для інтенсивного зволоження шкіри.", 1, "Зволожуючий крем", 499.99m, 1 },
-                    { 2, 2, "\\img\\product\\no_cover.jpg", "Відновлюючий шампунь для сухого та пошкодженого волосся.", 2, "Шампунь для сухого волосся", 299.99m, 2 }
+                    { 1, 1, "\\img\\product\\no_cover.jpg", "Cream for intensive moisturizing of the skin.", 1, "Moisturizing cream", 499.99m, 1 },
+                    { 2, 2, "\\img\\product\\no_cover.jpg", "Restorative shampoo for dry and damaged hair.", 2, "Shampoo for dry hair", 299.99m, 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -575,6 +597,11 @@ namespace BeautyVi.Core.Migrations
                 table: "Categories",
                 column: "NameCategory",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChatHistories_UserId",
+                table: "ChatHistories",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_OrderId",
@@ -650,6 +677,9 @@ namespace BeautyVi.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ChatHistories");
 
             migrationBuilder.DropTable(
                 name: "OrderItems");

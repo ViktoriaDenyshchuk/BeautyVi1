@@ -27,7 +27,7 @@ namespace BeautyVi.Core.Context
             // seedUser(builder);
             seedProductIngredients(builder);
             seedProductAllergens(builder);
-            seedOrder(builder, new string[] { admId }, new int[] { 1, 2});
+            seedOrder(builder, new string[] { admId }, new int[] { 1, 2 });
         }
 
         private static void seedCategory(ModelBuilder builder)
@@ -36,22 +36,22 @@ namespace BeautyVi.Core.Context
                  new Category
                  {
                      Id = 1,
-                     NameCategory = "Волосся"
+                     NameCategory = "Hair"
                  },
                   new Category
                   {
                       Id = 2,
-                      NameCategory = "Шкіра"
+                      NameCategory = "Skin"
                   },
                   new Category
                   {
                       Id = 3,
-                      NameCategory = "Лице"
+                      NameCategory = "Face"
                   },
                   new Category
                   {
                       Id = 4,
-                      NameCategory = "Тіло"
+                      NameCategory = "Body"
                   }
                  );
         }
@@ -61,27 +61,27 @@ namespace BeautyVi.Core.Context
                  new EffectType
                  {
                      Id = 1,
-                     NameEffectType = "Зволоження"
+                     NameEffectType = "Hydration"
                  },
                   new EffectType
                   {
                       Id = 2,
-                      NameEffectType = "Живлення"
+                      NameEffectType = "Feeding"
                   },
                   new EffectType
                   {
                       Id = 3,
-                      NameEffectType = "Проти старіння"
+                      NameEffectType = "Against aging"
                   },
                   new EffectType
                   {
                       Id = 4,
-                      NameEffectType = "Очищення"
+                      NameEffectType = "Cleaning"
                   },
                   new EffectType
                   {
                       Id = 5,
-                      NameEffectType = "Відновлення"
+                      NameEffectType = "Restoration"
                   }
                  );
         }
@@ -91,27 +91,27 @@ namespace BeautyVi.Core.Context
                  new SuitableFor
                  {
                      Id = 1,
-                     NameSuitableFor = "Суха шкіра"
+                     NameSuitableFor = "Dry skin"
                  },
                   new SuitableFor
                   {
                       Id = 2,
-                      NameSuitableFor = "Жирна шкіра"
+                      NameSuitableFor = "Oily skin"
                   },
                   new SuitableFor
                   {
                       Id = 3,
-                      NameSuitableFor = "Чутлива шкіра"
+                      NameSuitableFor = "Sensitive skin"
                   },
                   new SuitableFor
                   {
                       Id = 4,
-                      NameSuitableFor = "Нормальне волосся"
+                      NameSuitableFor = "Normal hairя"
                   },
                   new SuitableFor
                   {
                       Id = 5,
-                      NameSuitableFor = "Пошкоджене волосся"
+                      NameSuitableFor = "Damaged hair"
                   }
                  );
         }
@@ -121,22 +121,22 @@ namespace BeautyVi.Core.Context
                 new Allergen
                 {
                     Id = 1,
-                    Name = "Консерванти (Парабени)"
+                    Name = "Preservatives (Parabens)"
                 },
                 new Allergen
                 {
                     Id = 2,
-                    Name = "Ланолін"
+                    Name = "Lanolin"
                 },
                 new Allergen
                 {
                     Id = 3,
-                    Name = "Альфа-гідроксикислоти (AHAs)"
+                    Name = "Alpha hydroxy acids (AHAs)"
                 },
                 new Allergen
                 {
                     Id = 4,
-                    Name = "Лаванда"
+                    Name = "Lavender"
                 }
             );
         }
@@ -146,38 +146,38 @@ namespace BeautyVi.Core.Context
                 new Ingredient
                 {
                     Id = 1,
-                    Name = "Вітамін C",
-                    Category = "Активні інгредієнти",
+                    Name = "Vitamin C",
+                    Category = "Active ingredients",
                     LevelOfDanger = 1,
                     IsHarmful = false,
-                    Description = "Вітамін C допомагає зволожувати шкіру та підвищує її еластичність."
+                    Description = "Vitamin C helps to moisturize the skin and increases its elasticity."
                 },
                 new Ingredient
                 {
                     Id = 2,
-                    Name = "Саліцилова кислота",
-                    Category = "Активні інгредієнти",
+                    Name = "Salicylic acid",
+                    Category = "Active ingredients",
                     LevelOfDanger = 2,
                     IsHarmful = false,
-                    Description = "Саліцилова кислота допомагає в боротьбі з акне."
+                    Description = "Salicylic acid helps in the fight against acne."
                 },
                 new Ingredient
                 {
                     Id = 3,
-                    Name = "Парабени",
-                    Category = "Консерванти",
+                    Name = "Parabens",
+                    Category = "Preservatives",
                     LevelOfDanger = 4,
                     IsHarmful = true,
-                    Description = "Парабени використовуються для продовження терміну зберігання, але можуть викликати алергії."
+                    Description = "Parabens are used to extend the shelf life, but can cause allergies."
                 },
                 new Ingredient
                 {
                     Id = 4,
-                    Name = "Ментол",
-                    Category = "Активні інгредієнти",
+                    Name = "Menthol",
+                    Category = "Active ingredients",
                     LevelOfDanger = 1,
                     IsHarmful = false,
-                    Description = "Ментол заспокоює шкіру та дає охолоджуючий ефект."
+                    Description = "Menthol soothes the skin and has a cooling effect."
                 }
             );
         }
@@ -186,8 +186,8 @@ namespace BeautyVi.Core.Context
             new Product
             {
                 Id = 1,
-                Name = "Зволожуючий крем",
-                Description = "Крем для інтенсивного зволоження шкіри.",
+                Name = "Moisturizing cream",
+                Description = "Cream for intensive moisturizing of the skin.",
                 Price = 499.99m,
                 CategoryId = 1,
                 EffectTypeId = 1,
@@ -196,8 +196,8 @@ namespace BeautyVi.Core.Context
                 new Product
                 {
                     Id = 2,
-                    Name = "Шампунь для сухого волосся",
-                    Description = "Відновлюючий шампунь для сухого та пошкодженого волосся.",
+                    Name = "Shampoo for dry hair",
+                    Description = "Restorative shampoo for dry and damaged hair.",
                     Price = 299.99m,
                     CategoryId = 2,
                     EffectTypeId = 2,
@@ -324,6 +324,6 @@ namespace BeautyVi.Core.Context
                 }
             );
         }
-        
+
     }
 }

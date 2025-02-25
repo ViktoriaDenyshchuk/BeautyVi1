@@ -6,7 +6,6 @@ namespace BeautyVi.Repositories.Repos
 {
     internal class ProductAllergenNoSQLRepository : IProductAllergenRepository
     {
-        //private readonly MongoDbConnection connection;
         public ProductAllergenNoSQLRepository()
         {
 

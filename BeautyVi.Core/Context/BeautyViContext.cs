@@ -27,6 +27,7 @@ public class BeautyViContext : IdentityDbContext<IdentityUser>
     public DbSet<ProductRecommendation> ProductRecommendations => Set<ProductRecommendation>();
     public DbSet<EffectType> EffectTypes => Set<EffectType>();
     public DbSet<SuitableFor> SuitableForOptions => Set<SuitableFor>();
+    public DbSet<ChatHistory> ChatHistories => Set<ChatHistory>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -126,6 +127,13 @@ public class BeautyViContext : IdentityDbContext<IdentityUser>
             .WithMany(p => p.ProductRecommendations)
             .HasForeignKey(pr => pr.ProductId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        // Зв'язок між ChatHistory та User (багато до одного)
+        builder.Entity<ChatHistory>()
+            .HasOne(ch => ch.User) // Навігаційна властивість в ChatHistory
+            .WithMany(u => u.ChatHistories) // Навігаційна властивість в User
+            .HasForeignKey(ch => ch.UserId) // Зовнішній ключ в ChatHistory
+            .OnDelete(DeleteBehavior.Cascade); // Поведінка при видаленні
 
         // Унікальний індекс для поля NameCategory у таблиці Category
         builder.Entity<Category>()

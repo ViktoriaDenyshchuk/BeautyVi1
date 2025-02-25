@@ -27,5 +27,6 @@ namespace BeautyVi.Core.Entities
 
         // Додана властивість для зв'язку з ProductRecommendations (1 до багатьох)
         public virtual ICollection<ProductRecommendation>? ProductRecommendations { get; set; }
+        public virtual ICollection<ChatHistory>? ChatHistories { get; set; }
     }
 }

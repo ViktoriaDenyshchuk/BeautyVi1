@@ -7,6 +7,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<BeautyViContext>(options =>
@@ -29,10 +31,15 @@ builder.Services.AddScoped<IProductAllergenRepository, ProductAllergenRepository
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
 builder.Services.AddScoped<IUserPreferenceRepository, UserPreferenceRepository>();
+builder.Services.AddScoped<IChatHistoryRepository, ChatHistoryRepository>();
 //AI
 //builder.Services.AddScoped<ProductService>();
 //builder.Services.AddHttpClient();
 builder.Services.AddHttpClient();
+builder.Services.AddHostedService<ChatCleanupService>();
+builder.Services.AddHostedService<AIModelTrainingService>();
+builder.Services.AddHttpClient<HttpService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -75,6 +82,7 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 //AI
 app.UseCors("AllowAll");
 //AI

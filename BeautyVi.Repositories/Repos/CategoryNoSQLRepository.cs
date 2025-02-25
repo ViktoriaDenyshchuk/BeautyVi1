@@ -6,7 +6,6 @@ namespace BeautyVi.Repositories.Repos
 {
     internal class CategoryNoSQLRepository : ICategoryRepository
     {
-        //private readonly MongoDbConnection connection;
         public CategoryNoSQLRepository()
         {
 
